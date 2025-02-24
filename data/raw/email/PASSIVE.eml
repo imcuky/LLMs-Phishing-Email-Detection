@@ -1,0 +1,585 @@
+Received: from YT4PR01MB10690.CANPRD01.PROD.OUTLOOK.COM (::1) by
+ YQBPR0101MB5443.CANPRD01.PROD.OUTLOOK.COM with HTTPS; Wed, 19 Feb 2025
+ 17:31:13 +0000
+Received: from YT4PR01CA0269.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:109::25)
+ by YT4PR01MB10690.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:104::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.15; Wed, 19 Feb
+ 2025 17:31:07 +0000
+Received: from TO1PEPF00005346.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:109:cafe::1a) by YT4PR01CA0269.outlook.office365.com
+ (2603:10b6:b01:109::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.16 via Frontend Transport; Wed,
+ 19 Feb 2025 17:31:06 +0000
+Authentication-Results: spf=softfail (sender IP is 137.122.8.106)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 137.122.8.106 as permitted sender)
+Received: from mx96.uottawa.ca (137.122.8.106) by
+ TO1PEPF00005346.mail.protection.outlook.com (10.167.241.6) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.11
+ via Frontend Transport; Wed, 19 Feb 2025 17:31:06 +0000
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=209.85.219.67; helo=mail-qv1-f67.google.com; envelope-from=reutenauercarreira493@gmail.com; receiver=<UNKNOWN> 
+Received: from mail-qv1-f67.google.com (mail-qv1-f67.google.com [209.85.219.67])
+	by mx96.uottawa.ca (Postfix) with ESMTPS id 186BC1F7D;
+	Wed, 19 Feb 2025 12:31:05 -0500 (EST)
+Received: by mail-qv1-f67.google.com with SMTP id 6a1803df08f44-6dd15d03eacso928876d6.0;
+        Wed, 19 Feb 2025 09:31:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739986265; x=1740591065; darn=uottawa.ca;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=HkIXAvF9RJa6c/K9zfPgol+6wmyZKJfMlcSgpi6WQgg=;
+        b=UwcRIz0FQeN22exOp2enxBFQWFg4Cn3lmxaYJM1V4ZMCwAJHMm7b8EYVyy4QcbkWZz
+         6V37w4Fp7aE0rFPhFJK0EO36UJ4rl5ol4ofJkDnaR48q7qNVROpiM82mshPQzPtNJ1+E
+         3FLiNJk2H3liPHeK14K53La9Y2F3GqGA9HN85Nsg55N4n2ao+7QBVNrDF8NA6JnGZaPg
+         pE3QzMU06LO8PIFIsGyqa+WPVrUvc6T5frCu3kCpqGaddQ5CCMFGm03sW2yRtMk6qcrX
+         lOJRWZ7mwgm7q411itg2hELIJd+hMYEvVTomlxaQINk3T2XvH77rH46/+HJivLJ91fV/
+         wczg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739986265; x=1740591065;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HkIXAvF9RJa6c/K9zfPgol+6wmyZKJfMlcSgpi6WQgg=;
+        b=Q9qKe2pTbIJBNGQ5AZGfYzEqlAFxAxrnmKuK8uf+uTpK/lMJ7Pp8kP7OBFwvtSqWDU
+         pBe+nnDJ0SnUTRDl0/TVebCJafabnSrh/OQx7SY5dP4BHFBMPzqaysHzE2fKFNaTxyNZ
+         saZNYHdCU7zqPThGeQ3ZKKoyyPaz9JQVH80GgEwnOzdGYs5RA0icy/ZUqLWUwxAHJqr/
+         0XFntsk4mzH6D06hi8QkZkH4pKXMkoXpHIpIgDHztk2bLvHK2MbvVusrjFUCBw9eaxpi
+         We+JKDMK4CSgO6jqRaoJYU/yJQvI4jy8jLUyl5Bkk1srNKCvhKModZWKhepEROBtvu9W
+         sghA==
+X-Forwarded-Encrypted: i=1; AJvYcCUEkkD8f03xoKcck13pN/zvxlXOov6AlRAAG1FWOGcP3QLuJPQ2lk21tVfXUioHO/hVga0APvNM7Tg=@uottawa.ca, AJvYcCUJ9A0Dy09WUjm1R4aczZoqU+3905YPSiXS5gngNKD7skSqZiV/DIRCEoOCKoGZh/OV1wx8aFGLD8M=@uottawa.ca, AJvYcCUPvr+jYYmu00cq42zBNnaioW9QftB8hm2G2BlAcvNdBUjuCjGdCjAiiJLJArx+bNvU8lk9kg==@uottawa.ca, AJvYcCUV1AqKlYKZRfIO43G9WCYSXBjZs2ZSgbbrnd/lMvFXe0Wc8HWhH2EGq0Xly0z4jydgM+LQZl/e6ME=@uottawa.ca, AJvYcCUgeNfTXVgMNP/SfJI3XOBFX7a6arKtoH8FIQwi5sxatjsltmTE0Bnx4AhxiLu9iw5+WDXKffzYJZE=@uottawa.ca, AJvYcCUmdIKA9Si1o64lN4itvMOmK0ntMcOZRA9ghSGCaPyufC5dQ/U45i7bRXzEPzcIkG9eNJr43L/hL/Q=@uottawa.ca, AJvYcCVQipqjY9BxAJkHYaw0kQbEqpneBDPuPlRQIMobk4SebY4/4ZyhaIrA2S3VECd+Gwlzs7JsyoM5Dfc=@uottawa.ca, AJvYcCVd72NVcVa42NfKA8Q3u0DI96zMIfVrxFQJjvnTFXcV4ywfyC/1nRdgJRw/30SUzrKX36nmgRyyZgw=@uottawa.ca, AJvYcCVtkYzitvcw+anqLOU+qjJ7tbu54Z41fRmxL4OHZCSu+ydWdgvBFY21phyyIjXdDrpyHyXNSAyE@uottawa.ca, AJvYcCVyAMwqLVGTppb6Ce6aVQwZxcBAg2StLWpAb73VZF3MdEuMTavBrXq8Q5jrf3lostTYLE95oomEiD0=@uottawa.ca, AJvYcCW0
+ PGow0p1IW92FhO/Oj2jF4LfycMkm9uIm2fxXVqlpjbuyixYLLURopc4uiVFFx4DIxT295UjQPnE=@uottawa.ca, AJvYcCWHZT9mK4Xl6BQvVVYrmb2lC49b3aduLtjtiRK1qSd+UR/ACgVP5M/AQbhx3sFFsJC8GmelOD15MAs=@uottawa.ca, AJvYcCWO++AKE23V/N5uu5lp5103AZgOM44Zb7EuHu+3iY+W8SIcTsRBl8HvBF9S7bdRSJ/ebcB4Az44wMY=@uottawa.ca, AJvYcCWZRKsMWBky5+2OQeR0O5UmsoSvs8JYp2bRJs4xxwwrqkpODSxlCyV5l8m1CeSK0nRrdPVqanWVgUE=@uottawa.ca, AJvYcCWa6HRyZO49FUz6Yniyhhw78lL+FAcgfg1q9ULkZqeqg6lK9hmcoTE+s3wSZ2p4mxk/IEQe1nrdu9I=@uottawa.ca, AJvYcCWk3nPL5qVY3iw9E6sESyvKwOLG7PJyiof40PMzC26LUcGJW4qvacSvUXzY4/NNaoN4XWRdVElCtn0=@uottawa.ca, AJvYcCWm9om5X5Vlp8yS8VAak2vwZvn+pKNMAiRos1etpdUD3x5Zeh8SOPMQreT1DAxHeJsvnCiiXLut/7A=@uottawa.ca, AJvYcCWw5CbHedz+lPgaZ2LrGVHToPK9Vm9M88fmPWORuYaB70iSOSRanNvZJ/dAzg5QwBeYVP9k/bzeuQ==@uottawa.ca, AJvYcCX+YcQGbRk4TPDwpOVHlMzzr6kfjgheMIuwVYb7hSxGmI/bQWhD8xu1Oayl8fFE65SPFGLpXgWr5w==@uottawa.ca, AJvYcCX5nyFkEVtgW/nvisFPuEuMDbx3q1wFu5HsHsKYt+KYM15lyO0M8wXiVQIHXyl5KlFizBH/49eUMZY=@uottawa.ca, AJvYcCXLrwietwS2D9R6RaV0vFhIEowOHRa
+ M1Qv6GtgjxqXVl0bpjWrmDfz22VzP+fDnL0gd6tY+e2zp5A==@uottawa.ca, AJvYcCXWh7bxH1j5VIv5RYSyzI9wTkkIXvbFBvjjxYM4AjjKfj5Mj67DO62EZg84WaB82sd9gIkodnd8@uottawa.ca, AJvYcCXZ3gF8WxdiHgLTUM92dzbib5wspQ7HdyTFg66NaLkvJ6B5s7tN0saBkbkEHGRaexz436KdJSVdaTI=@uottawa.ca, AJvYcCXb82vsxfpnF98A0zRTerke6DMGhAtoNSbXW19LgkmGTRZsK28lvbWU5DVKReboVYtOp+wfVNpU984=@uottawa.ca, AJvYcCXb85YdQq7/leUhbgpM/Qw8Dhl3gq2fM/JZ/0RIH+ZLwCW6aahvCHWldtINtRt0S7z2EYC+m3xv3g==@uottawa.ca
+X-Gm-Message-State: AOJu0YyXv5Eh1YwabSUy4seKws40MHSrOX1pfpNFCDIto6AUlXhIFkzy
+	ZzcZFYMf7NULnVgASETHtjX8uxZ6z7rwcq/EKBFvLMBmJOIyom05US0Q7DH/9gFU6/tHa0bBFRC
+	20b+2Y8DIulh9a86jfltZ6DGg/YE=
+X-Gm-Gg: ASbGncvOFfLiYOvmfPuTTrbi3P94YJtLo8TFHOxxgtA2Dt0knaDGoGhTV7T8SERLEc6
+	5F+76BBJs2Mt/PbGc6I1ZhrxCd+6BlI3cp9LPxkxPYKsAWBx+1/oHrDq/KK8ziuph9VX9eeQl4A
+	==
+X-Google-Smtp-Source: AGHT+IG9BtVlDcmX6QivpOuaIvNmZvyIvX3+dBcdrjs4fsBOXnGWNIDe5/dVeGejJfw45n0NYqJ99+4S6dwqXAxDNHg=
+X-Received: by 2002:a05:6214:2401:b0:6e6:9b86:85d0 with SMTP id
+ 6a1803df08f44-6e6a259c330mr1072976d6.8.1739986264838; Wed, 19 Feb 2025
+ 09:31:04 -0800 (PST)
+From: Carreira Reutenauer <reutenauercarreira493@gmail.com>
+Date: Wed, 19 Feb 2025 17:30:53 +0000
+X-Gm-Features: AWEUYZmvHDbKLFDkj7aPebd3T4k_dY6PzYlivHPH3-_tT3P1jfxI_QvGSmKW_Z4
+Message-ID: <CAEA3RD+tVBRNX8fYPVS-qCL0dvvZEz-BU9A6pLcqjKjD6nNxJw@mail.gmail.com>
+Subject: PASSIVE
+To: claroch5@uottawa.ca, claroche@uottawa.ca, clarocq2@uottawa.ca, 
+	clarose@uottawa.ca, clarr071@uottawa.ca, clasa019@uottawa.ca, 
+	clasc094@uottawa.ca, clasi097@uottawa.ca, clask075@uottawa.ca, 
+	clasr012@uottawa.ca, class013@uottawa.ca, class036@uottawa.ca, 
+	clati007@uottawa.ca, clato030@uottawa.ca, clato102@uottawa.ca, 
+	clatr009@uottawa.ca, clatr015@uottawa.ca, clatt105@uottawa.ca, 
+	clau013@uottawa.ca, clau015@uottawa.ca, clau051@uottawa.ca, 
+	clau064@uottawa.ca, clau070@uottawa.ca, claug059@uottawa.ca, 
+	claur052@uottawa.ca, claur089@uottawa.ca, claur091@uottawa.ca, 
+	claur101@uottawa.ca, claurie@uottawa.ca, clauz015@uottawa.ca, 
+	clauz048@uottawa.ca, clauz098@uottawa.ca, clauz101@uottawa.ca, 
+	clauzon3@uottawa.ca, clauzon@uottawa.ca, clava009@uottawa.ca, 
+	clava012@uottawa.ca, clava037@uottawa.ca, clava085@uottawa.ca, 
+	clave093@uottawa.ca, clavi050@uottawa.ca, clavi052@uottawa.ca, 
+	clavi054@uottawa.ca, clavi057@uottawa.ca, clavi065@uottawa.ca, 
+	clavi101@uottawa.ca, clavi103@uottawa.ca, clavo039@uottawa.ca, 
+	clavo060@uottawa.ca, clavo061@uottawa.ca, clavo063@uottawa.ca, 
+	clavo082@uottawa.ca, clavo084@uottawa.ca, clavo093@uottawa.ca, 
+	clavo098@uottawa.ca, clavo104@uottawa.ca, claw041@uottawa.ca, 
+	claw060@uottawa.ca, claw104@uottawa.ca, claw@uottawa.ca, clawacc@uottawa.ca, 
+	clawadm@uottawa.ca, clawalumni@uottawa.ca, clawcomm@uottawa.ca, 
+	clawfr@uottawa.ca, clawgen@uottawa.ca, clawley2@uottawa.ca, 
+	clawr018@uottawa.ca, clawr075@uottawa.ca, clawsoc@uottawa.ca, 
+	clawvpad@uottawa.ca, clawvpat@uottawa.ca, clawvpen@uottawa.ca, 
+	clawvpfr@uottawa.ca, clazu027@uottawa.ca, clc@uottawa.ca, cldenis@uottawa.ca, 
+	cle010@uottawa.ca, cle034@uottawa.ca, cle044@uottawa.ca, cle047@uottawa.ca, 
+	cle062@uottawa.ca, cle068@uottawa.ca, cle@uottawa.ca, cleaf095@uottawa.ca, 
+	cleah051@uottawa.ca, cleah058@uottawa.ca, clean029@uottawa.ca, 
+	cleba095@uottawa.ca, clebe024@uottawa.ca, clebe040@uottawa.ca, 
+	clebe053@uottawa.ca, clebe103@uottawa.ca, clebl036@uottawa.ca, 
+	clebl050@uottawa.ca, clebl053@uottawa.ca, clebl058@uottawa.ca, 
+	clebl068@uottawa.ca, clebl069@uottawa.ca, clebl078@uottawa.ca, 
+	clebl088@uottawa.ca, clebl092@uottawa.ca, clebl095@uottawa.ca, 
+	clebl101@uottawa.ca, clebl102@uottawa.ca, clebl107@uottawa.ca, 
+	clebl110@uottawa.ca, clebla26@ustpaul.ca, clebo016@uottawa.ca, 
+	clebo054@uottawa.ca, clebo088@uottawa.ca, clebr013@uottawa.ca, 
+	clech055@uottawa.ca, clech084@uottawa.ca, clecl020@uottawa.ca, 
+	clecl025@uottawa.ca, clecl065@uottawa.ca, clecl077@uottawa.ca, 
+	clecl085@uottawa.ca, clecl088@uottawa.ca, clecl090@uottawa.ca, 
+	clecler5@uottawa.ca, cleco010@uottawa.ca, cleco014@uottawa.ca, 
+	cleco084@uottawa.ca, clecu044@uottawa.ca, clecuyer@uottawa.ca, 
+	cledu015@uottawa.ca, cledu029@uottawa.ca, cledu040@uottawa.ca, 
+	cledu046@uottawa.ca, cledu092@uottawa.ca, clee012@uottawa.ca, 
+	clee016@uottawa.ca, clee033@uottawa.ca, clee034@uottawa.ca, 
+	clee037@uottawa.ca, clee043@uottawa.ca, clee045@uottawa.ca, 
+	clee064@uottawa.ca, clee071@uottawa.ca, clee077@uottawa.ca, 
+	clee081@uottawa.ca, clee082@uottawa.ca, clee083@uottawa.ca, 
+	clee085@uottawa.ca, clee095@uottawa.ca, clee139@uottawa.ca, 
+	clee173@uottawa.ca, clee174@uottawa.ca, clee199@uottawa.ca, 
+	clee201@uottawa.ca, clee22@uottawa.ca, clee235@uottawa.ca, clee252@uottawa.ca, 
+	clee259@uottawa.ca, clee266@uottawa.ca, clee@uottawa.ca, cleed032@uottawa.ca, 
+	clees033@uottawa.ca, clees044@uottawa.ca, clefa091@uottawa.ca, 
+	clefe013@uottawa.ca, clefe036@uottawa.ca, clefe053@uottawa.ca, 
+	clefe076@uottawa.ca, clefeb26@uottawa.ca, clefeb28@uottawa.ca, 
+	clega005@uottawa.ca, clega022@uottawa.ca, clega024@uottawa.ca, 
+	clega033@uottawa.ca, clega045@uottawa.ca, clega061@uottawa.ca, 
+	clega075@uottawa.ca, clega081@uottawa.ca, clega084@uottawa.ca, 
+	clega095@uottawa.ca, clegare@uottawa.ca, clege026@uottawa.ca, 
+	clege036@uottawa.ca, clege072@uottawa.ca, clegere@uottawa.ca, 
+	clegr051@uottawa.ca, clegr085@uottawa.ca, clegris@uottawa.ca, 
+	clei048@uottawa.ca, clei075@uottawa.ca, clei076@uottawa.ca, 
+	clein034@uottawa.ca, cleis028@uottawa.ca, cleis064@uottawa.ca, 
+	cleit030@uottawa.ca, cleit094@uottawa.ca, clekp051@uottawa.ca, 
+	clema009@uottawa.ca, clema014@uottawa.ca, clema039@uottawa.ca, 
+	clema055@uottawa.ca, clema062@uottawa.ca, clema078@uottawa.ca, 
+	cleme071@uottawa.ca, clemi044@uottawa.ca, clemi046@uottawa.ca, 
+	clemi062@uottawa.ca, clemi071@uottawa.ca, clemi076@uottawa.ca, 
+	clemi085@uottawa.ca, clemi088@uottawa.ca, clemi100@uottawa.ca, 
+	clemo009@uottawa.ca, clemyre@uottawa.ca, cleng048@uottawa.ca, 
+	clenouve@uottawa.ca, cleo073@uottawa.ca, cleon035@uottawa.ca, 
+	cleon074@uottawa.ca, cleon077@uottawa.ca, cleon093@uottawa.ca, 
+	cleon096@uottawa.ca, cleop010@uottawa.ca, clepa067@uottawa.ca, 
+	clepa094@uottawa.ca, clepe100@uottawa.ca, cleph082@uottawa.ca, 
+	clepi013@uottawa.ca, clepi026@uottawa.ca, clepi090@uottawa.ca, 
+	clepo097@uottawa.ca, clequ019@uottawa.ca, clequ082@uottawa.ca, 
+	clequ094@uottawa.ca, clere046@uottawa.ca, clero023@uottawa.ca, 
+	clero038@uottawa.ca, clero064@uottawa.ca, clero066@uottawa.ca, 
+	clero095@uottawa.ca, clero099@uottawa.ca, clesa035@uottawa.ca, 
+	clesa055@uottawa.ca, clesa070@uottawa.ca, clesagep@uottawa.ca, 
+	clesieur@uottawa.ca, clesn078@uottawa.ca, cless088@uottawa.ca, 
+	clesu024@uottawa.ca, clesu027@uottawa.ca, clesueur@uottawa.ca, 
+	cleta069@uottawa.ca, cleta072@uottawa.ca, cleto031@uottawa.ca, 
+	cletourn@uottawa.ca, cletr015@uottawa.ca, cleun026@uottawa.ca, 
+	cleun046@uottawa.ca, cleun061@uottawa.ca, cleun084@uottawa.ca, 
+	cleun096@uottawa.ca, cleury@uottawa.ca, clev039@uottawa.ca, 
+	cleva012@uottawa.ca, cleva015@uottawa.ca, cleva048@uottawa.ca, 
+	cleva055@uottawa.ca, cleva058@uottawa.ca, cleva064@uottawa.ca, 
+	cleva092@uottawa.ca, cleva100@uottawa.ca, clevasse@uottawa.ca, 
+	cleve023@uottawa.ca, cleve035@uottawa.ca, cleve039@uottawa.ca, 
+	cleve045@uottawa.ca, cleve050@uottawa.ca, cleve052@uottawa.ca, 
+	cleve053@uottawa.ca, cleve054@uottawa.ca, cleve058@uottawa.ca, 
+	cleve074@uottawa.ca, cleve080@uottawa.ca, cleve081@uottawa.ca, 
+	cleve087@uottawa.ca, cleve094@uottawa.ca, cleve098@uottawa.ca, 
+	cleve099@uottawa.ca, clevesq4@uottawa.ca, clevesq@uottawa.ca, 
+	clevi049@uottawa.ca, clevo098@uottawa.ca, clevy070@uottawa.ca, 
+	clewi021@uottawa.ca, clewi080@uottawa.ca, clewi083@uottawa.ca, 
+	clewi094@uottawa.ca, clewi102@uottawa.ca, clewi103@uottawa.ca, 
+	cleye057@uottawa.ca, clheu009@uottawa.ca, clhoe039@uottawa.ca, 
+	cli005@uottawa.ca, cli006@uottawa.ca, cli014@uottawa.ca, cli021@uottawa.ca, 
+	cli022@uottawa.ca, cli023@uottawa.ca, cli032@uottawa.ca, cli036@uottawa.ca, 
+	cli040@uottawa.ca, cli042@uottawa.ca, cli044@uottawa.ca, cli049@uottawa.ca, 
+	cli054@uottawa.ca, cli062@uottawa.ca, cli067@uottawa.ca, cli070@uottawa.ca, 
+	cli074@uottawa.ca, cli075@uottawa.ca, cli082@uottawa.ca, cli097@uottawa.ca, 
+	cli120@uottawa.ca, cli128@uottawa.ca, cli140@uottawa.ca, cli145@uottawa.ca, 
+	cli174@uottawa.ca, cli179@uottawa.ca, cli186@uottawa.ca, cli198@uottawa.ca, 
+	cli206@uottawa.ca, cli212@uottawa.ca, cli213@uottawa.ca, cli216@uottawa.ca, 
+	cli220@uottawa.ca, cli232@uottawa.ca, cli25@uottawa.ca, cli281@uottawa.ca, 
+	cli282@uottawa.ca, cli289@uottawa.ca, cli28@uottawa.ca, cli291@uottawa.ca, 
+	cli308@uottawa.ca, cli317@uottawa.ca, cli342@uottawa.ca, cli344@uottawa.ca, 
+	clian010@uottawa.ca, clian017@uottawa.ca, clian018@uottawa.ca, 
+	clian041@uottawa.ca, clian073@uottawa.ca, clian099@uottawa.ca, 
+	cliao021@uottawa.ca, clibe012@uottawa.ca, clibo101@uottawa.ca, 
+	cliboiro@uottawa.ca, clibu073@uottawa.ca, clich058@uottawa.ca, 
+	cliddy@uottawa.ca, clien043@uottawa.ca, clieu088@uottawa.ca, 
+	cligb047@uottawa.ca, cligi088@uottawa.ca, cligu102@uottawa.ca, 
+	cliki049@uottawa.ca, cliko018@uottawa.ca, cliko042@uottawa.ca, 
+	clim050@uottawa.ca, clim055@uottawa.ca, clim058@uottawa.ca, 
+	clim060@uottawa.ca, clim068@uottawa.ca, clim@uottawa.ca, climb038@uottawa.ca, 
+	clin007@uottawa.ca, clin026@uottawa.ca, clin031@uottawa.ca, 
+	clin039@uottawa.ca, clin046@uottawa.ca, clin069@uottawa.ca, 
+	clin093@uottawa.ca, clin101@uottawa.ca, clin104@uottawa.ca, 
+	clin105@uottawa.ca, clin106@uottawa.ca, clin134@uottawa.ca, clin2@uottawa.ca, 
+	clin7@uottawa.ca, clinc089@uottawa.ca, clinc098@uottawa.ca, 
+	clind045@uottawa.ca, clind070@uottawa.ca, cling009@uottawa.ca, 
+	clink058@uottawa.ca, clink096@uottawa.ca, clint062@uottawa.ca, 
+	clipo017@uottawa.ca, clire045@uottawa.ca, clisk091@uottawa.ca, 
+	clita038@uottawa.ca, clita044@uottawa.ca, clitt021@uottawa.ca, 
+	cliu015@uottawa.ca, cliu057@uottawa.ca, cliu062@uottawa.ca, 
+	cliu063@uottawa.ca, cliu084@uottawa.ca, cliu085@uottawa.ca, 
+	cliu090@uottawa.ca, cliu092@uottawa.ca, cliu096@uottawa.ca, 
+	cliu102@uottawa.ca, cliu107@uottawa.ca, cliu116@uottawa.ca, 
+	cliu131@uottawa.ca, cliu149@uottawa.ca, cliu162@uottawa.ca, 
+	cliu172@uottawa.ca, cliu177@uottawa.ca, cliu191@uottawa.ca, 
+	cliu203@uottawa.ca, cliu274@uottawa.ca, cliu280@uottawa.ca, 
+	clivi028@uottawa.ca, clizo020@uottawa.ca, clloy063@uottawa.ca, 
+	clloy065@uottawa.ca, clloy074@uottawa.ca, clloy075@uottawa.ca, 
+	clmak070@uottawa.ca, clmentor@uottawa.ca, clmtlab@uottawa.ca, 
+	clo006@uottawa.ca, clo009@uottawa.ca, clo030@uottawa.ca, clo046@uottawa.ca, 
+	clo051@uottawa.ca, clo057@uottawa.ca, clo062@uottawa.ca, clo065@uottawa.ca, 
+	cload085@uottawa.ca, clobo018@uottawa.ca, clobo@uottawa.ca, 
+	cloca063@uottawa.ca, cloch079@uottawa.ca, clock021@uottawa.ca, 
+	clock042@uottawa.ca, clock101@uottawa.ca, clode075@uottawa.ca, 
+	cloig081@uottawa.ca, clois040@uottawa.ca, clok015@uottawa.ca, 
+	cloko007@uottawa.ca, cloko016@uottawa.ca, cloma072@uottawa.ca, 
+	cloma099@uottawa.ca, clomb063@uottawa.ca, clond046@uottawa.ca, 
+	clong013@uottawa.ca, clong034@uottawa.ca, clonh051@uottawa.ca, 
+	cloo050@uottawa.ca, clooy099@uottawa.ca, clope029@uottawa.ca, 
+	clope038@uottawa.ca, clope050@uottawa.ca, clope068@uottawa.ca, 
+	clopu087@uottawa.ca, clore057@uottawa.ca, clore075@uottawa.ca, 
+	clorell3@uottawa.ca, cloreto@uottawa.ca, clorq021@uottawa.ca, 
+	clorr016@uottawa.ca, closi079@uottawa.ca, cloua080@uottawa.ca, 
+	cloub066@uottawa.ca, cloui015@uottawa.ca, cloui041@uottawa.ca, 
+	clouka@uottawa.ca, cloun029@uottawa.ca, cloun084@uottawa.ca, 
+	clour098@uottawa.ca, clove027@uottawa.ca, clove074@uottawa.ca, 
+	clowe085@uottawa.ca, clowr077@uottawa.ca, clowr097@uottawa.ca, 
+	clozi074@uottawa.ca, clozier@uottawa.ca, clu005@uottawa.ca, clu012@uottawa.ca
+Content-Type: multipart/mixed; boundary="0000000000003af281062e821fd7"
+Return-Path: reutenauercarreira493@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 19 Feb 2025 17:31:06.9101
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 51cc0fcb-5f4f-4070-c90a-08dd510b313d
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-SkipListedInternetSender: ip=[209.85.219.67];domain=mail-qv1-f67.google.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TO1PEPF00005346:EE_|YT4PR01MB10690:EE_|YQBPR0101MB5443:EE_
+X-MS-Exchange-Organization-AuthSource: TO1PEPF00005346.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-OriginatorOrg: uottawa.onmicrosoft.com
+X-MS-Office365-Filtering-Correlation-Id: 51cc0fcb-5f4f-4070-c90a-08dd510b313d
+X-LD-Processed: d41fdab1-7e15-4cfd-b5fa-7200e54deb6b,ExtFwd
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7093399012|4053099003|921020|8096899003;
+X-Forefront-Antispam-Report: CIP:137.122.8.106;CTRY:CA;LANG:pt;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mx96.uottawa.ca;PTR:mx96.uottawa.ca;CAT:NONE;SFS:(13230040)(82310400026)(7093399012)(4053099003)(921020)(8096899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 17:31:06.7382
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 51cc0fcb-5f4f-4070-c90a-08dd510b313d
+X-MS-Exchange-CrossTenant-Id: d41fdab1-7e15-4cfd-b5fa-7200e54deb6b
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=d41fdab1-7e15-4cfd-b5fa-7200e54deb6b;Ip=[137.122.8.106];Helo=[mx96.uottawa.ca]
+X-MS-Exchange-CrossTenant-AuthSource: TO1PEPF00005346.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT4PR01MB10690
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:06.9071213
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8466.004
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?RDdNNXAxdEwzMVk4UGwzLzdvRGVWb1BOSncrdUFITk00Z3dUaTh5bE03QUlM?=
+ =?utf-8?B?NjNpRG1KMTdCZ3ZPUE1wZGNUaFNVYkdIMmg2eUY1ZVZadGxEOEFOTFB1c2Np?=
+ =?utf-8?B?Z0s0SE5VNU9WSGRDTU9xNHdEQmplZUQ4T2pkTXZuQlljQzVvcDU3WG5peGI2?=
+ =?utf-8?B?RnlIM25zOVlyZE12U3NiWXFMaVZRdHV2VnNRTEVPeTlKNWp0Y3YyZWkyM2V2?=
+ =?utf-8?B?VWJyeGlYcVVyclVLYVEydmV1eVhWNExFREhuNDF0VWp5TkEyVEU3UHpRT0pG?=
+ =?utf-8?B?QjZoMUZwZ0V2Z0RaSkUyK0gvNjd3Zkh1YTR2TU56UWVrM3h1QnRxNjErNkZk?=
+ =?utf-8?B?blFxbUFZSldnUXQxblNzenBZcnhQbUs4SFNvbXdpQjBWWElPM1lka1g0WEtH?=
+ =?utf-8?B?aFVTQmMrVkJ3U2I2bitDSzlhQjhBc2oySGJCVUZyUDZiRU1DY0ZLcjc3dHJN?=
+ =?utf-8?B?cEtSMFZXNkxsYXdXK3RSL3VJTy8zWldYQ0MzcWFwUEFFRnN5YUtMbjdrTWhZ?=
+ =?utf-8?B?ckFGY2p1d3NIeTRDOGxPR2tVMTZiNXlVQkV6bHBOWWxhZ3dtK3FBNHR0UHFv?=
+ =?utf-8?B?NHJ0TEt5ZmQ4YmNtdHNtZXhkVkRJRktKeGR1ZGtDQTNNdnFxM3ptdGdEa0tB?=
+ =?utf-8?B?b3NlWmJqUHkyc05wVWlaeDQvZFJBS1Q4VmxmRzZ0U3pOKzl2emVucUhTQ1BZ?=
+ =?utf-8?B?R2wrR1hIak5aTTVRZUd6NzMrbE9kZ1F6MDVLd3BZd3k1ZFNCNUtyZmNCRmF3?=
+ =?utf-8?B?cHFtc25JWXh3ZHZDMGNTUVJZdTAxUDN0TzNUYlhRalRuVVhVMVV0cGpOSEFH?=
+ =?utf-8?B?ckdIM2dRZDBjN05uMVA5NHJldnZKaG1YWTE4c01WMGFDdmRaMEhmWWxiVndk?=
+ =?utf-8?B?SStvK0c4Nk1BS2lMRUJkNVhERDVvUkdaVjQ5Nmhaa1Z5M0g0Vlh1ZW9kc0FB?=
+ =?utf-8?B?dXIzN1dUNDRJTHFKTUZXMWRoOFl4V2hBY1dnaFNuVURzK1B1bDgxc2N0VWdv?=
+ =?utf-8?B?SElsbGN0aXpyTVh0a3JaR1QwVlFZSHRYdVBUV09qTlpaVVNkQ29QVUZ3Qmt2?=
+ =?utf-8?B?ZzBWWkcrSm01Y2tzK3cxaGFRa3lTdjg5YklJNVNYQ051YTdDWEtnYy9Fb3RL?=
+ =?utf-8?B?T2ppZGwwTGdKYy9RWGtHWTNwbkNQamVDbE5DdGxCM0ZESkxzaG5VQSt5TFZJ?=
+ =?utf-8?B?QVY3bW9HR3dsT1k3Yk5JdlI4cEhMdFBJUFlKdlY2Zy9CTFpwVWlQV0dFUTJG?=
+ =?utf-8?B?d0ZvdFZwVGdnaG90MFJ3Z2hmTHEzdWVhZkkyclNaYzEybzMrRk5lMWc2WSts?=
+ =?utf-8?B?RDJ6RWRsc0RQL0hoMkgraW56Mk9SZWdiZzU2bWtFQlhlblNiWU4xTlpnWTdE?=
+ =?utf-8?B?M1d2eXk5VGZSQ3NGR0YvL3N3cTBGNkZOWk8xKzR3N1E3NU93VzZWNlI3S0ps?=
+ =?utf-8?B?dlQ4cVpIaFQ2WGhzT0Rvd2JBVDRmS01DZDFHQlRIN2s4ck9mM29vVUJmd1JW?=
+ =?utf-8?B?VjFwM1pyZTk0TzBxSTlndFgwcXFYSDg2VS84YlkrL0lFUFo2Y2VRUU1uTmh0?=
+ =?utf-8?B?dlNXSlViWTFwZTFCY2k1OGZ2a3ZvWFpQWHRBY05veWZzVkJzeUZKRkxUOWw4?=
+ =?utf-8?B?UHhMUUI5WlNmRlUvbVVCSTcvK25qdUZ6SCsveVM2a1A4MTBsZVJGN1V1ZFhu?=
+ =?utf-8?B?K0hoTTMyK0c4clR3NmJhYllBNVkraTUzZGxveGp5djhDaEMweDdhYzNnQldK?=
+ =?utf-8?B?VUR3N2UyMkhZeTNKRlNBL0pYTm9hYjZRb2taY3JVeGpQWnFCaGJpakRrczhk?=
+ =?utf-8?B?L09yMk5Rc1BndVNmQmZRZzg5VUNPc3JDeDlST3dIWm9vUHMxRlN6cUhSZ1Zx?=
+ =?utf-8?B?SHc3eWllK3FCKytGV3l4YkJUNGdXcnVwRzFEdHMybnBnRE9tUmZEWGRKdTRx?=
+ =?utf-8?B?ckFkSWhMQlZPM3NoL2NlQWRkVzNQckxDY082SmNLWWwvS3ZDTFdCTW12S2ZX?=
+ =?utf-8?B?TlUzNEVsZThza3pHTnNOU21hMnR5d2w1SU5pUlZpeHh1RFVVNzVJSnBIT2hm?=
+ =?utf-8?B?MzJMRzB2TXdTUTFkSE4wVDloT3hmRnMwQkx5Z2pMVzFXa2VtR3UyY0lnb3VG?=
+ =?utf-8?B?S0dubGIrR1B3NFFEcjdYQnh2MklpV1N2eXd4eVRqY1ZjeG4rcDJsYk44SWVs?=
+ =?utf-8?B?NC9saVEwYmhXTkQ4UVFHUVgraCtzY0M3dUs0MkdZSTdLOFNsSEpPZEpObGhW?=
+ =?utf-8?B?MnNvazN6OE4wcGJ4Y0xibjVkU1h1MGdVOUNpM2NNR29va0RIOVZQYkFTRGhl?=
+ =?utf-8?B?MEhSNlBWRWt2R0pwOFRTdW9EaDZxb0FxZURmSDJ4S2RvUHl5V2FzM3RpczJ1?=
+ =?utf-8?Q?w1S/ohO5YhubtYlM=3D?=
+MIME-Version: 1.0
+
+--0000000000003af281062e821fd7
+Content-Type: multipart/alternative; boundary="0000000000003af27e062e821fd5"
+
+--0000000000003af27e062e821fd5
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Attention : courriel externe | external email
+
+
+--0000000000003af27e062e821fd5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body>
+<div style=3D"font-size:9pt;  font-family: 'calibri'; color:#FF4233;"><b>At=
+tention : courriel externe | external email</b></div>
+<div>
+<div dir=3D"ltr"><br>
+</div>
+</div>
+</body>
+</html>
+
+--0000000000003af27e062e821fd5--
+
+--0000000000003af281062e821fd7
+Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document;
+	name="new_____document.docx"
+Content-Disposition: attachment; filename="new_____document.docx"
+Content-Transfer-Encoding: base64
+Content-ID: <f_m7c6vz6a0>
+X-Attachment-Id: f_m7c6vz6a0
+
+UEsDBBQABgAIAAAAIQCj77sdZQEAAFIFAAATAAgCW0NvbnRlbnRfVHlwZXNdLnhtbCCiBAIooAAC
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC0
+lMtqwzAQRfeF/oPRtthKuiilxMmij2UbaPoBijR2RPVCUl5/31GcmBKSGPLYGKyZe+8Z2dJgtNIq
+W4AP0pqS9IseycBwK6SpS/Iz+cifSRYiM4Ipa6AkawhkNLy/G0zWDkKGahNKMovRvVAa+Aw0C4V1
+YLBSWa9ZxFdfU8f4L6uBPvZ6T5RbE8HEPCYPMhy8QcXmKmbvK1xuSJypSfba9KWokkid9GmdHlR4
+UGFPwpxTkrOIdbowYo8r3zIVqNz0hJl04QEbjiSkyvGAre4LN9NLAdmY+fjJNHbRpfWCCsvnGpXF
+aZsDnLaqJIdWn9yctxxCwK+kVdFWNJNmx3+UI8S1gnB9isa3Ox5iRMEtALbOnQhLmH7fjOKfeSdI
+hbkTNlVwfYzWuhMi4pmF5tm/mGNjcyoSO8feuoB3gD9j7N2RTeocB3bgozz917WJaH3xfJBuAwHi
+QDbd3IjDPwAAAP//AwBQSwMEFAAGAAgAAAAhAB6RGrfvAAAATgIAAAsACAJfcmVscy8ucmVscyCi
+BAIooAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAACsksFqwzAMQO+D/YPRvVHawRijTi9j0NsY2QcIW0lME9vYatf+/TzY2AJd6WFHy9LTk9B6
+c5xGdeCUXfAallUNir0J1vlew1v7vHgAlYW8pTF41nDiDJvm9mb9yiNJKcqDi1kVis8aBpH4iJjN
+wBPlKkT25acLaSIpz9RjJLOjnnFV1/eYfjOgmTHV1mpIW3sHqj1FvoYdus4ZfgpmP7GXMy2Qj8Le
+sl3EVOqTuDKNain1LBpsMC8lnJFirAoa8LzR6nqjv6fFiYUsCaEJiS/7fGZcElr+54rmGT827yFZ
+tF/hbxucXUHzAQAA//8DAFBLAwQUAAYACAAAACEA5lUBG60GAAC3GAAAEQAAAHdvcmQvZG9jdW1l
+bnQueG1s3FjbbuM2EH0v0H8gjD420dU3YZPC8WWTbnZjJN4N9pGWKEuIJBIUbcd96m/09/olnSEl
+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
+LnhtbFBLBQYAAAAADAAMAAQDAABUMwAAAAA=
+
+--0000000000003af281062e821fd7--

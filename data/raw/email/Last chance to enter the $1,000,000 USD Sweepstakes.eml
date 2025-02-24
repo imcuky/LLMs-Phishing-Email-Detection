@@ -1,0 +1,2004 @@
+Received: from LV3PR02MB10690.namprd02.prod.outlook.com (::1) by
+ CH0PR02MB8089.namprd02.prod.outlook.com with HTTPS; Mon, 23 Dec 2024 20:16:15
+ +0000
+Received: from DUZP191CA0051.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4fa::28)
+ by LV3PR02MB10690.namprd02.prod.outlook.com (2603:10b6:408:27e::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.20; Mon, 23 Dec
+ 2024 20:16:14 +0000
+Received: from DB1PEPF000509F8.eurprd02.prod.outlook.com
+ (2603:10a6:10:4fa:cafe::4d) by DUZP191CA0051.outlook.office365.com
+ (2603:10a6:10:4fa::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8272.20 via Frontend Transport; Mon,
+ 23 Dec 2024 20:16:14 +0000
+Authentication-Results: spf=pass (sender IP is 172.82.208.11)
+ smtp.mailfrom=customermail.microsoft.com; dkim=pass (signature was verified)
+ header.d=customermail.microsoft.com;dmarc=pass action=none
+ header.from=customermail.microsoft.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ customermail.microsoft.com designates 172.82.208.11 as permitted sender)
+ receiver=protection.outlook.com; client-ip=172.82.208.11;
+ helo=r11.customermail.microsoft.com; pr=C
+Received: from r11.customermail.microsoft.com (172.82.208.11) by
+ DB1PEPF000509F8.mail.protection.outlook.com (10.167.242.154) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8293.12 via Frontend Transport; Mon, 23 Dec 2024 20:16:13 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:67D23433A911D43E916DDD661CD701450F41B2C74166C41AC147F72237B36AFC;UpperCasedChecksum:3DB17FB584044CCF00CD0FC1E6D5D54EB06BFD3198D7F4B78BD8B7488E9DD256;SizeAsReceived:2328;Count:16
+Return-Path: bounce@customermail.microsoft.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=customermail.microsoft.com; s=mscom; t=1734975339;
+	bh=EmORMULT0/jCaI6KIAmrQthm6OpKA4RSykGJx6/8JfE=;
+	h=From:Date:Subject:To:MIME-Version:Message-ID:List-Unsubscribe:
+	 List-Unsubscribe-Post:Content-Type;
+	b=GqLPqjW31UuM8oDFq3oEuUC2uL4qBssqaiN17YJBBI3VTXkTSYzH/YLp4XO9MSdpK
+	 1RNcuXqKGnqgscvCOyHFmREt2rraqDuePmPY+6lbBo6uYdeZF4ZU4L7g4h3IeXxsRL
+	 ZZoH7sb0qh1TJO9mgt2Q4oxd1AB29uwiW0GZg/cUa/zqFvBoJXzH6UH8dlo/3ATE9+
+	 IqPruAnIeBaHnuITcI/hD7HaWpSITTMEsut3F0mYBj8kDsNx6dU3dGTB3d3P4mtkZY
+	 twR6ZuL6Q9at1hBNH73Nz/nCX4pWirZvZpx/7sDlMQsbqgDYJBKNe+e7ItWhGhRGqH
+	 0hVFObUpJaiPQ==
+X-MSFBL: PyHK7oNlljWYyD7bos8H5iI9FjZ73dLntplFyeRB4iA=|eyJyY3B0X21ldGEiOns
+	gImluIjogIm1zY29tX21rdF9wcm9kNzkiLCAiciI6ICJjYXRoZXJpbmUubGVlLmx
+	lZUBvdXRsb29rLmNvbSIsICJtIjogIjI4Mzc2NzU0MjYiLCAiZCI6ICIxOTc4OTM
+	5NTQ3IiwgImkiOiAiRUE3NkFERTk1Nzc2RDJFQzdGMDAwMTAxQEFkb2JlT3JnIiB
+	9LCJiIjoiYXp1cmVfbXNjb21fcHJvZDc5X2JhdGNodHJpZ2dlcm1hcmtldGluZ19
+	tb21lbnR1bTU2X210YTAwMV8xNzIuODIuMjA4LjExIiwiZyI6ImJhdGNodHJpZ2d
+	lcm1hcmtldGluZ181ZDMwMDMxYS0zMjIzLTQ1YzEtYjZmMy0xNTc4NzAwNmZkMjA
+	iLCJyIjoiY2F0aGVyaW5lLmxlZS5sZWVAb3V0bG9vay5jb20ifQ==
+Received: from [10.182.124.227] ([10.182.124.227:26481] helo=r6.customermail.microsoft.com)
+	by momentum56.or1.cpt.adobe.net (envelope-from <bounce@customermail.microsoft.com>)
+	(ecelerity 4.2.38.999 r(:)) with ESMTP
+	id 09/F2-25233-B6F99676; Mon, 23 Dec 2024 09:35:39 -0800
+From: "Microsoft Rewards" <MicrosoftRewards@customermail.microsoft.com>
+Date: Mon, 23 Dec 2024 09:35:08 -0800
+Subject: Last chance to enter the $1,000,000 USD Sweepstakes
+To: <catherine.lee.lee@outlook.com>
+Reply-To: "noreply" <replies@microsoft.com>
+X-mailer: nlserver, Build 7.0.0.10695
+Message-ID: <AC700000000A9237DA275F4389Bmscom_mkt_prod79@customermail.microsoft.com>
+List-Unsubscribe: https://account.microsoft.com/profile/unsubscribe?CTID=0&ECID=F%2FaivKMpXWx70BGMWcIHvyx8Zy%2Fi9wJkpuWdezZgi94%3D&K=f32bf383-bcf4-43e9-bceb-997d20e52fd8&D=638705429318558386&PID=18015&TID=0b8f6b28-d47a-4951-916e-e85a011d8a69&CMID=Iris-Microsoft%20Rewards-575067021
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-IncomingHeaderCount: 16
+X-MS-Exchange-Organization-ExpirationStartTime: 23 Dec 2024 20:16:14.0167
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 567c336f-09f0-43bd-cb1c-08dd238ea660
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ DB1PEPF000509F8:EE_|LV3PR02MB10690:EE_|CH0PR02MB8089:EE_
+X-MS-Exchange-Organization-AuthSource:
+ DB1PEPF000509F8.eurprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 12/23/2024 6:40:15 PM
+X-MS-Office365-Filtering-Correlation-Id: 567c336f-09f0-43bd-cb1c-08dd238ea660
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 172.82.208.11
+X-SID-PRA: MICROSOFTREWARDS@CUSTOMERMAIL.MICROSOFT.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-SCL: 8
+X-Microsoft-Antispam:
+ BCL:2;ARA:1444111002|88000799012|5301999021|10300799035|6401999021|71100799012|9400799030|8301999021|20103052910095|1680799054|3600799018|9000799050|970799057|20103052909095|461199028|68400799013|440099028|3412199025|4302099013|56899033|1370799030|1380799030|21101999018|1360799030|11900799048;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2024 20:16:13.3917
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 567c336f-09f0-43bd-cb1c-08dd238ea660
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ DB1PEPF000509F8.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR02MB10690
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.1501894
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8272.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9525003)(10145025)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?MHdUazI0eVVNQmViSEN2dTgwTk9RVHU2MkY4MzZtdjIvbDc3SVAxZEJaRUVY?=
+ =?utf-8?B?YS9Xdks5cVo3T2Z5ZXNMUTJFMWIyWjg5dll5Ti9QaTZqSUVuM0ZyQWV0TDM1?=
+ =?utf-8?B?UVlITnpPUVV1NHpBa1lrL0dvQmlEVUo5aHd0U2p2QjlDejF6NFI0UEc0RHJ0?=
+ =?utf-8?B?SDJxR1ZOeHE2K0lrTytVNmlYYklYa3R4MllVNytuMkVTMVJJUlFEQ2F2Slpq?=
+ =?utf-8?B?Y3hqVnhHZERVbXV1cjhSRFZPNSs0QkFEa0dwQXVDZ3E2bjNNVE9uYmQ3eGsy?=
+ =?utf-8?B?b2RVTko4OUdwWTllWWI5OEJSQ2VrZ3FWV09aYTZZM0RyaFJIVGxtM285dERE?=
+ =?utf-8?B?d2YxeGttQy9xM1FjRkxjWXF3d0h5bDgyVU1sYUVKdEY5eUsybDY2S2RHVjYr?=
+ =?utf-8?B?MzM4R0V0SlRWNFh5TXlzbVlwaHhFS0xocG9BM1Q5czMxUFZadkRrdTJvU2ph?=
+ =?utf-8?B?YkNEL01jSjBURmlwWlA2VVpuRDcxVUQ3WW5vL085RjZheW95Rm01aHpEQjBW?=
+ =?utf-8?B?amM3S2VucGgwVWlrY2ZmY0Q5d0JQVG5ZaWVvaVh0YTdFQ1RCbDlsWkdlRUVK?=
+ =?utf-8?B?dDE5RDJBTU1nUGdtTzBkZXRsUlUyQm1xOENpdElVbXBURnJOekhkWWdIL1RH?=
+ =?utf-8?B?THVVOG5MdElYUGxQUDlITkZWWGY4ekhZS0JoTStva3JlYWlFSVFkOEk0NlNq?=
+ =?utf-8?B?eWhZTEJtck0xOWRDekhsOWVBaTN4YnlzUDFiaE40TnJpa3dFQnd5bzF3UW1T?=
+ =?utf-8?B?V2J6a0hjMUNRZmhmcVhtamp6S0lqL2pFQyt6T3RScjVLNjNUK0hlb2poYmVh?=
+ =?utf-8?B?bVVzbjlxa0xkWHBQL3oyL2g5eEJ5VG9ZenNBMkV1WUU1S3RGREo0Y2JLME5X?=
+ =?utf-8?B?Mkl1TUI4ZVNEQ2R0TEp0OWkrL05FR2NUbm1WVjhUQjBMN09ybmRJWXdYMWF5?=
+ =?utf-8?B?TjV1S2FobEhCdGpMTW5zTTdNUVk3bTFhRE9SV2Rxc2lOc0FERzRvNExqWTlJ?=
+ =?utf-8?B?L2dqc0EwK29sWGlDbHJJbitROXpUVU95dHNFcUE3RmdJZHM5QU8xbGMveTBw?=
+ =?utf-8?B?d2VuNnlTanJmNC8xMHR5eU9yOWhUcDd6Vk51QU53ODcvdXgzM1FZRHlrOFpX?=
+ =?utf-8?B?SVJvdzNoTDFOdVZJR2VROW96Uzc1cFU3dmZsYzBWYllvTVNJOGpGVnFhZHdB?=
+ =?utf-8?B?eWJJMUprektJMmptNjJLSWhtMEF1aFBQbDhDaFpheVJEOUN2c0d6SXl3U2I1?=
+ =?utf-8?B?U1QrME5zNXpkRWJlWWNTOUtjYjRUemZKRmhjWlRFQ1ZFTG1UckUwbFJVT0hw?=
+ =?utf-8?B?YTVERVpMY0RkQVozOU9RNzZWMFZyODdoK2NJQXZJdXJoeGRoNm9mVUFLWFdp?=
+ =?utf-8?B?VlJiZlowWjV4VG0yNWFyeGV5c3JvM3Q2SXczZDcwVERpT2FQQm9SMEhSV2NF?=
+ =?utf-8?B?cjlxUWRKWXJZZzlvL2lwOGxlQnRNQ0hJeEJROGpyZXpPNDB0bnZUSTZXNlpN?=
+ =?utf-8?B?KzN0ZXcxTzBRcitwcVRqaHhURHdoNXZEdEVIUlp0NjJVZnBhZ0NQYkNMQUl2?=
+ =?utf-8?B?WVBwSGZaMzByTXAxaklMQmxrQWg4VDJtS3RWMDFkTU1XT2tHL3ExQ21LTnRI?=
+ =?utf-8?B?elpZY2d6U0lRWitEczErS0NOWGtscWJoWThyL2VoOUhVUitOZVdHajBoQk9M?=
+ =?utf-8?B?N1FVYnp2dnBJTm5Xd3pzeTFQbloxanAvT1FNSVlQZzlkMEJVVjlISElsQW5Q?=
+ =?utf-8?B?UG5sU3FNdCtnUWU1dzg0alZ3UXRpaWJMaktoSXA5WHpnaGpLRTEyQlMvakl5?=
+ =?utf-8?B?UVlzV1l0aS9Hajd6bTIrb2JrV2ZydkFVYm1iU3doaEVUay9hdVlQN2VLNWQz?=
+ =?utf-8?B?R01MZWhUNEhkbExCYXU5a3BXVkt3eFBsSXFLYzVCbTcvOGpQSVRwWmhXNENi?=
+ =?utf-8?B?c1I0ditDb01IbHkyZEZjbnZLZVQ0NHZmb1dIVG1VSUZCR3JZbnhObFErM1l6?=
+ =?utf-8?B?bFptOEVFRzFYbjB6ODRIZDdVK3hrUjFmTldQTHJmZTQwTXEwVXErcjFrZXFv?=
+ =?utf-8?B?aDYxSjk0c0tRUjNpNVc1MXdUTXE0Ky9FaENXU0VhTkt5YTkwWjVFQ2c3eEtD?=
+ =?utf-8?B?U0FyYmZKRjJvdzdQNmpaVGZ5alpCU05SakVycjVaMWFCcSt1NmozL0VOQkNz?=
+ =?utf-8?B?WVpxZ0RUcGFPR2FPSzNrTmpneXlFL1VIbHdhb3BnZ2gzc21sSVR5YlVYN0lr?=
+ =?utf-8?B?czVOR0tjZTh0ZGtNd0ZFa1B0dEUreWwwdEY4dkovZE1takdickwrdGFqWmRV?=
+ =?utf-8?B?WlF6aE03NjRKK3Y2ZDlDY1NNUHd2YTh1NzNURURMR012dCtpN3dVbFRFZUsz?=
+ =?utf-8?B?RUZsKzFoeC9hTzZBWERQL21CbG5ZZGdTVk44NmZsaWVLYSt6VFJ6VTdXUHVQ?=
+ =?utf-8?B?NnBaTVdBNGQzdmE4djBsT0p4MlcvdTVteVB6OVlOcjlzNHU3NXdsUDF2OVJl?=
+ =?utf-8?B?Mm04eW9Hb2d2WVZoeHFQdCtPdmtBcXlUV01OUHErcGJYNExDakJpaGppeUEv?=
+ =?utf-8?B?NGpRR0MvZE5vNlVlenhORUtvWm5FaEl5MVROZTlXYmxoWTBjS2liTEhBbkxh?=
+ =?utf-8?B?N0s2VkY3RXRhYXVXZmdMQldKWjR5cFFQeklRbVFNYjB3NXlJeGFsTTBldXds?=
+ =?utf-8?B?WG5jNXZFdnVoUUtxcWZxeU5ENjJOTThic21TRGp5Y3ZTZFZUZy9WMTdkRGhl?=
+ =?utf-8?B?U25PL3NLWk1ndDNrZUdXU05iTXlscWRoRlQzUW5MRDNCT3YzYXExN1F3NEdp?=
+ =?utf-8?B?bVBLKzZ2Z3d3VXJmNGhBUmc5Y0p4eUFKOWYxQkdhUWdjZlk3c2VGRHgzbktF?=
+ =?utf-8?B?eG1UczU3amV2THBXZHljLy84b2dNeGpIbzNtVVNWNVZoTy9OZC9JMTFNYU1a?=
+ =?utf-8?B?SGdPY3JOOGlBandzaUlObUdiTlNYenc4ZlVvaE9BMVQwbTIxWkZXblZzTVVI?=
+ =?utf-8?B?OEM2SmViLzNGb0FJblBvR0taUkVyT1owcWFJb0wzSXFCRUl5ZzkzUERNelY0?=
+ =?utf-8?B?Qmx1RENCK21zQThQeXZML2gxZmFaZUZ5OE1zdHY4dzVxUkQ2M3o0aERQbENo?=
+ =?utf-8?B?VjRaNmpzUU9QS1pNZ0JORllJam9hZk5hdUlVS3c1dGZ2Mkxhd2dKTDROTEFI?=
+ =?utf-8?B?RStIVzF0bk9kWlRUQ0QvK0k4K1dwc2FFSFlUSG51dURQMVllK0R3OTV2VnYz?=
+ =?utf-8?B?aGlidTh2eDlmejd5N3RCRHpWQjNMV0gybTZyWUx6cEJTQ2Jwa2hKOWlFWHZv?=
+ =?utf-8?B?Tml3MkljS3FEdnViOGtyeHYvdld4TG8rM2c5WnNiRWtlRWNGMGU0dE5pZWpQ?=
+ =?utf-8?B?SzB5T3BsUnF2MXB5bFY5SDNTK21hWXNVY0xmZlA1clZOa2NBZHNNMkEzNlpI?=
+ =?utf-8?B?ak5yUHVNQ1ZuWGF1enNWVWsxanpZYnYrNWZqa0p0dnB6T0Y1T3dvaFoyYU1X?=
+ =?utf-8?B?aUNDRXdZZGFwYzF6bmdXOTNyY0oyUXNtZVhsM2J4azA0NVBLVFQrVXNNekla?=
+ =?utf-8?Q?DtXKMakqMRdQWT?=
+MIME-Version: 1.0
+
+<!DOCTYPE HTML><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:o=3D"urn:=
+schemas-microsoft-com:office:office" xmlns:v=3D"urn:schemas-microsoft-com:v=
+ml" dir=3D"ltr" lang=3D"en-ca"><head><!--[if gte mso 9]>
+      <xml>
+         <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+         </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <meta name=3D"HandheldFriendly" content=3D"true">
+    <meta name=3D"x-apple-disable-message-reformatting">
+	<title>Last chance to enter the $1,000,000 USD Sweepstakes</title>
+	<link rel=3D"canonical" href=3D"/content/campaigns/rewards-consumer/en-ca/=
+cu868b190mf_cge_fy25rew-1m-sweeps-last-chancerewards/last-chance-to-enter-t=
+he--1-000-000-usd-sweepstakes-segment-5.html">
+	<link rel=3D"shortcut icon" href=3D"/apps/settings/wcm/designs/default/fav=
+icon.ico">
+=09
+	<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1=
+.0">
+=09
+=09
+	<meta name=3D"format-detection" content=3D"telephone=3Dno">
+    <meta name=3D"format-detection" content=3D"date=3Dno">
+    <meta name=3D"format-detection" content=3D"address=3Dno">
+    <meta name=3D"format-detection" content=3D"email=3Dno">
+
+   =20
+
+   =20
+   =20
+       =20
+   =20
+<link rel=3D"stylesheet" href=3D"/etc.clientlibs/microsoft_email/clientlibs=
+/clientlib-dependencies.min.css" type=3D"text/css">
+<link rel=3D"stylesheet" href=3D"/etc.clientlibs/microsoft_email/clientlibs=
+/clientlib-site.min.css" type=3D"text/css">
+<script src=3D"/etc.clientlibs/microsoft_email/clientlibs/clientlib-depende=
+ncies.min.js"></script>
+<script src=3D"/etc.clientlibs/microsoft_email/clientlibs/clientlib-site.mi=
+n.js"></script>
+
+
+
+    =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+
+   =20
+   =20
+
+   =20
+   =20
+
+   =20
+    <style media=3D"all" type=3D"text/css">
+    	@-ms-viewport { width: device-width;}
+    </style>
+    <style type=3D"text/css">
+    	.xf-content-height { margin:0 !important; }
+		.xf-content-height .newpar { margin: 0; height: 100% !important; }
+		.desktop-block { display:block; }
+	    .rtl-template,  .rtl-template td { direction: rtl !important; text-ali=
+gn: right !important; }=20
+		.rtl-template .text-rtl-center td, .rtl-template .hero-text-center{text-a=
+lign:center !important}
+		.rtl-template .btn-rtl th { direction: rtl !important; }
+        .rtl-template ul { margin: 0 !important; padding-right: 22px !impor=
+tant;text-align: right !important;direction: rtl !important; }
+        .rtl-template ol { margin-top: 0 !important;margin-bottom:0 !import=
+ant; padding-right: 22px !important;text-align: right !important;}
+        .rtl-template .social-icons { padding-left: 12px !important; paddin=
+g-right: 0 !important; }
+        .rtl-template .text-align-right th { text-align: right !important;p=
+adding-right:0px !important; padding-left:3px !important; }
+		.rtl-template .txt-align-right, .rtl-template .block-text-align-right {te=
+xt-align: right !important;}
+		.rtl-template li { padding: 0 12px 8px 0 !important; }
+		.rtl-template .rating-thumbs-up { padding-left: 30px; padding-right: 0; }
+		.rtl-template .reward-tile-card {padding-left: 20px; padding-right: 0; }
+        .rtl-template .ribbon-cta .block-max-width {text-align: left !impor=
+tant;}
+		.rtl-template .block-max-width, .rtl-template .btn-block-right {text-alig=
+n: right !important;}
+		.rtl-template .block-max-width-center {text-align: center !important;}
+		u+.rtl-template a { color:#0067B8 !important; }=09
+		.rtl-template .table-ruler td, .rtl-template .table-ruler th, .rtl-templa=
+te .table-zebra td, .rtl-template .table-zebra th,=09
+		.rtl-template .table-hr-icon td, .rtl-template .table-zebra-icon td { pad=
+ding: 20px 20px 20px 0 !important;	text-align: right !important; }
+		.rtl-template .table-ruler-mobile th, .rtl-template .table-zebra-mobile t=
+h { text-align: right !important; 	}
+		.rtl-template .text-rtl-center td {text-align: center !important;}
+    	.rtl-template .text-rtl-center .img-wrapper img {display:block; margin=
+:0 auto;}
+		.email-table .text-center p,.email-table .text-center td {text-align:cent=
+er !important;}
+        .email-table .text-center img {Margin:0 auto;margin:0 auto;} =20
+        .email-table .text-left p,.email-table .text-left td {text-align:le=
+ft !important;}
+        .email-table .text-right p,.email-table .text-right td {text-align:=
+right !important;}
+        .rtl-template .email-table .text-center p,.rtl-template .email-tabl=
+e .text-center td {direction: rtl !important;text-align: center !important;=
+}
+		.rtl-template .btn-rtl th {direction: rtl !important;}=20
+		.rtl-template .tile-headline, .rtl-template .tile-paragraph { padding: 0 =
+20px 0 20px;}
+		.rtl-template .small-tile-image { padding: 20px 20px 0px 20px;}
+		.rtl-template .tile-button { padding: 0 20px 20px 20px; }
+		.rtl-template .padd-left-right-40 { padding: 0 40px 0 40px !important;}
+		.rtl-template .padd-left-20 { padding-left: 20px !important; padding-righ=
+t: 0 !important;}
+		.rtl-template .intro-tile-image {padding:10px 10px 10px 20px}
+		.rtl-template .intro-tile-text {padding:0 0 0 10px}
+        .rtl-template .image-tile-10 { padding:10px 10px 0px 0px !important=
+;}
+        .rtl-template .image-tile-20 {padding: 20px 20px 0px 0px !important=
+;}
+        .footer-address-center td,.footer-address-center td p,.footer-addre=
+ss-center td p a{text-align:center !important;direction:ltr !important;}
+		 table.groupthree a {text-decoration: underline !important;}
+		.txt-center ul li, .txt-center ol li{text-align: center !important; list-=
+style-position: inside;}
+         body {margin:0;padding:0;}
+         table td {border-collapse:collapse;margin:0;padding:0;}
+         table td p {margin:0;padding:0;}
+		 table td p a {color:#0067B8;text-decoration:underline;font-weight: norma=
+l;}
+		 table th {font-weight: normal !important;}
+		 .table-width{width:200px!important;height:27px!important;}	=09
+		 .mobile-social-padd-right{padding-right:40px;}
+         .desktopHidden, .desktop-hidden, .autopreview, .spacer-desktop-hid=
+e, .table-ruler-mobile, .table-zebra-mobile {display: none !important;}
+         .gutter {padding:0 30px;}
+		 .tile-pad-large-4 {padding-left: 50px !important; padding-right: 50px !i=
+mportant;}       =20
+         .tile-pad-large {padding-left: 30px !important; padding-right: 30p=
+x !important;}       =20
+         .tile-pad-small-v1 {padding-left: 50px !important; padding-right: =
+50px !important;}       =20
+         .tile-pad-small-v2 {padding-left: 84px !important; padding-right: =
+84px !important;}       =20
+         .tile-pad-small-v3 {padding-left: 119px !important; padding-right:=
+ 119px !important;}       =20
+         .tile-pad-small-v5 {padding-left: 154px !important; padding-right:=
+ 154px !important;}
+		 .padd-left-right-40 { padding:0 40px 0 40px !important;}
+		 .padd-left-right-20 { padding:0 20px 0 20px !important;}
+		 .padd-left-right-10 { padding:0 10px 0 10px !important;}
+		 .padd-left-right-28 { padding:0 28px 0 28px !important;}
+		 .padd-right-26 { padding:0 26px 0 0 !important;}
+		 .padd-left-26 { padding:0 0 0 26px !important;}
+		 .tile-small-box .btn-block {vertical-align:top}		=20
+		 .tile-image {padding: 10px 20px 10px 10px;}
+		 .reward-tile-card {padding-right: 20px;}
+         .lg-tile-image, .lg-tile-headline, .lg-tile-paragraph, .lg-tile-bu=
+tton {padding: 0 40px 0 40px;}
+         .tile-headline, .tile-paragraph { padding: 0 20px 0 20px;}
+         .small-tile-image { padding: 20px 20px 0px 20px;}
+         .tile-button { padding: 0 20px 20px 20px;}		=20
+         .tile-txt-small {font-family: 'Segoe=C2=A0UI', Helvetica, Arial, s=
+ans-serif; font-size: 12px; font-style: normal; color: #505050; line-height=
+: 16px; letter-spacing: -0.01em; text-align: center; padding-left: 5px; pad=
+ding-right: 5px; word-wrap: break-word; word-break: break-all;}
+         .tile-txt-large {font-family: 'Segoe UI', Helvetica, Arial, sans-s=
+erif; font-size: 14px; font-style: normal; color: #505050; line-height: 20p=
+x; letter-spacing: -0.01em; text-align: center; padding-left: 10px; padding=
+-right: 10px; word-wrap: break-word; word-break: break-all;}=20
+         .boxed-list-wrapper {padding: 20px 30px 0;}
+		 .block-padd-top-30 {padding-top: 0px;}
+		 .rating-thumbs-up {padding-right: 30px;}
+		 .text-card-padding {padding: 0 80px 0px 80px;}
+         .rte-spacer-20 p,.rte-spacer-20 ul,.rte-spacer-20 ol {padding-bott=
+om: 20px !important;}
+		 .rte-spacer-10 p,.rte-spacer-10 ul,.rte-spacer-10 ol {padding-bottom: 10=
+px !important;}
+         .rte-footerspacer-10 p,.rte-footerspacer-10 ul,.rte-footerspacer-1=
+0 ol {padding-top: 10px !important;}
+		 .semibold{font-weight:600;}
+		 .strikethrough { text-decoration: line-through;}
+		  /* Tabular Data Start */
+		 .spacer-ln-ht-0 {line-height: 0px;font-size: 0px;}
+		 .table-ruler-mobile td, .table-ruler-mobile th, .table-zebra-mobile td, =
+.table-zebra-mobile th, .table-hr-icon td, .table-zebra-icon td {
+      		height: 30px !important; padding: 20px 0 20px 20px !important; text=
+-align: left !important;	word-wrap: break-word !important;	overflow-wrap: b=
+reak-word !important; }
+
+		 .table-ruler th, .table-ruler td { height: 30px !important;	padding: 20p=
+x 0 20px 20px !important; text-align: left !important; word-wrap: break-wor=
+d !important; overflow-wrap: break-word !important; }
+
+		 .table-zebra th, .table-zebra td { height: 30px !important;	padding: 20p=
+x 0 20px 20px !important; text-align: left !important; word-wrap: break-wor=
+d !important; overflow-wrap: break-word !important; }
+
+         .table-ruler th, .table-ruler td, .table-ruler-mobile th, .table-r=
+uler-mobile td, .table-hr-icon td {=20
+         border-bottom: 1px solid #E0E0E0 !important;}
+         .table-zebra-mobile th, .table-zebra-mobile td {border-bottom : 1p=
+x solid #ffffff !important;}
+         .table-ruler-mobile, .table-hr-icon {border-top: 1px solid #E0E0E0=
+;}
+         .table-ruler-mobile th, .table-zebra-mobile th {font-weight: 600 !=
+important;}
+         .table-zebra-icon .odd-row td, .table-zebra .odd-row td, .table-ze=
+bra-mobile .odd-row td {background-color: #F6F6F6;}
+         .table-zebra th, .table-zebra-mobile th {background-color: #e7e7e7=
+;}
+		 .hero-text-center {text-align: center !important;padding: 0 30px !import=
+ant;}
+		 .intro-tile-image { padding:10px 20px 10px 10px !important;}
+		 .intro-tile-text  {padding:0 10px 0 0}
+		 .intro-tile-text-20 {padding: 0 20px 0 0;}
+         .intro-tile-image-20 {padding: 20px 20px 20px 20px !important;}
+         .image-tile-10 { padding:10px 0px 0px 10px !important;}
+         .image-tile-20 {padding: 20px 0px 0px 20px !important;}
+         .email-table th table td { font-weight:600 !important;}
+         /* Tabular Data Ends */
+         @media only screen and (max-width: 640px) {
+         .mobileHide {display:none;line-height:0; mso-hide: all;max-height:=
+ 0; max-width: 0; width:0;}
+         }=20
+		 /* Responsive classes for mobile starts here */
+         @media only screen and (max-width: 480px) {        =20
+		 .wrapper, .table-hr-icon, .table-zebra-icon, .email-table {width: 100%!i=
+mportant;}
+         /* Stack */
+		 .text-card-padding {padding: 0px 40px 0px 40px !important;}
+         img.photo {display:block !important; width:100% !important; height=
+:auto !important;}
+         .block, .block-text-align-right, .desktopHidden {width:100% !impor=
+tant; display:block !important;}
+         .blockLast {width:100% !important; display:block !important; paddi=
+ng-bottom:20px !important;}
+		 .app-download-block th, .btn-block, .btn-block-right {display: block !im=
+portant; width: auto !important;}
+		 .block-max-width, .block-max-width-center{ max-width: none !important; d=
+isplay: block !important; width: auto !important;}
+         .addressText {font-size:10px !important;}
+		 .mobileHidden, .table-ruler, .table-zebra {display: none !important;}  =
+=20
+		 .mobileBody {width:288px !important;}
+         .mobileBodyPadding {padding:10px 20px 35px 20px !important; width:=
+288px !important;}
+         .mobileNoPadding {padding:0 !important;}
+         .mobileGutter {width:15px !important;}
+		 .mobile-block-padd-top-30 {display: block !important;padding-top: 30px;w=
+idth: 100%;}
+         .mobileCTA {width:258px !important;}
+         .mobileCTABody {margin:0 auto !important;}
+         .mobileHeight {height:auto !important;}
+         .mobileOnly,=20
+         .mobileOnly img,=20
+         .mobileOnly,=20
+         .mobileOnly {display:block !important; margin:0 !important; paddin=
+g:20px 0 0 0 !important; overflow:visible !important; width:auto !important=
+; max-height:inherit !important; height:1px !important; position: relative =
+!important; top: 0px !important; border-bottom:1px solid #1e90ff;}
+         .mobileTopPad5 { padding-top: 5px !important; }
+         .mobileTopPad10 { padding-top: 10px !important; }=20
+         .mobileWidthAdj { width: 70px !important; }=20
+         .mobileBody { width: 288px !important;}
+         .hide{display:none;}
+         .show{display:none;}
+         .desktophide{display:block!important;}
+         .mobileFont{font-size:30px!important;line-height:30px!important;}
+         .mobilepadding-right{padding-right:40px;}
+         .icon-top-padding{padding-top:40px!important;}
+         .w-100p{width:100%!important;}
+         .p-0{padding:0!important;}
+         .flex{display:block!important;width:100%!important;box-sizing:bord=
+er-box!important;}
+         .thold{display:table!important;width:100%!important;}
+         .thead{display:table-header-group!important;width:100%!important;}
+         .trow{display:table-row!important;width:100%!important;}
+         .tfoot{display:table-footer-group!important;width:100%!important;}
+         .pr-24{padding-right:24px!important;}
+         .mobile-padding-20{padding-left:20px!important; padding-right:20px=
+!important;}
+         .mobile-padding-rght-20{padding-left:0px!important; padding-right:=
+20px!important;}
+         .mobile-social-table{text-align:center!important;}
+         .mobile-social-padd-btm{padding-bottom:35px!important;}
+		 .mobile-social-padd-btm-top{padding-bottom:35px!important;}
+         .mobile-social-marg-btm{margin-top:20px!important;}
+		 .mobile-social-inline{display:inline-block!important; padding-right:2px!=
+important;}
+		 .mobile-social-margin-lft{margin-left:10px!important;}		=20
+		 .logo-mobile-img{width:85px!important;height:18px!important;}
+		 .mobile-monthly-padd-left{padding-left:20px!important;}
+		 .secondary-logo-padd-left{ padding-left:0px!important;}
+         .secondary-logo-padd-left-20{ padding-left:20px!important;}
+         .mobile-txt-center {text-align: center!important;}
+         .social-text-pad-rght{padding-right:20px!important;padding-bottom:=
+0px!important;}
+		 .followus-pad-top{padding-top:20px!important;}
+		 .banner-image-txt-only{max-height: 48.4%!important;}
+		 .banner-hero-imghgt-mobile{height: 160px!important;}		 		=09
+		.card-padding {padding-left: 20px!important; padding-right: 20px!importan=
+t; padding-top: 40px!important; padding-bottom: 40px!important;}
+		.thead {display: table-header-group!important; width: 100%!important;}
+		.mobile-card-table {width: 100%!important;}
+		.mobile-txt-center {text-align: center!important;}
+		.mobile-card-img-size {width: 100%!important;}
+		.tfoot {display: table-footer-group!important; width: 100%!important;}
+		.mobile-card-padding-top-padd {padding-top: 40px!important;}
+		.mobile-card-margin-btm40 {margin-bottom: 40px!important;}
+		.mobile-card-margin-btm30 {margin-bottom: 40px!important;}
+		.mobile-cta-padd-bottom{padding-bottom:40px!important;}
+		.tile-pad-large-4 {padding-left: 20px !important; padding-right: 20px !im=
+portant;}
+		.tile-pad-large {padding-left: 60px !important; padding-right: 60px !impo=
+rtant;}
+		.tile-pad-small-v1 {padding-left: 20px !important; padding-right: 20px !i=
+mportant;}
+		.tile-pad-small-v2 {padding-left: 20px !important; padding-right: 20px !i=
+mportant;}
+		.tile-pad-small-v3 {padding-left: 20px !important; padding-right: 20px !i=
+mportant;}
+		.tile-pad-small-v5 {padding-left: 55px !important; padding-right: 55px !i=
+mportant;}
+		.mob-padd-top-zero {padding-top: 0px !important;}
+        .boxed-list-wrapper {padding: 20px 20px 0 !important;}
+        .gutter {padding:0 20px!important;}
+		.mobile-padding-left-20{padding-left:24px;}
+		.mobile-text-only-pad{padding-left: 0px !important;}
+		.mob-gutter { padding-left: 20px !important; padding-right: 20px !importa=
+nt; }
+		.block-padd-top-30 { display: block !important; padding-top: 30px; }
+		.mobile-bottom-padding-20 { padding: 0 0 20px 0 !important;}
+		.learn-more-img{padding-top:40px; width: 100%;}
+		.hero-mobile { width: 100% !important; max-width: 100% !important; height=
+: auto !important;}
+        .hero-text-center {padding: 0 20px !important;}	=09
+		/*Tabular Data Starts */
+         .spacer-mob-30 {height: 30px !important;}
+         .spacer-mob-20 {height: 20px !important;}       =20
+         .table-zebra-mobile, .table-ruler-mobile {display: table !importan=
+t;}
+         .table-ruler-mobile td, .table-zebra-mobile td, .table-ruler-mobil=
+e th, .table-zebra-mobile th {padding: 20px !important;}
+         .table-hr-icon td, .table-zebra-icon td {min-width: 16px !importan=
+t; max-width: 150px !important;}
+         /*Tabular Data Ends */
+		.hero-xl-mobile,.hero-custom,.hero-lg-mobile,.hero-md-mobile,.hero-sm-mob=
+ile {width: 100% !important; max-width: 100% !important; height: auto !impo=
+rtant;}
+		.rtl-template .block-text-align-right { text-align: right !important;}
+        .thold { display: table !important; width: 100% !important; }
+		.thead { display: table-header-group !important; width: 100% !important; =
+}
+		.tfoot { display: table-footer-group !important; width: 100% !important; =
+}
+		.email-banner-image { display: block !important; margin-left: auto; margi=
+n-right: auto}
+        .email-banner-padding { padding-left:20px !important; padding-right=
+:20px !important; }
+
+         }
+		 /* Responsive classes for mobile Ends here */
+		=20
+         ul { margin:0 !important;padding-left:22px !important;text-align: =
+left !important;}
+         ol { margin-top:0 !important;margin-bottom:0 !important;padding-le=
+ft:22px !important;text-align: left !important;}
+		 li{padding: 0 0 8px 12px !important;margin: 0 !important;}
+		 li a {text-decoration: underline; color: #0067B8;}
+         *[class].gmailfix {display:none; display:none!important;}
+      </style>
+     <!--[if gte mso 16]>
+		<style type=3D"text/css">
+		p { mso-hyphenate: none;}
+        .rtl-template,
+        .rtl-template td{
+        direction: ltr !important;
+        text-align: right !important;
+        }
+        .rtl-template p {
+        direction: rtl !important;
+        text-align: right !important;
+        }
+        .text-rtl-center .list-item-right p {
+		text-align: right !important;
+		direction: rtl !important;
+		}
+        .rtl-template .email-header p {
+        direction: rtl !important;
+        text-align: left !important;
+        }
+        .email-table th table td {
+		font-weight:600 !important;
+		}
+		.text-rtl-center p,
+        .rtl-template .email-table .text-center p,
+        .rtl-template .email-table .text-center td {
+			direction: rtl !important;
+			text-align: center !important;
+		}
+		.email-table .text-center p,
+		.email-table .text-center td {
+			text-align:center !important;
+		}
+        .email-table .text-left p,
+        .email-table .text-left td {
+         text-align:left !important;
+        }
+        .footer-address-center td,
+		.footer-address-center td p,
+		.footer-address-center td p a{
+				text-align:center !important;
+				direction:ltr !important;
+		}
+ 		.cta-button{
+		font-weight:normal !important;
+		}
+		li=20
+         {
+         margin: 0 0 8px 0 !important;
+         text-align: left !important;
+         }
+         div.list ul li {
+         mso-special-format: bullet;
+         }
+         div.list {
+         margin: 0 0 0 -20px;
+         }
+         div li.list-bottom{
+            margin-bottom: 28px !important;
+         }
+         .rtl-template li=20
+         {
+         margin: 0 0 8px 0 !important;
+         text-align: right !important;
+         direction : rtl !important;
+         }
+        .rtl-template div.list=20
+         {
+         Margin: 0 -20px 0 0;
+         }
+		 .rtl-template .footeraddressrtl p,
+         .rtl-template .footeraddressrtl  {
+         direction: ltr !important;=20
+         text-align:right !important;
+         }
+         .footeraddressrtl {
+         mso-padding-alt: 0 30px !important;
+         }
+         .text-rtl-center .footeraddressrtl p,=20
+         .rtl-template .footeraddressrtl  {=20
+         direction: ltr !important; =20
+         text-align:center !important;=20
+         }
+         .text-rtl-center .txt-align-right td {
+		  text-align:right !important;
+			}
+		 .txt-center ul li,
+         .txt-center ol li
+         {
+            text-align:center !important;
+         }
+
+		 .rte-spacer-20 p=20
+		 {
+			mso-margin-bottom-alt: 20px;
+		 }
+		 .rte-spacer-10 p=20
+		 {
+	        mso-margin-bottom-alt: 10px;
+         }
+         .rte-footerspacer-10 p {
+	        mso-margin-top-alt: 10px;
+         }
+         .rtl-template th.tileimage {
+         	direction: ltr !important;
+         }		=20
+		 .table-hr-icon td,
+         .table-zebra-icon td,
+         .table-zebra td,
+         .table-zebra th,
+         .table-zebra-mobile td,
+         .table-zebra-mobile th,
+         .table-ruler td,
+         .table-ruler th,
+         .table-ruler-mobile td,
+         .table-ruler-mobile th
+         {
+			mso-padding-alt: 20px 0 20px 20px !important;
+         }
+		 .rtl-template .table-ruler th,
+		 .rtl-template .table-zebra th {
+			direction: rtl !important;
+		 }
+		 .rtl-template .rating-thumbs-down {
+			padding-left:1px;   =20
+		 }
+		 table {
+			border-spacing: 0;=20
+			mso-margin-bottom-alt: 0;=20
+			mso-margin-top-alt: 0;=20
+			mso-table-lspace: 0pt;=20
+			mso-table-rspace: 0pt;
+		}
+		td ,th {
+		mso-table-lspace: 0pt !important;
+		mso-table-rspace: 0pt !important;
+		}
+		.mso-line-ht-rule {
+		  mso-line-height-rule: exactly;
+		}
+        .hero-text-center p{
+            text-align: center !important;
+        }
+        </style>
+	<![endif]-->
+
+   =20
+   </head>
+   =20
+  <body dir=3D"ltr" style=3D"font-family:Segoe UI, Helvetica, Arial, sans-s=
+erif; font-size:12px; color:#4d4d4d; background-color:#e6e6e6; line-height:=
+20px; -webkit-text-size-adjust: none;">
+
+
+<div class=3D"root container responsivegrid">
+      <div style=3D"display:none;font-size:1px;color:#ffffff;line-height:1p=
+x;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;">Cla=
+im your free entry to The Million Dollar Sweepstakes</div>
+			<div style=3D"display:none;font-size:1px;color:#ffffff;line-height:1px;m=
+ax-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;">
+				=CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp;=
+ =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =
+=CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=
+=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F=
+ =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =
+=E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=
+=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=
+=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C=
+ &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &n=
+bsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp=
+; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =
+=CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=
+=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F=
+ =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =
+=E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=
+=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=
+=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C=
+ &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp;=CD=8F =E2=80=8C &nb=
+sp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp;=
+ =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =
+=CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=
+=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F=
+ =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =
+=E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=
+=80=8C &nbsp;=CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=
+=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C=
+ &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &n=
+bsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp=
+; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =
+=CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=
+=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp;=CD=8F =E2=80=8C &nbsp; =CD=8F =
+=E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=
+=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=
+=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C=
+ &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &n=
+bsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp=
+; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp;=
+=CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=
+=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F=
+ =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =
+=E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=
+=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=
+=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C=
+ &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &n=
+bsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp=
+; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =
+=CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=
+=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F=
+ =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =
+=E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=
+=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=
+=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C=
+ &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &nbsp; =CD=8F =E2=80=8C &n=
+bsp;
+			</div>
+      <!--Gmail App Scaling Fix Don't Remove these &nbsp; s its required fo=
+r gmail apps -->
+      <div class=3D"gmailfix" style=3D"white-space:nowrap; font:15px courie=
+r; line-height:0;">
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp;=20
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp;=20
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      </div>
+      <!--PARENT TABLE Starts Here -->
+	 =20
+	  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" a=
+lign=3D"center" class=3D"wrapper" style=3D"background-color:#e6e6e6; margin=
+:0 auto;" role=3D"presentation">
+	 =20
+	 =20
+         <tbody>
+      		<tr>
+               <td>
+                  <!--SECONDARY TABLE FOR OTHER COMPONENT Starts here -->
+				  <!--[if gte mso 16]>
+                  <table cellspacing=3D"0" cellpadding=3D"0" class=3D"" ali=
+gn=3D"center" style=3D"width:660px; margin:0 auto; margin-top:2px;">
+				  <![endif]-->
+				  <!--[if !mso]><!-->
+				  <table cellspacing=3D"0" cellpadding=3D"0" class=3D" wrapper" align=
+=3D"center" style=3D"width:660px; margin:0 auto; margin-top:2px;" role=3D"p=
+resentation">
+				  <!--<![endif]-->
+                     <tbody>
+					    <!-- Eyebrow component starts-->
+						<tr>
+						   <td>
+							=09
+   =20
+   =20
+   =20
+        <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"10=
+0%" style=3D"background-color: #f2f2f2;" role=3D"presentation">
+            <tbody>
+                <tr>
+                    <td>
+                       =20
+                       =20
+                            <table border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"background-color: #f2f2f2;" role=3D"presen=
+tation">
+                                <tbody>
+                                    <tr>
+                                        <td class=3D"mobile-padding-20" ali=
+gn=3D"left" style=3D"color:#000000; font-family:Segoe UI, Helvetica, Arial,=
+ sans-serif; font-size:10px; line-height:14px;letter-spacing: -0.02em;paddi=
+ng:10px 30px 10px 30px;">
+                                            <p style=3D"color:#000000; font=
+-family:Segoe UI, Helvetica, Arial, sans-serif; font-size:10px; line-height=
+:14px;margin:0;padding:0;letter-spacing: -0.02em;">
+                                               =20
+                                                <a href=3D"https://t.custom=
+ermail.microsoft.com/r/?id=3Dha9237da2,75f4389b,75f86b28&amp;e=3DcDE9QDZzbn=
+laZ0pYejJiTnFrNUVGajY4NTVPSnQ1N1dXMmxrWXpkYlJLT2lJYUNmNnRZNFVDTmZ1dGxRVElYX=
+1RNWV8xV1pScEhjUEY4MTRodnVZRUNaQlFKY0tQNlJrV0VCMFE2SUxsN2xJQTBKd01lQ04&amp;=
+s=3D2UGti3vXCJErbPF62ObyxuUsddmkCV3DYu8J6IKVaD0" style=3D"white-space: nowr=
+ap;font-weight:400;color:#000000;">                                        =
+            View as a webpage
+                                                </a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                       =20
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+   =20
+
+							</td>
+						</tr>
+						<!-- Eyebrow component ends-->
+				=09
+                     	<!-- HEADER SECTION STARTS HERE-->
+                     	<tr>
+                     		<td>
+                     		=09
+=09
+=09
+	=09
+=09
+=09
+=09
+		<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" bg=
+color=3D"#FFFFFF" role=3D"presentation">
+			<tbody>
+		=09
+			=09
+   <tr>
+       <td height=3D"20px">&nbsp;</td>
+   </tr>
+
+				<tr>
+					<td class=3D"gutter">
+					=09
+							<a target=3D"_blank" href=3D"https://t.customermail.microsoft.com/r/=
+?id=3Dha9237da2,75f4389b,75f86b29"><img src=3D"https://cdn-dynmedia-1.micro=
+soft.com/is/image/microsoftcorp/Microsoft@2x%20Light%20Theme?scl=3D1&amp;fm=
+t=3Dpng-alpha" alt=3D"Microsoft Logo" style=3D"display:block; height:20px;"=
+ height=3D"20">
+
+							</a>
+					=09
+					=09
+					</td>
+				</tr>
+			=09
+   <tr>
+       <td height=3D"20px">&nbsp;</td>
+   </tr>
+
+		=09
+			</tbody>
+		</table>
+=09
+
+	=09
+	=09
+	=09
+	=09
+	=09
+=09
+
+
+                     		</td>
+                     	</tr>
+                     	<!-- HEADER SECTION ENDS HERE-->
+						<tr>
+                     		<td>
+                               =20
+
+   =20
+=09
+=09
+=09
+		<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"background-color: #ff5c39" role=3D"presentation">
+			<tbody>
+		=09
+		=09
+   =20
+   =20
+        <tr>
+            <td height=3D"20">&nbsp;</td>
+        </tr>
+   =20
+
+		=09
+		=09
+		=09
+		=09
+		=09
+			<tr>
+				<td>
+					<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+ role=3D"presentation">
+					=09
+						=09
+
+						=09
+							=09
+   =20
+       =20
+       =20
+   =20
+   =20
+
+						=09
+
+						=09
+					=09
+					=09
+					=09
+							<tr>
+								<td class=3D"hero-text-center" align=3D"center">
+								=09
+								=09
+									=09
+   =20
+
+   =20
+       =20
+
+       =20
+
+       =20
+
+       =20
+
+       =20
+
+       =20
+            <p style=3D"color:#ffffff;
+         font-family:Segoe UI, Helvetica, Arial, sans-serif; font-style: no=
+rmal;font-weight:400;font-size: 21px;line-height:28px;letter-spacing: -0.02=
+em;margin:0; padding:0;" role=3D"heading" aria-level=3D"5"> Last chance=E2=
+=80=94Sweepstakes ends Dec. 31 </p>
+       =20
+
+       =20
+	   =20
+       =20
+
+       =20
+
+       =20
+	=09
+	=09
+	 =20
+   =20
+
+								=09
+								</td>
+							</tr>
+					=09
+					=09
+					=09
+					=09
+					=09
+					=09
+						=09
+							=09
+   =20
+   =20
+        <tr>
+            <td height=3D"20">&nbsp;</td>
+        </tr>
+   =20
+
+						=09
+						=09
+						=09
+						=09
+					=09
+					</table>
+				</td>
+			</tr>
+		=09
+		=09
+		=09
+		=09
+		=09
+		=09
+		=09
+			</tbody>
+		</table>
+=09
+
+
+   =20
+=09
+=09
+=09
+		<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"background-color: #FFFFFF" role=3D"presentation">
+			<tbody>
+		=09
+		=09
+   =20
+       =20
+       =20
+   =20
+   =20
+
+		=09
+		=09
+		=09
+				<tr>
+					<td>
+					=09
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"background-color: ;" role=3D"presentation">
+   <tr>
+       <td>
+          =20
+               <a href=3D"https://t.customermail.microsoft.com/r/?id=3Dha92=
+37da2,75f4389b,75f86b2a"><img src=3D"https://cdn-dynmedia-1.microsoft.com/i=
+s/image/microsoftcorp/SWWPSFINAL_Mod1_Hero_sweep_660x370_2x?scl=3D1&amp;fmt=
+=3Dpng-alpha" alt=3D"Microsoft Rewards $1,000,000 USD Ultimate Giveaway A M=
+illion Dollar Sweepstakes written on a textured green background with stars=
+." style=3D"width: 100%;vertical-align:bottom;max-height:1200px;" border=3D=
+"0" class=3D"hero-mobile" height=3D"auto" width=3D"660">
+
+               </a>
+          =20
+          =20
+       </td>
+   </tr>
+</table>
+
+					=09
+					=09
+					=09
+					=09
+					</td>
+				</tr>
+		=09
+			<tr>
+				<td>
+					<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+ role=3D"presentation">
+					=09
+						=09
+   =20
+   =20
+        <tr>
+            <td height=3D"20">&nbsp;</td>
+        </tr>
+   =20
+
+					=09
+					=09
+						<tr>
+							<td class=3D"gutter">
+							=09
+									<a target=3D"_blank" href=3D"https://t.customermail.microsoft.com/=
+r/?id=3Dha9237da2,75f4389b,75f86b2b" style=3D"text-decoration: none;"><p st=
+yle=3D"color:#000000;
+         font-family:Segoe UI, Helvetica, Arial, sans-serif;font-style: nor=
+mal;font-weight:600; font-size:42px;line-height:56px;letter-spacing:-0.02em=
+;margin:0; padding:0;" role=3D"heading" aria-level=3D"3"> Don't miss out on=
+ a chance to win $1,000,000 USD </p>
+       =20
+
+       =20
+
+       =20
+
+       =20
+
+       =20
+	   =20
+       =20
+
+       =20
+
+       =20
+	=09
+	=09
+	 =20
+   =20
+
+									</a>
+							=09
+							=09
+							</td>
+						</tr>
+					=09
+					=09
+						=09
+							<tr>
+								<td align=3D"left" class=3D"txt-align-right" style=3D"padding-top:1=
+0px; padding-bottom:20px;">
+									<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"1=
+00%" class=3D"rte-spacer-20" role=3D"presentation">
+									=09
+										<tr>
+										=09
+										=09
+												<td class=3D"gutter" style=3D"color:#000000;font-family:Segoe U=
+I, Helvetica, Arial, sans-serif; font-size:16px; font-style:normal;line-hei=
+ght:24px;letter-spacing: -0.02em;">
+													<!--[if mso]>
+													<div class=3D"list">
+													<![endif]-->
+													<p></p>
+<p>It's your last opportunity to enter The Million Dollar Sweepstakes from =
+Microsoft Rewards for your chance to win $1,000,000 USD and other cash priz=
+es<sup>1</sup>:</p>
+<p>1. Visit <a href=3D"https://t.customermail.microsoft.com/r/?id=3Dha9237d=
+a2,75f4389b,75f86b2c" _rte_href=3D"https://go.microsoft.com/fwlink/?linkid=
+=3D2299675" class=3D"ms-rte-link" target=3D"_blank" style=3D"color:#0067B8"=
+>aka.m/1M-Promo</a> and sign in with your Microsoft account<br>2. Complete =
+the entry form and claim a free entry<br>3. Earn more entries=E2=80=94up to=
+ 200!</p>
+													<!--[if mso]>
+													</div>
+													<![endif]-->
+												</td>
+										=09
+										</tr>
+									=09
+									</table>
+								</td>
+							</tr>
+					=09
+					=09
+						=09
+							<tr>
+								<td>
+								=09
+  =20
+  =20
+  =20
+  =20
+  =20
+  =20
+  =20
+   <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" s=
+tyle=3D"background-color: #FFFFFF;" role=3D"presentation">
+      <tbody>
+         <tr>
+            <td class=3D"gutter">
+               <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"" role=3D"presentation">
+			    <tr>
+                    <td>
+                        <table border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"" role=3D"presentation">
+                  <tbody>
+                     <tr>
+                       =20
+                          =20
+                          =20
+                             =20
+                                =20
+                                    <!--[if mso]>
+                                    <td class=3D"btn-block" width=3D"100%">
+                                       <![endif]-->							 =20
+                                =20
+                                =20
+                                 <!-- hide from outlook -->
+                                 <!--[if !mso]><\!-->
+                                 <td class=3D"btn-block">
+                                    <!-- <![endif]-->
+                                    <table class=3D"btn-rtl" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" align=3D"" role=3D"presentation">
+                                       <tbody>
+                                          <tr>
+                                             <td>
+                                                <table border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%" dir=3D"ltr" role=3D"presentatio=
+n">
+                                                  =20
+   =20
+   =20
+=09
+       =20
+       =20
+            <th class=3D"block-max-width-center" align=3D"center" style=3D"=
+border-radius:2px; font-family:Segoe UI, Helvetica, Arial, sans-serif; font=
+-style: normal; font-weight:600 !important; font-size:18px; line-height:24p=
+x; mso-line-height-rule: exactly; padding:8px 20px; min-width:100px; border=
+: 1px solid #0067B8;" bgcolor=3D"#0067B8">
+                <a href=3D"https://t.customermail.microsoft.com/r/?id=3Dha9=
+237da2,75f4389b,75f86b2d" title=3D"Get your free entry today" style=3D"text=
+-decoration:none; ; color : #ffffff;" aria-label=3D"Get your free entry tod=
+ay, opens a new window" target=3D"_blank"><strong class=3D"cta-button" styl=
+e=3D"color : #ffffff; font-weight:600;">Get your free entry today</strong>
+                </a>
+            </th>
+       =20
+=09
+=09
+   =20
+
+                                                </table>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </td>
+                             =20
+                             =20
+                          =20
+                       =20
+                     </tr>
+                  </tbody>
+				 </table>
+                </td>
+               </tr>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+
+								</td>
+							</tr>
+						=09
+					=09
+					=09
+					</table>
+				</td>
+			</tr>
+		=09
+		=09
+		=09
+		=09
+		=09
+		=09
+			=09
+			=09
+		=09
+		=09
+   =20
+   =20
+        <tr>
+            <td height=3D"40">&nbsp;</td>
+        </tr>
+   =20
+
+		=09
+			</tbody>
+		</table>
+=09
+
+
+   =20
+=09
+=09
+=09
+		<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"background-color: #fff8f3" role=3D"presentation">
+			<tbody>
+		=09
+		=09
+   =20
+   =20
+        <tr>
+            <td height=3D"20">&nbsp;</td>
+        </tr>
+   =20
+
+		=09
+		=09
+		=09
+			<tr>
+				<td>
+					<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+ role=3D"presentation">
+					=09
+						=09
+   =20
+       =20
+       =20
+   =20
+   =20
+
+					=09
+					=09
+						<tr>
+							<td class=3D"gutter">
+							=09
+									<a target=3D"_blank" href=3D"https://t.customermail.microsoft.com/=
+r/?id=3Dha9237da2,75f4389b,75f86b2e" style=3D"text-decoration: none;"><p st=
+yle=3D"color:#000000;
+         font-family:Segoe UI, Helvetica, Arial, sans-serif;font-style: nor=
+mal;font-weight:600; font-size:32px;line-height:40px;letter-spacing:-0.02em=
+;margin:0; padding:0;" role=3D"heading" aria-level=3D"4"> Share with friend=
+s to get 1000 points and 50 entries  </p>
+       =20
+
+       =20
+
+       =20
+
+       =20
+	   =20
+       =20
+
+       =20
+
+       =20
+	=09
+	=09
+	 =20
+   =20
+
+									</a>
+							=09
+							=09
+							</td>
+						</tr>
+					=09
+					=09
+					=09
+					=09
+					</table>
+				</td>
+			</tr>
+		=09
+		=09
+		=09
+		=09
+		=09
+		=09
+			=09
+			=09
+		=09
+		=09
+   =20
+       =20
+       =20
+            <tr>
+               =20
+                <td height=3D"10" style=3D"font-size:0px;line-height:0px" c=
+lass=3D"spacer-ln-ht-0">&nbsp;</td>
+            </tr>
+       =20
+   =20
+   =20
+
+		=09
+			</tbody>
+		</table>
+=09
+
+
+   =20
+  =20
+  =20
+  =20
+      <table class=3D"tile-small-box" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0" width=3D"100%" style=3D"background-color: #FFF8F3;" role=3D"pre=
+sentation">
+         <tbody>
+           =20
+              =20
+                 =20
+   =20
+       =20
+       =20
+            <tr>
+               =20
+                <td height=3D"10" style=3D"font-size:0px;line-height:0px" c=
+lass=3D"spacer-ln-ht-0">&nbsp;</td>
+            </tr>
+       =20
+   =20
+   =20
+
+              =20
+              =20
+           =20
+           =20
+           =20
+            <!-- Multifield Starts -->
+           =20
+              =20
+                  <tr>
+                     <td class=3D"gutter">
+                        <table class=3D"btn-rtl" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" width=3D"100%" role=3D"presentation">
+                           <tr>
+                              <td>
+                                 <table class=3D"btn-rtl" border=3D"0" cell=
+spacing=3D"0" cellpadding=3D"0" width=3D"100%" role=3D"presentation">
+                                    <tbody>
+                                       <tr>
+                                         =20
+                        =20
+                                             <th width=3D"290" class=3D"btn=
+-block" align=3D"center" bgcolor=3D"#FFF8F3" style=3D" #000000; word-break:=
+break-word; word-wrap:break-word; overflow-wrap:break-word;">
+                                               =20
+                                                  =20
+
+  =20
+
+  =20
+
+  =20
+
+	  =20
+	<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" sty=
+le=3D"background-color: #FFF8F3" role=3D"presentation">
+		<tbody>
+	=09
+	=09
+			<tr>
+				<td style=3D"padding-bottom:0px !important;mso-padding-bottom-alt:0px">
+				=09
+						<a target=3D"_blank" href=3D"https://t.customermail.microsoft.com/r/?=
+id=3Dha9237da2,75f4389b,75f86b2f"><img src=3D"https://cdn-dynmedia-1.micros=
+oft.com/is/image/microsoftcorp/SWEEPSFINAL_Image%20v2-Tertiary?scl=3D1&amp;=
+fmt=3Dpng-alpha" alt=3D"The number 50 written after an illustration of a ti=
+cket on an orange background with +1000 points in the corner of the image. =
+" style=3D"vertical-align: bottom;" border=3D"0" class=3D"hero-mobile" heig=
+ht=3D"160" width=3D"290">
+
+						</a>
+				=09
+				=09
+				</td>
+			</tr>
+	=09
+	=09
+	=09
+	=09
+	=09
+		<!-- FIRST ADDITIONAL ELEMENT STARTS -->
+	=09
+		<!-- FIRST   ADDITIONAL ELEMENT ENDS -->
+		<!-- SECOND ADDITIONAL ELEMENT STARTS -->
+	=09
+		<!-- SECOND ADDITIONAL ELEMENT ENDS -->
+		<!-- THIRD ADDITIONAL ELEMENT STARTS -->
+	=09
+		<!-- THIRD ADDITIONAL ELEMENT ENDS -->
+	=09
+   =20
+   =20
+        <tr>
+            <td height=3D"20">&nbsp;</td>
+        </tr>
+   =20
+
+		</tbody>
+	</table>
+
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+
+  =20
+
+
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                             </th>
+                                            =20
+                                               =20
+                                               =20
+                                                   <th class=3D"mobileHidde=
+n" style=3D"padding-right: 20px;"></th>
+                                               =20
+                                                <th class=3D"desktopHidden"=
+ height=3D"20">&nbsp;</th>
+                                            =20
+                                         =20
+                        =20
+                                             <th width=3D"290" class=3D"btn=
+-block" align=3D"center" bgcolor=3D"#FFF8F3" style=3D" #000000; word-break:=
+break-word; word-wrap:break-word; overflow-wrap:break-word;">
+                                               =20
+                                               =20
+                                                  =20
+
+  =20
+
+  =20
+
+  =20
+
+	  =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+	<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" sty=
+le=3D"background-color: #FFF8F3; text-align:left;" role=3D"presentation">
+		<tbody>
+	=09
+	=09
+	=09
+	=09
+		=09
+			<tr>
+			=09
+			=09
+					<td style=3D"color:#000000;font-family:Segoe UI, Helvetica, Arial, san=
+s-serif; font-style: normal; font-weight: 400; font-size: 16px; line-height=
+: 24px; letter-spacing: -0.02em; margin:0; padding-top:10px !important; pad=
+ding-bottom:0px !important;mso-padding-top-alt:10px;mso-padding-bottom-alt:=
+0px">
+						<!--[if mso]>
+						<div class=3D"list">
+						<![endif]-->
+						<p>Earn 100 Rewards points and 5 entries for each friend who enters t=
+he sweepstakes through your referral link. Share with up to 10 friends. Ter=
+ms apply.<sup>2</sup></p>
+						<!--[if mso]>
+						</div>
+						<![endif]-->
+					</td>
+			=09
+			</tr>
+	=09
+	=09
+		<!-- FIRST ADDITIONAL ELEMENT STARTS -->
+	=09
+		=09
+		=09
+			=09
+   =20
+   =20
+        <tr>
+            <td height=3D"20">&nbsp;</td>
+        </tr>
+   =20
+
+				<tr>
+					<td>
+						<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"text=
+-align:left" role=3D"presentation">
+							<tbody>
+							<tr>
+								<td>
+								=09
+  =20
+  =20
+  =20
+  =20
+  =20
+  =20
+  =20
+   <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" s=
+tyle=3D"background-color: ;" role=3D"presentation">
+      <tbody>
+         <tr>
+            <td class=3D"btn-rtl">
+               <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"" role=3D"presentation">
+			    <tr>
+                    <td>
+                        <table border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"" role=3D"presentation">
+                  <tbody>
+                     <tr>
+                       =20
+                          =20
+                          =20
+                             =20
+                             =20
+                                =20
+                                =20
+                                 <!--[if mso]>
+                                 <td class=3D"btn-block">
+                                 <![endif]-->
+                                =20
+                                 <!--[if !mso]><\!-->
+                                 <td class=3D"btn-block">
+                                    <!-- <![endif]-->
+                                    <table class=3D"btn-rtl" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" align=3D"" role=3D"presentation">
+                                       <tbody>
+                                          <tr>
+                                             <td>
+                                                <table border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%" dir=3D"ltr" role=3D"presentatio=
+n">
+                                                  =20
+   =20
+       =20
+       =20
+            <th class=3D"block-max-width" align=3D"left" style=3D"font-fami=
+ly:Segoe UI, Helvetica, Arial, sans-serif; font-style: normal; font-weight:=
+600 !important; font-size:16px; line-height:24px;  max-width:280px; padding=
+:8px 0; letter-spacing: -0.02em;">
+                <a href=3D"https://t.customermail.microsoft.com/r/?id=3Dha9=
+237da2,75f4389b,75f86b30" title=3D"Share your link with friends" style=3D"t=
+ext-decoration:none;; color:#0078d4;" aria-label=3D"Share your link with fr=
+iends, opens a new window" target=3D"_blank"><strong class=3D"cta-button" s=
+tyle=3D"color:#0078d4; text-decoration:underline;font-weight:600;">Share yo=
+ur link with friends</strong><strong style=3D"color:#0078d4; text-decoratio=
+n:none; font-weight:600;">&nbsp;=E2=9D=AF</strong>
+                </a>
+            </th>
+       =20
+   =20
+   =20
+
+                                                </table>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </td>
+                             =20
+                          =20
+                       =20
+                     </tr>
+                  </tbody>
+				 </table>
+                </td>
+               </tr>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+
+								</td>
+							</tr>
+						=09
+							</tbody>
+						</table>
+					</td>
+				</tr>
+		=09
+		=09
+		=09
+		=09
+	=09
+		<!-- FIRST   ADDITIONAL ELEMENT ENDS -->
+		<!-- SECOND ADDITIONAL ELEMENT STARTS -->
+	=09
+		<!-- SECOND ADDITIONAL ELEMENT ENDS -->
+		<!-- THIRD ADDITIONAL ELEMENT STARTS -->
+	=09
+		<!-- THIRD ADDITIONAL ELEMENT ENDS -->
+	=09
+	=09
+			<td style=3D"font-size:0; line-height:">&nbsp;</td>
+	=09
+		</tbody>
+	</table>
+
+
+  =20
+
+
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                               =20
+                                             </th>
+                                            =20
+                                         =20
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                           </tr>
+                        </table>
+                     </td>
+                  </tr>
+                 =20
+              =20
+           =20
+            <!-- Multifield Ends -->
+           =20
+              =20
+                 =20
+   =20
+   =20
+        <tr>
+            <td height=3D"20">&nbsp;</td>
+        </tr>
+   =20
+
+              =20
+              =20
+           =20
+         </tbody>
+      </table>
+  =20
+
+
+   =20
+  =20
+  =20
+  =20
+      <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" style=3D"background-color: #F2F2F2;" role=3D"presentation">
+         <tbody>
+			<tr>
+               <td height=3D"20" class=3D"spacer-ln-ht-0">&nbsp;</td>
+            </tr>
+            <tr>
+               <td class=3D"txt-align-right" align=3D"left">
+                  <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" w=
+idth=3D"100%" class=3D"rte-footerspacer-10" role=3D"presentation">
+                     <tr>
+                        <td class=3D"gutter" style=3D"color:#000000;font-fa=
+mily:Segoe UI, Helvetica, Arial, sans-serif;font-size:10px;line-height:14px=
+;letter-spacing:-0.02em;font-style:normal;">
+                           <body>
+ <p><sup>1&nbsp;</sup>NO PURCHASE NECESSARY. Legal residents of the 50 Unit=
+ed States, Puerto Rico, &amp; D.C., Canada, the United Kingdom, France, and=
+ Germany. Must be age of majority or older. Ends 12/31/24. Grand Prize: one=
+ (1) prize of $1,000,000.00 USD (One Million Dollars) in cash (equivalent t=
+o approximately $1,359,650.00 CAD / =C2=A3762,295.00 GBP / =E2=82=AC902,770=
+.00 EUR); Secondary Prizes: two (2) prizes of $10,000.00 USD per participat=
+ing Jurisdiction (total of 10 Secondary Prizes) (equivalent to approximatel=
+y $13,596.50 CAD / =C2=A37,622.95 GBP / =E2=82=AC9,027.70 EUR each). Free E=
+ntries with Microsoft Rewards Account: print full name, address, phone numb=
+er (with area code), date of birth, and email address on a 3 x 5 inch card,=
+ and mail it to =E2=80=9CThe Microsoft Rewards Ultimate Giveaway Sweepstake=
+s, Free to Enter=E2=80=9D at the address corresponding to your country of r=
+esidence: For residents of the United States: P.O. Box 8554, Big Sandy, Tex=
+as, 75755-8554. For residents of Canada: c/o Helix Global Solutions Inc., 4=
+612 Chemin Bois Franc, Saint Laurent, Quebec, H4S 1A7. For residents of the=
+ United Kingdom: c/o Bollor=C3=A9, Thurrock Park Way,=E2=80=AFTilbury, Esse=
+x, RM18 7HW, United Kingdom. For residents of France: c/o Bollor=C3=A9, ZAC=
+ des Brateaux - Parc Euro Logistic, B=C3=A2timent F porte A, Rue des 44 arp=
+ents, Villabe, 91100. For residents of Germany: c/o Bollor=C3=A9 Logistics =
+Germany GmbH, Helix Global Solutions Inc., Obenhauptstrasse 11, 22335 Hambu=
+rg. Requests must be postmarked by 12/31/24 and received by 1/8/25. To ente=
+r and for <a href=3D"https://t.customermail.microsoft.com/r/?id=3Dha9237da2=
+,75f4389b,75f86b31" _rte_href=3D"https://go.microsoft.com/fwlink/?linkid=3D=
+2299823" class=3D"ms-rte-link" target=3D"_blank" style=3D"color:#000000">Of=
+ficial Rules</a>, including odds, and prize descriptions, visit <a href=3D"=
+https://t.customermail.microsoft.com/r/?id=3Dha9237da2,75f4389b,75f86b32" _=
+rte_href=3D"https://go.microsoft.com/fwlink/?linkid=3D2299364" class=3D"ms-=
+rte-link" target=3D"_blank" style=3D"color:#000000">https://aka.ms/1M-Promo=
+</a>. Connect time charges may apply. Void where prohibited. Canadian resid=
+ents: Skill-testing question applies.=E2=80=AF Additional free entry opport=
+unities will be available, see terms <a href=3D"https://t.customermail.micr=
+osoft.com/r/?id=3Dha9237da2,75f4389b,75f86b33" _rte_href=3D"https://go.micr=
+osoft.com/fwlink/?linkid=3D2299824" class=3D"ms-rte-link" target=3D"_blank"=
+ style=3D"color:#000000">here</a>. These additional entry methods are subje=
+ct to the Official Rules for the Sweepstakes including (but not limited to)=
+ any and all eligibility and registration requirements, as well as any limi=
+tation on the total number of entries which may be earned across all entry =
+methods. Microsoft Rewards will never ask you for your financial informatio=
+n as part of your entry into the Ultimate Giveaway Sweepstakes. </p>
+ <p><sup>2&nbsp;</sup>Promotion period: November 22, 2024 - December 31, 20=
+24. Eligible Microsoft Rewards members who complete a successful share and =
+earn five (5) bonus entries for the Share Microsoft Ultimate Giveaway bonus=
+ offer will additionally receive 100 Rewards points. Limit: May be complete=
+d ten (10) times per person/account for a maximum of fifty (50) bonus entri=
+es and one thousand (1000) Rewards points. This offer is limited to eligibl=
+e entrants in The Microsoft Rewards Ultimate Giveaway Sweepstakes.</p>
+ <p>This email was sent from an unmonitored mailbox.</p>
+</body>
+                        </td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+            <tr>
+               <td height=3D"10" class=3D"spacer-ln-ht-0">&nbsp;</td>
+            </tr>
+         </tbody>
+      </table>
+  =20
+
+
+
+
+
+                            </td>
+                     	</tr>
+
+                        <!-- FOOTER SECTION STARTS HERE -->
+
+                        <tr>
+                     		<td>
+                               =20
+
+
+
+
+                            </td>
+                     	</tr>
+
+                        <tr>
+                     		<td>
+                 			=09
+  =20
+
+  =20
+  =20
+      <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%=
+" style=3D"background-color:#F2F2F2;" role=3D"presentation">
+         <tbody>
+           =20
+		=09
+           =20
+           =20
+           =20
+           =20
+            <tr>
+               <td>
+                 =20
+                 =20
+                 =20
+                 =20
+                 =20
+=09
+
+
+
+
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">
+   <tr>
+   	<td height=3D"20">&nbsp;</td>
+   </tr>
+   <!--Privacy text-->
+  =20
+    =20
+   =20
+   <tr>
+      <td class=3D"gutter" style=3D"font-family:Segoe UI,Helvetica,Arial,sa=
+ns-serif;font-size:10px;line-height:14px;color:#000000;">
+         <a title=3D"Unsubscribe / Se d=C3=A9sabonner" href=3D"https://t.cu=
+stomermail.microsoft.com/r/?id=3Dha9237da2,75f4389b,75f86b51&amp;e=3DcDE9cH=
+JvZmlsZS91bnN1YnNjcmliZT9DVElEPTAmRUNJRD1GJTJGYWl2S01wWFd4NzBCR01XY0lIdnl4O=
+Fp5JTJGaTl3SmtwdVdkZXpaZ2k5NCUzRCZLPWYzMmJmMzgzLWJjZjQtNDNlOS1iY2ViLTk5N2Qy=
+MGU1MmZkOCZEPTYzODcwNTQyOTMxODU1ODM4NiZQSUQ9MTgwMTUmVElEPTBiOGY2YjI4LWQ0N2E=
+tNDk1MS05MTZlLWU4NWEwMTFkOGE2OSZDTUlEPUlyaXMtTWljcm9zb2Z0JTIwUmV3YXJkcy01Nz=
+UwNjcwMjE&amp;s=3DFEAS7-kDFaMZ6gdiI2VxvUS517b4zu47dKtAngEuA2I" _label=3D"Op=
+t-out link" _type=3D"optout"><strong style=3D"color:#000000;text-decoration=
+:underline;font-weight:normal;">Unsubscribe / Se d=C3=A9sabonner</strong></=
+a> <strong style=3D"color:#000000;font-weight:normal;"> | </strong>  <a tit=
+le=3D"Privacy Statement / D=C3=A9claration de confidentialit=C3=A9" href=3D=
+"https://t.customermail.microsoft.com/r/?id=3Dha9237da2,75f4389b,75f86b52" =
+_label=3D"Privacy Link" _type=3D"Email click"><strong style=3D"color:#00000=
+0;text-decoration:underline;font-weight: normal;">Privacy Statement / D=C3=
+=A9claration de confidentialit=C3=A9</strong></a>
+      </td>
+   </tr>
+  =20
+   <tr>
+      <td height=3D"5" style=3D"font-size:0px;line-height:5px">&nbsp;</td>
+   </tr>
+   <tr>
+      <!--[if gte mso 9]>
+				<td class=3D"footeraddressrtl" style=3D"color:#000000;font-family:Segoe=
+ UI,Helvetica,Arial,sans-serif;font-size:10px;line-height:14px;letter-spaci=
+ng:-0.02em;font-style:normal;">    =20
+			<![endif]-->
+			<!--[if !gte mso 9]><!-- -->
+				<td class=3D"gutter" style=3D"color:#000000;font-family:Segoe UI,Helvet=
+ica,Arial,sans-serif;font-size:10px;line-height:14px;letter-spacing:-0.02em=
+;font-style:normal;">
+			<!--<![endif]-->
+         <p>Microsoft Corporation,&nbsp;One Microsoft Way,&nbsp;Redmond, WA=
+ 98052
+         </p>
+      </td>
+   </tr>
+  =20
+   <tr>
+     <td style=3D"line-height:1px; mso-line-height-rule:exactly;">
+       <img border=3D"0" src=3D"https://cam-pixel-tracker-prod.azure-api.ne=
+t/api/p79/track.png" height=3D"1" width=3D"1" style=3D"display:block;height=
+:1px;">
+     </td>
+</tr>
+</table>
+
+=09
+
+               </td>
+            </tr>           =20
+            <tr>
+              =20
+   =20
+   =20
+        <tr>
+            <td height=3D"20">&nbsp;</td>
+        </tr>
+   =20
+
+               <td>
+                  <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" w=
+idth=3D"100%" role=3D"presentation">
+                     <tr>
+                          <td class=3D"gutter" width=3D"100" style=3D"line-=
+height:14px;">
+                               =20
+                                       <a target=3D"_blank" href=3D"https:/=
+/t.customermail.microsoft.com/r/?id=3Dha9237da2,75f4389b,75f86bac"><img src=
+=3D"https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/microsoft%2=
+0logo-1?scl=3D1&amp;fmt=3Dpng-alpha" alt=3D"Microsoft Logo" style=3D"displa=
+y:block; height:20px;" height=3D"20">
+
+                                         </a>
+                                =20
+                                 =20
+							</td>
+                       </tr>
+                  </table>
+               </td>
+            </tr>
+           =20
+   =20
+   =20
+        <tr>
+            <td height=3D"30">&nbsp;</td>
+        </tr>
+   =20
+
+         </tbody>
+      </table>
+  =20
+
+                 			</td>
+                 		</tr>
+                  		<!-- FOOTER SECTION ENDS HERE -->
+
+                     </tbody>
+                  </table>
+                </td>
+              </tr>
+      	=09
+      	 </tbody>
+      </table>
+      <!--PARENT TABLE Ends Here -->
+      <p style=3D"line-height:1px;">&nbsp;</p>
+	</div>
+
+<img height=3D"0" width=3D"0" alt=3D"" src=3D"https://t.customermail.micros=
+oft.com/r/?id=3Dha9237da2,75f4389b,1">
+</body>
+</html>
+

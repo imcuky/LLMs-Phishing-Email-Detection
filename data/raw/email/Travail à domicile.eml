@@ -1,0 +1,264 @@
+Received: from YT1PR01MB9274.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:a9::22)
+ by YT1PR01MB9291.CANPRD01.PROD.OUTLOOK.COM with HTTPS; Tue, 4 Jun 2024
+ 03:18:00 +0000
+Received: from YT3PR01CA0090.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:84::30)
+ by YT1PR01MB9274.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:a9::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.27; Tue, 4 Jun
+ 2024 03:17:59 +0000
+Received: from YT1PEPF00001E8D.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:84:cafe::a) by YT3PR01CA0090.outlook.office365.com
+ (2603:10b6:b01:84::30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.29 via Frontend
+ Transport; Tue, 4 Jun 2024 03:17:59 +0000
+Authentication-Results: spf=fail (sender IP is 137.122.8.221)
+ smtp.mailfrom=edu.gva.es; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=edu.gva.es;
+Received-SPF: Fail (protection.outlook.com: domain of edu.gva.es does not
+ designate 137.122.8.221 as permitted sender) receiver=protection.outlook.com;
+ client-ip=137.122.8.221; helo=barracuda3.uottawa.ca;
+Received: from barracuda3.uottawa.ca (137.122.8.221) by
+ YT1PEPF00001E8D.mail.protection.outlook.com (10.167.241.54) with Microsoft
+ SMTP Server id 15.20.7633.15 via Frontend Transport; Tue, 4 Jun 2024 03:17:59
+ +0000
+X-ASG-Debug-ID: 1717471076-17b2187b6c54705000e-y6eJO1
+Received: from CMS-P31.uottawa.o.univ ([137.122.8.249]) by barracuda3.uottawa.ca with ESMTP id HsYrVyDFrXbmEFtz for <clee252@uottawa.mail.onmicrosoft.com>; Mon, 03 Jun 2024 23:17:59 -0400 (EDT)
+X-Barracuda-Envelope-From: prvs=8782c9ad5=i.amoroszornoza@edu.gva.es
+X-Barracuda-RBL-Trusted-Forwarder: 137.122.8.249
+X-ASG-Whitelist: Client
+Received: from CMS-P33.uottawa.o.univ (10.32.34.156) by CMS-P31.uottawa.o.univ
+ (10.32.34.154) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1118.40; Mon, 3 Jun
+ 2024 23:17:59 -0400
+Received: from barracuda.uottawa.ca (10.32.34.4) by CMS-P33.uottawa.o.univ
+ (10.32.34.156) with Microsoft SMTP Server id 15.2.1118.40 via Frontend
+ Transport; Mon, 3 Jun 2024 23:17:59 -0400
+X-Barracuda-RBL-Trusted-Forwarder: 10.32.34.154
+X-Barracuda-RBL-Trusted-Forwarder: 10.32.34.156
+Received: from mx97.uottawa.ca (bar-snat.uottawa.ca [137.122.8.199]) by barracuda.uottawa.ca with ESMTP id og78zHiBnEsyQmax for <clee252@mail.uottawa.ca>; Mon, 03 Jun 2024 23:17:58 -0400 (EDT)
+X-Barracuda-RBL-Trusted-Forwarder: 137.122.8.199
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=195.77.18.229; helo=mx13.gva.es; envelope-from=prvs=8782c9ad5=i.amoroszornoza@edu.gva.es; receiver=<UNKNOWN> 
+Received: from mx13.gva.es (mx13.gva.es [195.77.18.229])
+	by mx97.uottawa.ca (Postfix) with ESMTPS id E91A71AC1
+	for <clee252@uottawa.ca>; Mon,  3 Jun 2024 23:17:57 -0400 (EDT)
+IronPort-Data: A9a23:T3xDHqwR9jpi+IralUd6t+dZxyrEfRIJ4+MujC+fZmUNrF6WrkUEz
+ GFNWDvUbKrYYDPyKox/YImx9U5V6paBz4JjHAZspC00HyNBpPSeCIXCJC8cHc8zwu4v7q5Dx
+ 59DAjUVBJlsFhcwnj/0bv676yIUOZigHtLUEPTDNj16WThqQSIgjQMLs+Mii+aEu/Dga++2k
+ Y20+5231GONgWYubjpKs/7b8XuDgdyp0N8mlg1nDRx0lA+G/5UlJMp3Db28KXL+Xr5VEoaSL
+ woU5Ojklo9x105F5uKNyt4XQGVTKlLhFVHmZk5tZkSXqkMqShrecEoMHKF0hU9/011llj3qo
+ TlHncTYpQwBZsUglAmBOvXx/u4X0aBuodf6zXaDXcO7/XHYf2Kz6vhUL2oUEtYJwck0Ik9w+
+ qlNQNwNRkjra+Oe7Y+BErIpqu4Kac7hMcUYp21qyizfAbA+W5ffTq7W5NhemjAtmsRJGvWYb
+ M0cAdZtRE2YP1sTZRFKUdRnwrbAanrXKlW0rHqU46My5HLU1x52yr7qItP9d9CXA8pLlwCVv
+ Qoq+kyjX0xHbYLDlGvtHnSEqszmzQCrBa4uC/6+1fBSw36ewWc9MUhDPbe8ibzj4qKkYPpUL
+ 0EZoHd0hbU16FCiUdC7VBTQnZKflhsVWt4VH+cz5RyXkvHQ+1zAWDlCSSNdYts7ssNwXSYty
+ lKCg9LuA3poraGRTnWesLyTqFteJBQoEIPLXgdcJSNt3jUpiNhbYs7nJjq7LJOIsw==
+X-Barracuda-RBL-IP: 195.77.18.229
+X-Barracuda-Effective-Source-IP: mx13.gva.es[195.77.18.229]
+X-Barracuda-Apparent-Source-IP: 195.77.18.229
+IronPort-HdrOrdr: A9a23:+bVQLq34tASpKtGwUllniwqjBS9yeYIsimQD101hICG9Lfb1qy
+ n+ppkmPEHP4gr5OEtOpTngAtj4fZqyz+8X3WB8B8bBYOCEghrSEGgB1/qE/9SIIUSXnYA96U
+ 4KSdkaNDSfNykfsS6sizPIa+rIjeP3g5yAtKP79TNAXAtqY6Zv40NQDRuaKFR/QE1jCYAiHJ
+ SRy8Jbr374EE5nG/iTNz0gZazuttfLnJXpbVovAAMm0hCHiXeN5KThGxaV8x8CW3dkwKsk80
+ LCjwvlj5/Twc2T+1v57Sv+/p5WkNzuxp9qA9GNsNEcLnHWhgOhdO1aKsO/lQFwhNvqxEchkd
+ HKrRtlFd908Wntcma8pgao8xX80R41gkWSgGOwsD/Gm4jUVTg6A81OicZyaR3C8Xctu9l6ze
+ Ziw3+ZjZxKFhnN9R6NkeQgbysa3XZcnEBS29L61xdkIMYjgf5q3PsiFXpuYd899HmQ0vFqLA
+ FsZPusm8q+P2nqIEwxhVMfvOBEbk5DZCtufXJyx/C94nxzlHB95U0e2dcYmzMn6I8cTJZDjt
+ 60fJiA7Is+KPP+TZgNddvpEvHHelAlByi8RF57TTncZeA6EmOIsZrr+a444em7PJgTwps+8a
+ 6gbG9l
+X-Talos-CUID: =?us-ascii?q?9a23=3A3G4E1mpVHCVo9LutqWyb/E7mUfIZbHHEk17dGWy?=
+ =?us-ascii?q?TK0kyWYa6Cny+xqwxxg=3D=3D?=
+X-Talos-MUID: =?us-ascii?q?9a23=3A8jyuHQ5b71MX1oPME0hcEKBRxoxEwI3+KxBQvak?=
+ =?us-ascii?q?Z+M+nOxQzGDqahxqOF9o=3D?=
+X-IronPort-AV: E=Sophos;i="6.08,213,1712613600"; 
+   d="scan'208,217";a="255516459"
+Received: from mail-dbaeur03lp2169.outbound.protection.outlook.com (HELO EUR03-DBA-obe.outbound.protection.outlook.com) ([104.47.51.169])
+  by mx13.gva.es with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2024 05:17:54 +0200
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=curw0jRXUjfabiIK8JYtzGO00VgjCxwR54GGHyWHucaKa047nCi2pnytBj3Dz1/sUTL/DS/QhC8GNP8CDSipg48lxmSp7j38DOgZzlkQbnHNfTkLFi70gX/3dT7mZxABB7mdTZ6jV9NqKl+Dfzd6FbAPq82KCfNxPJhAVlRBiwokuxzhAlkB2SdWCiNeMbKysl1yTQIZvR/J+Vqvx/gzK60WFHsFb9s7G9egfZRY1A+grQRrm6dcyknmZ8enT1Q+gNDrkxxj9h9qQdR1nOW+Y1q41EcuBJaTXuc0bMtK0rVXqLKubsrncypb4zx3/d6MonvOVZ932ZSkO8m8fHBxtw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FQHfeHkdj4dUEbuvHQTCBfoYncrqUihnKD/TaAM0mLs=;
+ b=U1C6utDIgq+a08I1S33E4EekWgV1UPE37owmD5Qm/p9GTegFmySpStSdrahVr5Ibj2rt40ZlCaZ545R4eOxANyDUSPRedfsaz0sxz62+v8whjnQMYA7PiUAORMsV7qOsVs3r7hAH92Hu4xqpbVGmd5BOBSwWfuBmjYno+Xunodv3SdxeV8/4DE71Cs+ajeopVfuxgOg/dxkoyituPPtoPe8bwmqwsaO4oAxqWKVEMJa8mtz2MLiBtTp7/EKSsi4uvpB3kFGFr0UfbaiULgNhZKmJbSvzxe6+uny03ZakfYKrvlgKhQ38g1wq4aiIlt7mVZ+LWU50l1bKBol01pRiUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=edu.gva.es; dmarc=pass action=none header.from=edu.gva.es;
+ dkim=pass header.d=edu.gva.es; arc=none
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=edu.gva.es;
+Received: from GV1P194MB1761.EURP194.PROD.OUTLOOK.COM (2603:10a6:150:61::19)
+ by AS8P194MB1894.EURP194.PROD.OUTLOOK.COM (2603:10a6:20b:528::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7633.24; Tue, 4 Jun
+ 2024 03:17:53 +0000
+Received: from GV1P194MB1761.EURP194.PROD.OUTLOOK.COM
+ ([fe80::8fb:a297:e30c:9140]) by GV1P194MB1761.EURP194.PROD.OUTLOOK.COM
+ ([fe80::8fb:a297:e30c:9140%4]) with mapi id 15.20.7633.018; Tue, 4 Jun 2024
+ 03:17:52 +0000
+Content-Type: text/html; charset="utf-8"
+From: University of Ottawa <i.amoroszornoza@edu.gva.es>
+To: <clee252@uottawa.ca>
+Subject: =?UTF-8?Q?Travail_=C3=A0_domicile?=
+Message-ID: <52b0b4d0-f071-e3e3-69de-e2487eeb9a61@edu.gva.es>
+X-ASG-Orig-Subj: =?UTF-8?Q?Travail_=C3=A0_domicile?=
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 4 Jun 2024 03:17:46 +0000
+X-ClientProxiedBy: LO4P123CA0309.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:197::8) To GV1P194MB1761.EURP194.PROD.OUTLOOK.COM
+ (2603:10a6:150:61::19)
+X-MS-TrafficTypeDiagnostic:
+ GV1P194MB1761:EE_|AS8P194MB1894:EE_|YT1PEPF00001E8D:EE_|YT1PR01MB9274:EE_|YT1PR01MB9291:EE_
+X-MS-Office365-Filtering-Correlation-Id: a412de31-4477-49f6-caed-08dc8444efcc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:13230031|1800799015|52116005|41320700004|376005|366007|38350700005;
+X-Microsoft-Antispam-Message-Info-Original:
+ =?utf-8?B?Qi93QTFncDBKZGhxK25vMDNuUGpxZlhIRmY2bTNQR28rcFdmM0IwV2k1cTNF?=
+ =?utf-8?B?QkZWTUtiUzA4TmxOY1A4VVNtbmdzS1N0VXJiL3VQMm9zYmZaS3JleHZrcGJa?=
+ =?utf-8?B?bkphdWtGSndWU2RRY2JzeVBFYjZqR0tGV0l5eGgrY29xT0VzVzkrOS9lVzAv?=
+ =?utf-8?B?SHZkeXNMSU5NMUI4M3p3WkpMWE5RSkQ2VlFqNU5QVTJiOXNUVGM2aURuR3di?=
+ =?utf-8?B?KzBQeVBya2ZVQnZkVTFlOXhoTEkrM3NDQkxES0N1ZWFucXc1ZlZDTXRXRGVr?=
+ =?utf-8?B?OFpzdWZjSTFkN1NDZGtQRDFEa3l3b0tqcDRRZ0ZETFIwb1ErdGhQZCsxUTd0?=
+ =?utf-8?B?NnR1RHZNY3BIYXgydHFxMFc4NnBGUmlabG9aNExWemtBa2NZMTZpUGYvR2I4?=
+ =?utf-8?B?bzNEdWNvVHcwRGxQcWh0YjhTalU3dUVBU0wxc2hsMGoxY3E1c2xQSUJGNTZv?=
+ =?utf-8?B?T2NqTFFXSWsyQUUyblFGWDZhbFByU3FZaVNEbDJVVGNML3lwbGxTanR5emtw?=
+ =?utf-8?B?Y0VWRzhHaGNKNndGL0t1MmtyT1NxTE5sL0NWaUMzb3VSVnA1Tk80SEpIdGsw?=
+ =?utf-8?B?QlY5YWZGQktPM0VDd0tnYUNrblBqYXNoQW9UeHFWd2src0VSdE9heW5CdXBG?=
+ =?utf-8?B?RjY5dnpad3dLR1ZiWWlHc0Q5TmE1N1ova1NaZ0R0V0syZzFFdVBMZ3Vrc3RO?=
+ =?utf-8?B?Z0dPM09QaklJM3QxMzdSQ2dEaVVKTnZHUFQwQ2dSVmdJK3dHMXBtTEtFRjVX?=
+ =?utf-8?B?SUgxM1lXZERMc0JDTGlIb0Nxb0FEeVVWaVRxdXVJVDAremVITFhQOE4rV3Rj?=
+ =?utf-8?B?UkxkaGN2U2RpZ0I0T2JMdTFtRzJnTnNreVU3VUhYOFhRaWUrZWdudnJDWDdQ?=
+ =?utf-8?B?UEgvN3Z1ZTMyM1JNWWZkOC93KzRoSDZsZDJ0TTNIRjU1L0xFM1EzQ2FGZ3o4?=
+ =?utf-8?B?bnVmTHZ6aUhraGtUWFRmNGZzTUU2Vnc5M3pnemRlRkp5RHJYbC90UVN3WmJ1?=
+ =?utf-8?B?Q1pQRzRzT0VZR21nTnBoY1QreWtUa1VPN2dxQTEwbEdaYXJjRTN0ZDhnRVgv?=
+ =?utf-8?B?SDJ0L1YwRXRnYnJuKzFmYWp5dm1IQmdnTlg5bVduMTd1TW5jUWFQNHdQTXIr?=
+ =?utf-8?B?TFZBbkpjVzZtallrYU5xNnc3eFBETmU0cytTY2h6S3VqUS9FTko1T1ZGVEVD?=
+ =?utf-8?B?MHUxSjRKTnRmeE9EbStsRzJuVHMvb2pPUXdQTTJCYlZ5YjRHbXpaY09UaVkx?=
+ =?utf-8?B?MmYrQ3hYQ2JNYnoyKytxKyt3dGFsQXA0M0x0eldXdWFWaVZKaGpiTFByTXdF?=
+ =?utf-8?B?VTZ2ZElPcDlaTWNaQWpFcVlZMVNJL1hPRENYVWlmRjJWZU1hR01uUDVQVUZE?=
+ =?utf-8?B?R2JZQ1ZWTjJTYnFHTzRRbWcxbzBXWHdTTnBzcm02d1RyYlFqaWFONmozOVAv?=
+ =?utf-8?B?aGQyVG9PbnNaZ2M4VHhnSlZ4NFpvZk1TQ0JORWlxVWhZaWg2QlNVVWxtOU5U?=
+ =?utf-8?B?SFZDbmVudjgxTmQ3dHZQbUNVSUk5bWx2YXIybURFdHhWK1J4WGRlanhZaFpU?=
+ =?utf-8?B?emM2L1ozQ0FXTFd1SUgxQjN4eXpkQVZqOEl0WjNqUzFPT3Fqd2F3UEM0d1lj?=
+ =?utf-8?B?TjlERDMyaFdveUFxTjBsQTkwVGROd1ZkT2hFTkljNjU0OWVLclFWWjdMeEgy?=
+ =?utf-8?B?QUNWN2Q5WTRXSjFHeXhuNFQyVnlUS21mdHhaWmZLUkRoeTBKSGJGVDRYOVh6?=
+ =?utf-8?B?N3BBeDEydTk5TnYxRFY0NG5BUWRVQURBUlpXdExMeUdKQmVvVlgwZ3JvbVBn?=
+ =?utf-8?Q?+Y5flqLmQnG7ilQjEFyrZig5hsCjiVxXNqijE=3D?=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1P194MB1761.EURP194.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(52116005)(41320700004)(376005)(366007)(38350700005);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P194MB1894
+X-Virus-Scanned: by bsmtpd at uottawa.ca
+Return-Path: prvs=8782c9ad5=i.amoroszornoza@edu.gva.es
+X-CrossPremisesHeadersFilteredBySendConnector: CMS-P31.uottawa.o.univ
+X-OrganizationHeadersPreserved: CMS-P31.uottawa.o.univ
+X-Barracuda-Connect: UNKNOWN[137.122.8.249]
+X-Barracuda-Start-Time: 1717471079
+X-Barracuda-URL: https://137.122.8.221:443/cgi-mod/mark.cgi
+X-Barracuda-BRTS-Status: 1
+X-Virus-Scanned: by bsmtpd at uottawa.ca
+X-Barracuda-Scan-Msg-Size: 868
+X-MS-Exchange-Organization-ExpirationStartTime: 04 Jun 2024 03:17:59.5586
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ a412de31-4477-49f6-caed-08dc8444efcc
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-SkipListedInternetSender:
+ ip=[137.122.8.249];domain=CMS-P31.uottawa.o.univ
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ YT1PEPF00001E8D.CANPRD01.PROD.OUTLOOK.COM
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ YT1PEPF00001E8D.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-OriginatorOrg: uottawa.onmicrosoft.com
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ 865b2fbc-d457-426c-f70d-08dc8444e6f1
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230031|35042699013|82310400017|43540500003;
+X-Forefront-Antispam-Report:
+ CIP:137.122.8.221;CTRY:CA;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:barracuda3.uottawa.ca;PTR:barracuda3.uottawa.ca;CAT:NONE;SFS:(13230031)(35042699013)(82310400017)(43540500003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2024 03:17:59.4961
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a412de31-4477-49f6-caed-08dc8444efcc
+X-MS-Exchange-CrossTenant-Id: d41fdab1-7e15-4cfd-b5fa-7200e54deb6b
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=d41fdab1-7e15-4cfd-b5fa-7200e54deb6b;Ip=[137.122.8.221];Helo=[barracuda3.uottawa.ca]
+X-MS-Exchange-CrossTenant-AuthSource:
+ YT1PEPF00001E8D.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT1PR01MB9274
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.0876968
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7633.017
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?OFd3NEtsMFkxWG1JRkFJNUJnL3J6aTZ2YzdWRmdFZHMyakYyQk43QmpxSVdL?=
+ =?utf-8?B?eGdHRG5BMFlKcUpNMHZ6UFhJM2ptb2V2WU5hcndvTHJzb3pKZ0J4UzBrRVAw?=
+ =?utf-8?B?K2hRTGRtOVVrZjMrd2drUEpkOHBpQ2FqOW9kNlNnZDAzMEg1TWRGWHJFSXBQ?=
+ =?utf-8?B?Ymx6VnlFQnAveFVrYy9UakN1ZVNHYnI5bkhMR1BES2M3WWRqYy9BYkw4a3hS?=
+ =?utf-8?B?UUFWdFVhOGg4cEpCMmNXc0hDbVZNd3BTZ2JiMUFYa0lGYjV1YkNVT29MajBj?=
+ =?utf-8?B?QW9jVEozTU42M1B4OXAvSTExQUtQTUdtVGVIU0FGTjFPU1lBcGFKaElneWIy?=
+ =?utf-8?B?cXJ4c3gzVVVmdGxrcUlaSS92cHpUVGUwUXpaaUp3TlhhWHQraGhLR1krNjd6?=
+ =?utf-8?B?MGRsZVp5dm1QL21ndmFQbXFaTWJMOFNpcnprQjhpOFhDVWpFWUVnQ0x4YVJW?=
+ =?utf-8?B?WDNYaTAzd0R2dnRDYW1WR2wvT1BRVjRTQ0J4b3N6cjZpd29xN0Y5UnBwOVZW?=
+ =?utf-8?B?UElGWmgrOUc5ZUhjdy9MOGF3c0pwVkJpN2xjZ3AwV0RualI0WTloYUtybENj?=
+ =?utf-8?B?MGF1TXEzUXBRd0ROYnV1aWppS0QyQXNNZG5sZVRnMjFmbFpsS2ljSHhoMUNO?=
+ =?utf-8?B?Q3l2ZTN5by8vbHlIdkVtVCtBMjNycGRQeC9UcEVLdHlFL0laUGxVaWQ2Y1Na?=
+ =?utf-8?B?dWxabDhuNFlmYzJwbE9NN0czaU16SEwzcU43WlBZZklnRU9nSVNBZnpuNUx2?=
+ =?utf-8?B?by9Ldng4YWNsTXVEUjNqZ0VhVGFJQ1FweEg4Ujg0ZEdldER3TEUxM1FVRGVB?=
+ =?utf-8?B?WWorSW1hZUJvbXB4MWVGRExTNm8wZ005eUFKTm9kZWFPZTEyc1JIMXdqcmtn?=
+ =?utf-8?B?YUhFNWxjRjM1cUdrazBIY1dnOGVMTEFJcDhNNnRXV1BlNWt3dWVkV1B2T2pq?=
+ =?utf-8?B?MUxEdlVxYnF1MGhTUnZjbzBta1BheHlHK0RMZDg1WWhib1Q4UnowaU9BSFNB?=
+ =?utf-8?B?cHgwNE5JaVFRLzZFekV5aGtkZEF4SGo4cGp3SExodE5CNFdhWmNLTkdUbzNm?=
+ =?utf-8?B?OTZXeGpiREt5QzcxdU0wajNJRVlndXhSd1h4dDhUVnpiVkM1QlY3SFV5WXhk?=
+ =?utf-8?B?MjIzcjNma1g4TUVDRml1YlF5VGw4RkFjcVl4c1FqdjZ1eFVsVlhZLzVEVmtl?=
+ =?utf-8?B?KzVYY1p2YkFRaHZlWGhCS0ExMU44SmpSNm04OE5PeEZjTW1iSkpWYmhrOVlj?=
+ =?utf-8?B?MUNRNXo4V0wyR3Zwd1MzeVpUZVZvRHNzUzgwa2Jhei9TNFR0TTZvUUlFcXdJ?=
+ =?utf-8?B?c3Z3UnZCZE1hTDl5SUlsNmZSdnlCV2xmd3pYdWs5STFzRnB3OUcrN29nSHhX?=
+ =?utf-8?B?OVlvT0g1aVlOVzlLQWpPV0NiQlV3aXdtTDRPSFJxWXVtZWRhS1BhNFpDQjdp?=
+ =?utf-8?B?RlNqbXo5Tm9qNTZzU1lBMmQvajVGLzdpelF6SFVjVk1zQVlnb2duNkJjNEs2?=
+ =?utf-8?B?aFlCbEVmVEVpM1FJNEp0T2tnNE15dE52azN5TmFxRzQwVy9NQjdYR0ZBMWU5?=
+ =?utf-8?B?Y25YMXl0R0h3SXpaT2cyOG9ONHhvR2FGVjJiTGwzUHdaVTVrSGZtRWgzLzVn?=
+ =?utf-8?B?NXBkdk9MZ3FmYWJMaXFYTkRzd28xTVFoZDlyQkJjSlJsak83OUVDaUlVYmsz?=
+ =?utf-8?B?emEzWFNYZld0bGVuMGR4UXpnM2NrcGdwY2tLK01RNGE3R1FmZGIrL1B1a1Bz?=
+ =?utf-8?B?UnV6dXRrY2cyajk0YU9lUGMvbFh1ZTdIVkZlMTlXc0tITHNudkdDYThlUFlY?=
+ =?utf-8?B?TjQ2amVtVkFPNFJVd1ZmaEVqOUtYd0VGUXlOZk5TNHBUWFRBTC9ub0V2UGhC?=
+ =?utf-8?B?VnhJRVR3YXI2TW5haWJhNXJVejR5RVcyRnR6c2I2TkxkQkJZRE1lNS96YjJD?=
+ =?utf-8?B?MlVLSUp4SEVDOFAwNUZ4bld1RlJ2Z3NMVmtaeDJUNlRUS3lxQ1RMY21LVlI3?=
+ =?utf-8?B?VHl2eExHZjZtTG42azhVQktaaW52NzlScWZneXlUNkUyWVdFeE9vakJFaG1l?=
+ =?utf-8?B?eXh0WHFPbUdjbFZtLzg2RzFlWTlja1h0MGNIejlxd05zZ2JISGZGV1pzb3Mw?=
+ =?utf-8?B?OGQzNFZmdEF5cnRBUUZNMVdRTEtOaUN6cERocWUvazVMQnlqQWlNTFBHRVhR?=
+ =?utf-8?B?QUlrUXRQOUgrNnBydDU4d2RyTnVkbXI3UEpCSXZvV0QyY3VQamZqZ1dDdjJO?=
+ =?utf-8?B?bUxZQnZ4U1ZNdHdkVHBQOHU1cXJGdWlPM2RmOEVtQ0lkTjVpNVUwVEZ1THNR?=
+ =?utf-8?B?dU52UUlZN05adUxFMnpSZ2VCYVZ5TnFMQ0NKZUwxdzdrSFI5eVd6eit4Vjhs?=
+ =?utf-8?B?K0ZKaWRhdE1rWlJOdFNSbVk4VldsZVgvWkJ1OVI2dTc5VlB0MUp5dGNEd3NF?=
+ =?utf-8?B?ZFVEQXp1dW0ydjhwNi9DdWlVRFhqdDZvazRmNG5hWUtQQnN4RGRyN2Qwa3B4?=
+ =?utf-8?B?dlkwbTBKWU9OQnMyYWxBZUQ1ZHhJQ045TGZzREcwdUpoYnFSNllsak1PbStK?=
+ =?utf-8?B?NXB4VVlsUEZtc2VTV1dmVk5Ock1VSW03T0ZxbWdpZ2VlY2tTY2FlajFTY0NR?=
+ =?utf-8?B?RXJkdHhwU2JvbjMxMS9PYXRjMmxDaEV2aXkwZy80ajBOZ0lUYThyUnE2RFVM?=
+ =?utf-8?B?SlBqaURSOWxhaXByMk83MnpNWGhTVnFGaGc9PQ==?=
+MIME-Version: 1.0
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body>
+ <div style=3D"font-size:9pt;  font-family: 'calibri'; color:#FF4233;"><b>A=
+ttention : courriel externe | external email</b></div>
+<div>Travaillez selon vos conditions, gagnez de l'argent =C3=A0 chaque t=C3=
+=A2che accomplie&nbsp;! =C3=8Ates-vous =C3=A0 la recherche d=E2=80=99un emp=
+loi =C3=A0 temps partiel flexible qui correspond parfaitement =C3=A0 votre =
+style de vie ? Cherchez pas plus loin. Toutes les t=C3=A2ches peuvent =C3=
+=AAtre accomplies
+ dans le confort de votre maison ou sur le campus, =C3=A9liminant ainsi le =
+besoin de d=C3=A9placements fastidieux ou les tracas li=C3=A9s =C3=A0 la po=
+ssession d'une voiture. Votre voyage vers la commodit=C3=A9 et les revenus =
+commence ici. Postulez avec votre NOM/NUM=C3=89RO DE T=C3=89L=C3=89PHONE/AD=
+RESSE
+ DE LA MAISON =C3=80 humanresources@donationcommunityaid.com </div>
+</body>
+</html>

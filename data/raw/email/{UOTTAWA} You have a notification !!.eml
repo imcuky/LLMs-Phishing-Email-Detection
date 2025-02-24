@@ -1,0 +1,502 @@
+Received: from YT3PR01MB9489.CANPRD01.PROD.OUTLOOK.COM (::1) by
+ YQBPR0101MB5443.CANPRD01.PROD.OUTLOOK.COM with HTTPS; Fri, 21 Feb 2025
+ 02:03:02 +0000
+Received: from YT4P288CA0018.CANP288.PROD.OUTLOOK.COM (2603:10b6:b01:d4::26)
+ by YT3PR01MB9489.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:a2::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.15; Fri, 21 Feb
+ 2025 02:02:59 +0000
+Received: from YT2PEPF000001CF.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d4:cafe::58) by YT4P288CA0018.outlook.office365.com
+ (2603:10b6:b01:d4::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.17 via Frontend Transport; Fri,
+ 21 Feb 2025 02:02:44 +0000
+Authentication-Results: spf=softfail (sender IP is 137.122.8.105)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 137.122.8.105 as permitted sender)
+Received: from mx95.uottawa.ca (137.122.8.105) by
+ YT2PEPF000001CF.mail.protection.outlook.com (10.167.241.39) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.11
+ via Frontend Transport; Fri, 21 Feb 2025 02:02:58 +0000
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=209.85.216.44; helo=mail-pj1-f44.google.com; envelope-from=nichymorezsello87658@gmail.com; receiver=<UNKNOWN> 
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	by mx95.uottawa.ca (Postfix) with ESMTPS id 728CF3953;
+	Thu, 20 Feb 2025 21:02:53 -0500 (EST)
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-2f441791e40so2556044a91.3;
+        Thu, 20 Feb 2025 18:02:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740103372; x=1740708172; darn=uottawa.ca;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=YjwaE9E+cjztFdNv8GZbBJV2AkeE80ND5DNcoXf1g8A=;
+        b=K+77Sk7M7BUBfeMpMgVPU0iaQsKxn5UaHj/+X4yh79HdA/ntD3teSU5weU5pvOyydR
+         52O3gh3Bf/W/7hGm1W9HWm2aUjCk0IgSVemkvtf7CgjK5Md62wIu84Gh9P0XidtANB3W
+         8XB8L34DB82cQuJld0V3glsHWobWgzzV2oZzXMLzQ+FErvbAIK6o7cuNoB9slP/EmUFq
+         JZ1BwgxMYD7mmYz4Hoam0SMlAhvXwsbNrF5C+P2kJnNNQwqjR37ae9jQcgXRbKcIGxer
+         O+bkPYKJnPze/yXeQhsHuzgQ3sdiFrJux2/1MKwU5i8FeETAdn2rWaY09VbRgyGITH8W
+         vNmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740103372; x=1740708172;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YjwaE9E+cjztFdNv8GZbBJV2AkeE80ND5DNcoXf1g8A=;
+        b=YA8cjrv5vK2+XtLxdzM3Qo60bRsyrZ6Y+yrgwRlgJdn6O4qGRioGDunnusUajDIm3n
+         N/ZM8zLZjfgQSrjhspboyqRojyUCRJk7OqRURdHpbPyuChB3UXn2uyyBonSxS0cZaU4F
+         sWViuOoI/gT7L49tbO54s+L4RM9dH4dOIgPd/kfrvI9AM6RiERDJGbHLCBuvCh2a5kcG
+         dYKHMjJrd/8imMgti//AyaEKAZ7QqIL+JpIoXxU4cXAhZOZ7TiLlHgpLJcIuyP5ZciOC
+         qefNiqX9TImrUVLHe7gZUBxD1WmmoZ5I+H4KhU9q6F7He0zF14pv0A6aKSbjoJ7pYdNL
+         Sb0w==
+X-Forwarded-Encrypted: i=1; AJvYcCU5+M0RluzDOlP9dx4Os4TokcEX67aELnfAgUEJHu3KjV14PhegaT+xcdGWDRF9n8PoOYqGlwJwbuk=@uottawa.ca, AJvYcCU6rsFAOwABL3y008tI3i+zpXOKFMkwIr0POhk0YuFzyt1nIACdAmdR9/0FumM9K3/qa2ibnQJM9+k=@uottawa.ca, AJvYcCUOb2GHuGdhMDP/G0wsp5bVxPuBL2PxOzFfZ+17oqQa/5bd+1eozPKdpJfRX8c3Oph/hqPWU/ujOW0=@uottawa.ca, AJvYcCUf5IWjeSKsT+osgOHJ90O2KBluNBNLoTBW2TQXZIKMufarhPr4YomBW2m72kXTZ/QkooMUMUvzpg==@uottawa.ca, AJvYcCUj7BHTA09AvGLKpABJ0oX8xdMI4ZXfNYBeGTVH0OUpvKb+Mq5i9/ZRasQPJ5bSx2r8AS3geTHhqz0=@uottawa.ca, AJvYcCUqhJQ7Xw4zpx2Lbsx2L3BUw7C7GMVB5qQhhUD4ovPxToDLjSbjvIWO93dmR4AB+ozQKZMvTmVnELo=@uottawa.ca, AJvYcCUu7EPMK2iSwrQ7Y7y2H/RP0apziXODbrtuhJnI4ZaVi3zdij72Oyg5t1QMil5ADJWpEfNVe5mD@uottawa.ca, AJvYcCUwDSBnMoMnQ+uoT+4pvQzK3r9dv2yl1698YJjROW6jMa6769nrhLzQYZVW8vp2f/ccIXWI/pk7iBQ=@uottawa.ca, AJvYcCV/Sl9F/FpdprqRUGZN0o/ykq+KHnE2PMqY77HXKzN/d6UJG7cQABVUqVdvMsX0iEB2MOkYz/PiBX0=@uottawa.ca, AJvYcCV93ENFGH1idysN/GNvBB0qBLO5azBU3U3zpAiAY2Sepp10TkEVATDCstfbIDC7e05lub8O8L/ZPhI=@uottawa.ca, AJvY
+ cCVGntes1JDIT3107a7asnpB6yRc8CC2bdEe7Q6zuXTFVlFlKbl3kbLMl4vf19xwNSup0XuOVrYdoA==@uottawa.ca, AJvYcCVIxGiYLj1qB5H4CPiAfrvRbyDGxtN2I/fQwBygDdgbU+kwWE50tejOiKUCHPYNlXjdm2kUyCnf2Q==@uottawa.ca, AJvYcCVKFVilvOtqW19oVgmD2zEi60DOtN9aHIggOIdsjq0b1c8fhWXISVvvImrwhenzmIHG27Wkk99zCSs=@uottawa.ca, AJvYcCVnJ45r+dZ7kcQcgOCE3Ex3WElTtlLJ4JVI+RVwgAO8PmPzk356OBXzCth0u6Di3mFO+5obnb/+l7s=@uottawa.ca, AJvYcCWBztu5n7Kfi5BtMM1SyZXvy5zuOr6utvfE1wkO7pPV3+talI0MNbZQGFcqhemUUfWQ4T3G6/WLMwU=@uottawa.ca, AJvYcCWUNvesdcdf+gFYE22OGW8K0Jb8xB9SYR89+cUyh5bZOgMDFYGKkh0y4qM4aDXmoHuer+7hNUjbvsE=@uottawa.ca, AJvYcCWYTPOPGyrhlyqn4+g7JUoEpcLGUOvGpMfXZgqOH7cKdcLaO/dPay8220uYa+QOHVDRdKjWYbalywI=@uottawa.ca, AJvYcCWl7x2sKsPpT2e6/qhs2UjtSIJrhaBNplhy83EmzvdZw6T7kJF25T6HtVrY6riMBi2gwGmIi4R48w==@uottawa.ca, AJvYcCWsPnzcc8Pw7FWhOZuFnGyT5QEzd34JcpBoAbAkNx7oBQSLyfEGP8WYo4ImWyHJorOSDv9DVjFr8tI=@uottawa.ca, AJvYcCWu32QkFWJBI3268vJ4aE4rsJkZVfEs2gS4IlhOg6vZ+C/q9mK2vKXaTFG88YqYshvbJK21Ww/YCPE=@uottawa.ca, AJvYcCWxWELnyhB+pQNr3OJilRlOCuu
+ 4cyr/5NRyZOBHCizyNB2Pj/1u6z16xUCjnWZ96iCFEWw7n7L6G3s=@uottawa.ca, AJvYcCXAWNC3JS+7YeT78gcyb8121qoIXoD+Sb7DSKCOeEcEv1ljJTTr1HbzgJTXKTaSsu+bkcY1IeFFsQ==@uottawa.ca, AJvYcCXODRtoBiPUAjnsGEnDkrl6sj5yyXGLDC867YC3TL3G3qcvbO5HA6V1x5U0M5kf5fJ5sScZ6pxc/Q==@uottawa.ca, AJvYcCXWgkMD2qGtVrCQv87W7FboivGaNUM5bgexc3mo/uO4C8I9K300ylwngDQqqqB1gp0+SscwivN5As4=@uottawa.ca, AJvYcCXrQE21ewU4NnF79F6GYINP1c+pAVwT9pyvcfitAJQAZC0QBqhjfeHif0umHDqlCg3XsHv9X8Rsv5A=@uottawa.ca
+X-Gm-Message-State: AOJu0Yzlh6npM3lsXvB0TNoiJJshGyVyn/IGXyIOH3Mi/AgqeLpP+7av
+	P9I71bE93hZrntabsq5w7sjAi3SdnUPK9ZyGV5nsNYuHN6h9P/+4FbpDtSM2LqI85TCdVL/dgwi
+	I4OJbrHmc5QAK+1VQldojZNaZTTA=
+X-Gm-Gg: ASbGncs+EGPWmvgEVtw+J2qFIhrYHu/yTkeKxHzLPWEXCgamEuMonxaJcsHuGzTFpwS
+	zvj/Duxg3E/Xb7XirOnx8nCpxZ8AWOQPyiSAwuHMEnnMI/NpoFa2TZKIqiYmJhe36kcopp5W6YJ
+	or3GGSTWDgP4Md/mluez6ShdAUeoWg2Kiyb405yQhy1g==
+X-Google-Smtp-Source: AGHT+IH0+d38/DYUfKlj12gVscjrzSjQJmmKDj3XeE2QB7ZJWpkGndUQ91eq5qGt+8W4sGxITEZvmz0G24agmwKXAYc=
+X-Received: by 2002:a17:90b:4b09:b0:2ee:693e:ed7c with SMTP id
+ 98e67ed59e1d1-2fce875d40emr1872846a91.33.1740103371950; Thu, 20 Feb 2025
+ 18:02:51 -0800 (PST)
+From: irme pace <nichymorezsello87658@gmail.com>
+Date: Fri, 21 Feb 2025 03:02:30 +0100
+X-Gm-Features: AWEUYZkMVqpY8leJBztHMBWmNjXvKthw29l4BbdRdX-E9CAp8DofniA610lRbZE
+Message-ID: <CAPVsV7kqJm5NGQpg8cfZY+3j4L57YnEHsFj=xkdwUi1aKnMKyQ@mail.gmail.com>
+Subject: =?UTF-8?Q?=7BUOTTAWA=7D_You_have_a_notification=C2=A0=21=21?=
+To: cgall106@uottawa.ca, elaro051@uottawa.ca, ngalt047@uottawa.ca, 
+	eesmond@uottawa.ca, bhatf081@uottawa.ca, fdaig064@uottawa.ca, 
+	ablai071@uottawa.ca, ymuya094@uottawa.ca, ameno097@uottawa.ca, 
+	rrajgara@uottawa.ca, nsing031@uottawa.ca, skhan068@uottawa.ca, 
+	szhong3@uottawa.ca, abank091@uottawa.ca, znaza090@uottawa.ca, 
+	rfloy031@uottawa.ca, mouel038@uottawa.ca, dgand027@uottawa.ca, 
+	trafu071@uottawa.ca, lpall087@uottawa.ca, meid037@uottawa.ca, 
+	fmomoli@uottawa.ca, nkrim043@uottawa.ca, bgauv082@uottawa.ca, 
+	lgree013@uottawa.ca, smoreno@uottawa.ca, mbrew054@uottawa.ca, 
+	ggonz091@uottawa.ca, mlayt008@uottawa.ca, jngou069@uottawa.ca, 
+	pkapo081@uottawa.ca, vxu090@uottawa.ca, hakra098@uottawa.ca, 
+	amaal082@uottawa.ca, ylaw@uottawa.ca, xchen194@uottawa.ca, 
+	kroma013@uottawa.ca, bmaachou@uottawa.ca, mpoli077@uottawa.ca, 
+	amali073@uottawa.ca, lsun106@uottawa.ca, asata055@uottawa.ca, 
+	ssola013@uottawa.ca, jafri059@uottawa.ca, krige041@uottawa.ca, 
+	oibra006@uottawa.ca, cgara093@uottawa.ca, lray@uottawa.ca, 
+	amojt073@uottawa.ca, nopus102@uottawa.ca, imang074@uottawa.ca, 
+	kchiv087@uottawa.ca, mduon100@uottawa.ca, jlee552@uottawa.ca, 
+	mgali099@uottawa.ca, hliu032@uottawa.ca, cdick010@uottawa.ca, 
+	smbuy022@uottawa.ca, zalah014@uottawa.ca, akhan244@uottawa.ca, 
+	pgiguere@uottawa.ca, rchoquet@uottawa.ca, sdobi028@uottawa.ca, 
+	mpere085@uottawa.ca, rlaflech@uottawa.ca, dzera029@uottawa.ca, 
+	kdesh017@uottawa.ca, vdura064@uottawa.ca, aalih011@uottawa.ca, 
+	cjimene2@uottawa.ca, gprio055@uottawa.ca, tkemp013@uottawa.ca, 
+	nrich066@uottawa.ca, vrobi045@uottawa.ca, dimar007@uottawa.ca, 
+	kdemb093@uottawa.ca, smaye038@uottawa.ca, jsome020@uottawa.ca, 
+	ccode083@uottawa.ca, cosadchu@uottawa.ca, slima029@uottawa.ca, 
+	dbret069@uottawa.ca, r-stt320@uottawa.ca, jgreco@uottawa.ca, 
+	kmwan074@uottawa.ca, avout056@uottawa.ca, pwen091@uottawa.ca, 
+	jalfa021@uottawa.ca, mbirc093@uottawa.ca, dcace066@uottawa.ca, 
+	skara016@uottawa.ca, klami016@uottawa.ca, pburr049@uottawa.ca, 
+	mmacc066@uottawa.ca, asabo081@uottawa.ca, cngob019@uottawa.ca, 
+	mdonn051@uottawa.ca, rsamu048@uottawa.ca, tgall040@uottawa.ca, 
+	jbois099@uottawa.ca, smori059@uottawa.ca, jbank066@uottawa.ca, 
+	lcesa071@uottawa.ca, r-MNO-N205F-tmssd@uottawa.ca, hsu018@uottawa.ca, 
+	jbilo019@uottawa.ca, kboud069@uottawa.ca, mcaca057@uottawa.ca, 
+	pmahm033@uottawa.ca, mdonn077@uottawa.ca, sajay059@uottawa.ca, 
+	stche073@uottawa.ca, alach031@uottawa.ca, lleblan3@uottawa.ca, 
+	ordrbook@uottawa.ca, zzhou056@uottawa.ca, thorsley@uottawa.ca, 
+	asorr080@uottawa.ca, ygben075@uottawa.ca, sburk089@uottawa.ca, 
+	smori048@uottawa.ca, mzain005@uottawa.ca, r-artsport02@uottawa.ca, 
+	dfuoc097@uottawa.ca, aledb032@uottawa.ca, lyan060@uottawa.ca, 
+	cchan279@uottawa.ca, vcher026@uottawa.ca, nabde102@uottawa.ca, 
+	sbour115@uottawa.ca, hboyl070@uottawa.ca, obrun064@uottawa.ca, 
+	ieyre023@uottawa.ca, mbuka037@uottawa.ca, snasiri@uottawa.ca, 
+	pkazingu@uottawa.ca, eunde016@uottawa.ca, yzha33@uottawa.ca, 
+	zmo055@uottawa.ca, aisen072@uottawa.ca, cbroa057@uottawa.ca, 
+	mpluteck@uottawa.ca, mpugl038@uottawa.ca, zzhao007@uottawa.ca, 
+	harum097@uottawa.ca, awick038@uottawa.ca, zmaki048@uottawa.ca, 
+	xliang3@uottawa.ca, dshah012@uottawa.ca, aboxe019@uottawa.ca, 
+	shuot026@uottawa.ca, fsahr100@uottawa.ca, mbraz041@uottawa.ca, 
+	astau010@uottawa.ca, lxue064@uottawa.ca, lturn077@uottawa.ca, 
+	jgoss010@uottawa.ca, cruminot@uottawa.ca, mroy038@uottawa.ca, 
+	fcob084@uottawa.ca, eguey026@uottawa.ca, gtouz092@uottawa.ca, 
+	nanto046@uottawa.ca, jbate059@uottawa.ca, mmurr076@uottawa.ca, 
+	jchan307@uottawa.ca, mcooplan@uottawa.ca, dande029@uottawa.ca, 
+	aches016@uottawa.ca, ctziv086@uottawa.ca, amcgreat@uottawa.ca, 
+	ekata057@uottawa.ca, jricha25@uottawa.ca, mrober13@uottawa.ca, 
+	otouf054@uottawa.ca, mbail036@uottawa.ca, mojo088@uottawa.ca, 
+	swill109@uottawa.ca, oshok089@uottawa.ca, cmend051@uottawa.ca, 
+	jsrou030@uottawa.ca, sblair@uottawa.ca, rmalo087@uottawa.ca, 
+	selam055@uottawa.ca, vkhan091@uottawa.ca, nboyl050@uottawa.ca, 
+	orena019@uottawa.ca, r-RGN1515-tmssd@uottawa.ca, pbrei083@uottawa.ca, 
+	kknet056@uottawa.ca, zwatson@uottawa.ca, klemo102@uottawa.ca, 
+	glefebv3@ustpaul.ca, cdamo070@uottawa.ca, vboily2@uottawa.ca, 
+	lwool016@uottawa.ca, mbrat062@uottawa.ca, cdesn088@uottawa.ca, 
+	jzhan466@uottawa.ca, mling072@uottawa.ca, wdelv084@uottawa.ca, 
+	padam066@uottawa.ca, vevra012@uottawa.ca, mkhal113@uottawa.ca, 
+	ysim@uottawa.ca, jeger084@uottawa.ca, eatoh079@uottawa.ca, 
+	gosin012@uottawa.ca, ckiyoko@uottawa.ca, ekiar020@uottawa.ca, 
+	rmcca079@uottawa.ca, fokun061@uottawa.ca, djung084@uottawa.ca, 
+	akhan10@uottawa.ca, r-TBTM096A-B-tmssd@uottawa.ca, abehn082@uottawa.ca, 
+	mbust072@uottawa.ca, aisab088@uottawa.ca, nkapo040@uottawa.ca, 
+	eblac039@uottawa.ca, nahme096@uottawa.ca, vdrap011@uottawa.ca, 
+	bbrah027@uottawa.ca, mange025@uottawa.ca, jsupp029@uottawa.ca, 
+	jlee355@uottawa.ca, sng068@uottawa.ca, stse089@uottawa.ca, 
+	amaso015@uottawa.ca, dabdi072@uottawa.ca, dzund013@uottawa.ca, 
+	yliu661@uottawa.ca, eniji052@uottawa.ca, agopi029@uottawa.ca, 
+	yalat057@uottawa.ca, tlato079@uottawa.ca, zlai100@uottawa.ca, 
+	zkana075@uottawa.ca, apart055@uottawa.ca, gston006@uottawa.ca, 
+	mperp071@uottawa.ca, oritc027@uottawa.ca, clee252@uottawa.ca, 
+	cujii102@uottawa.ca, nelka059@uottawa.ca, aalhu054@uottawa.ca, 
+	ialghaza@uottawa.ca, mseguin2@uottawa.ca, ombombok@uottawa.ca, 
+	yxue017@uottawa.ca, lnase028@uottawa.ca, ddeht069@uottawa.ca, 
+	agoit103@uottawa.ca, jchar217@uottawa.ca, pal1a@uottawa.ca, 
+	zzhou113@uottawa.ca, ltheria2@uottawa.ca, jjang063@uottawa.ca, 
+	mlepa100@uottawa.ca, eali068@uottawa.ca, bdera095@uottawa.ca, 
+	vpato065@uottawa.ca, mbela070@uottawa.ca, mkeli088@uottawa.ca, 
+	jalle066@uottawa.ca, mtoor042@uottawa.ca, cjaco063@uottawa.ca, 
+	zmaid053@uottawa.ca, ksult103@uottawa.ca, mdjarmou@uottawa.ca, 
+	lcamp070@uottawa.ca, mparen7@uottawa.ca, lngab086@uottawa.ca, 
+	cleon035@uottawa.ca, awarf103@uottawa.ca, gstaf098@uottawa.ca, 
+	hyous017@uottawa.ca, kshaw032@uottawa.ca, ssara050@uottawa.ca, 
+	tsond041@uottawa.ca, fmasud@uottawa.ca, fmoha042@uottawa.ca, 
+	asing217@uottawa.ca, dtruo076@uottawa.ca, ldong@uottawa.ca, 
+	haman098@uottawa.ca, khaas024@uottawa.ca, nravi018@uottawa.ca, 
+	mlow025@uottawa.ca, losez069@uottawa.ca, clesu024@uottawa.ca, 
+	blali056@uottawa.ca, lenju066@uottawa.ca, isono042@uottawa.ca, 
+	mmaha046@uottawa.ca, mabba061@uottawa.ca, sbathily@uottawa.ca, 
+	mwebb051@uottawa.ca, shale078@uottawa.ca, cbone016@uottawa.ca, 
+	jzha039@uottawa.ca, jarbo053@uottawa.ca, sfras094@uottawa.ca, 
+	szhao007@uottawa.ca, myu042@uottawa.ca, enayl037@uottawa.ca, 
+	neged057@uottawa.ca, spear102@uottawa.ca, mzito041@uottawa.ca, 
+	zsun020@uottawa.ca, jabit059@uottawa.ca, fmatzing@uottawa.ca, 
+	nmcca024@uottawa.ca, mafsh033@uottawa.ca, ndara092@uottawa.ca, 
+	aniko042@uottawa.ca, jrobo068@uottawa.ca, mzemn085@uottawa.ca, 
+	jtrul049@uottawa.ca, mdara101@uottawa.ca, oaden079@uottawa.ca, 
+	lhela093@uottawa.ca, gchen070@uottawa.ca, sabba052@uottawa.ca, 
+	llafonta@uottawa.ca, jwrin057@uottawa.ca, edixo034@uottawa.ca, 
+	mraym067@uottawa.ca, andoh008@uottawa.ca, mmoke082@uottawa.ca, 
+	jkpoz049@uottawa.ca, rwath102@uottawa.ca, ashaw@uottawa.ca, 
+	mrang094@uottawa.ca, wchan107@uottawa.ca, sduigena@uottawa.ca, 
+	gsoar036@uottawa.ca, kdous027@uottawa.ca, lkora038@uottawa.ca, 
+	efine082@uottawa.ca, jquev070@uottawa.ca, jrene013@uottawa.ca, 
+	ahaque@uottawa.ca, akong049@uottawa.ca, jpaul056@uottawa.ca, 
+	kshin029@uottawa.ca, mmaxw081@uottawa.ca, nvekr034@uottawa.ca, 
+	tgrec024@uottawa.ca, shari031@uottawa.ca, dsousadi@uottawa.ca, 
+	eclar039@uottawa.ca, cchek025@uottawa.ca, lgilc006@uottawa.ca, 
+	alega082@uottawa.ca, anava050@uottawa.ca, apillai@uottawa.ca, 
+	tmorr078@uottawa.ca, rmpog056@uottawa.ca, tmoyana@uottawa.ca, 
+	jsy089@uottawa.ca, tfisc071@uottawa.ca, sntow097@uottawa.ca, 
+	aabou108@uottawa.ca, kfurl063@uottawa.ca, bdeng050@uottawa.ca, 
+	garlt088@uottawa.ca, bcaud099@uottawa.ca, clamo102@uottawa.ca, 
+	ecole010@uottawa.ca, dblon089@uottawa.ca, bhurt045@uottawa.ca, 
+	mmai009@uottawa.ca, hmcis042@uottawa.ca, qwu090@uottawa.ca, 
+	iprav104@uottawa.ca, rlavoie3@uottawa.ca, jpate021@uottawa.ca, 
+	kprat068@uottawa.ca, hblac067@uottawa.ca, ewrig033@uottawa.ca, 
+	balam070@uottawa.ca, jquin065@uottawa.ca, cpak031@uottawa.ca, 
+	abola079@uottawa.ca, hmana024@uottawa.ca, dprel094@uottawa.ca, 
+	vguzz086@uottawa.ca, gratc051@uottawa.ca, bmull019@uottawa.ca, 
+	jlope076@uottawa.ca, ylee012@uottawa.ca, stoud088@uottawa.ca, 
+	ajaff073@uottawa.ca, mawes026@uottawa.ca, cirwi041@uottawa.ca, 
+	vcaye076@uottawa.ca, jhall015@uottawa.ca, aahma105@uottawa.ca, 
+	dandr006@uottawa.ca, splan030@uottawa.ca, bappl100@uottawa.ca, 
+	cmies022@uottawa.ca, rgett030@uottawa.ca, kouya057@uottawa.ca, 
+	mvinc043@uottawa.ca, msehri@uottawa.ca, mchah050@uottawa.ca, 
+	jtann034@uottawa.ca, cmich094@uottawa.ca, zwang13@uottawa.ca, 
+	mseen033@uottawa.ca, fraym076@uottawa.ca, pmak071@uottawa.ca, 
+	tbure071@uottawa.ca, tzhan015@uottawa.ca, mleve009@uottawa.ca, 
+	aliu162@uottawa.ca, jdouc105@uottawa.ca, jmill222@uottawa.ca, 
+	agerm008@uottawa.ca, inewm052@uottawa.ca, r-fss5028@uottawa.ca, 
+	awest021@uottawa.ca, mmous102@uottawa.ca, klant023@uottawa.ca, 
+	arath063@uottawa.ca, syou057@uottawa.ca, spark167@uottawa.ca, 
+	cchen027@uottawa.ca, ssriv094@uottawa.ca, dxin071@uottawa.ca, 
+	shend024@uottawa.ca, hkenn042@uottawa.ca, hdebo056@uottawa.ca, 
+	aakil094@uottawa.ca, jdesj082@uottawa.ca, mseck096@uottawa.ca, 
+	aungu044@uottawa.ca, spurc037@uottawa.ca, nvanl084@uottawa.ca, 
+	tknot016@uottawa.ca, alundy@uottawa.ca, bcurr005@uottawa.ca, 
+	fknoefel@uottawa.ca, ltonnon2@uottawa.ca, ebelz065@uottawa.ca, 
+	sahma119@uottawa.ca, adhil067@uottawa.ca, wlin079@uottawa.ca, 
+	aagbo089@uottawa.ca, ztu021@uottawa.ca, amirm083@uottawa.ca, 
+	rjame022@uottawa.ca, mdesg047@uottawa.ca, jatye007@uottawa.ca, 
+	smoha141@uottawa.ca, aburkes2@uottawa.ca, fkhme031@uottawa.ca, 
+	jmars022@uottawa.ca, tclar026@uottawa.ca, msigo020@uottawa.ca, 
+	jahuja@uottawa.ca, glo100@uottawa.ca, dchapman@uottawa.ca, 
+	gongu082@uottawa.ca, jvanb054@uottawa.ca, icote039@uottawa.ca, 
+	snels057@uottawa.ca, eakin099@uottawa.ca, qlang085@uottawa.ca, 
+	mlaco083@uottawa.ca, rdeni070@uottawa.ca, babou070@uottawa.ca, 
+	ameye076@uottawa.ca, kgari033@uottawa.ca, mbetb025@uottawa.ca, 
+	aabda091@uottawa.ca, mcorkery@uottawa.ca, ceby038@uottawa.ca, 
+	amcha084@uottawa.ca, munitas@uottawa.ca, mkuma072@uottawa.ca, 
+	dyu078@uottawa.ca, aroge053@uottawa.ca, cwu113@uottawa.ca, 
+	abiss010@uottawa.ca, kkaga084@uottawa.ca, r-1nicholas839@uottawa.ca, 
+	amoumssi@uottawa.ca, mmorc051@uottawa.ca, wrashad@uottawa.ca, 
+	jmena005@uottawa.ca, xwang015@uottawa.ca, pkouz068@uottawa.ca, 
+	jli370@uottawa.ca, epatt014@uottawa.ca, mamirina@uottawa.ca, 
+	hrala020@uottawa.ca
+Content-Type: multipart/mixed; boundary="0000000000005bb02e062e9d63b5"
+Return-Path: nichymorezsello87658@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 21 Feb 2025 02:02:58.9421
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: e693a5e0-c4c6-463d-b6f8-08dd521bdd73
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-SkipListedInternetSender: ip=[209.85.216.44];domain=mail-pj1-f44.google.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT2PEPF000001CF:EE_|YT3PR01MB9489:EE_|YQBPR0101MB5443:EE_
+X-MS-Exchange-Organization-AuthSource: YT2PEPF000001CF.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-OriginatorOrg: uottawa.onmicrosoft.com
+X-MS-Office365-Filtering-Correlation-Id: e693a5e0-c4c6-463d-b6f8-08dd521bdd73
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7093399012|82310400026|921020|4053099003|8096899003;
+X-Forefront-Antispam-Report: CIP:137.122.8.105;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mx95.uottawa.ca;PTR:mx95.uottawa.ca;CAT:NONE;SFS:(13230040)(7093399012)(82310400026)(921020)(4053099003)(8096899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Feb 2025 02:02:58.7077
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e693a5e0-c4c6-463d-b6f8-08dd521bdd73
+X-MS-Exchange-CrossTenant-Id: d41fdab1-7e15-4cfd-b5fa-7200e54deb6b
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=d41fdab1-7e15-4cfd-b5fa-7200e54deb6b;Ip=[137.122.8.105];Helo=[mx95.uottawa.ca]
+X-MS-Exchange-CrossTenant-AuthSource: YT2PEPF000001CF.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB9489
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.3192190
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8466.015
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?OGJLa2trTW4vV1BSUWdSWjN1WVBmL0ZNVDc5MmtjT2ovU25aV29odTFDT1Ax?=
+ =?utf-8?B?R0txbnQ3blR4Q25NSHFEV2QyTnZ5VmhQZWoxNCtFb1AxbUVuU0tseVBiMnBs?=
+ =?utf-8?B?ZlFac2dQNTJJZGRYN0t5TFpMWk9iRzhlbGtKRTFWRDRYUERnd0g1bi96TWFj?=
+ =?utf-8?B?RzYzWHBNejVYNG8vUUUrQTZaS3BlVnlWVkQwM0paMnVlSzNDbVNWUVJpZUlM?=
+ =?utf-8?B?SGFqYVloa2xUMlpvRExMcUV0anowa1FZVTVzZlJlSE9BOUxZb3h0dmlMS3Zu?=
+ =?utf-8?B?ZDgySDl6MDBxR2EyOG1TODF5NlFHam81cEhhZ0RuM1FaMmpBVWYxRVFiRjdw?=
+ =?utf-8?B?RTNvbFlMMFZja1JkRkRqa3orSVZicWdFRXJwK1owSDl4cStvQlRuaDE3Nk9M?=
+ =?utf-8?B?SWdKZ2E2RFlwRDJZT3luL2pjeno4TFBFZEhDTXFkV2hVTjdlc1NaNDFRMmZx?=
+ =?utf-8?B?aGRNc3pJUnpva2RyRTVRUUltQjVZdFhGMnU5eWhaVHgvaE1QekVVR05MZ21j?=
+ =?utf-8?B?ZFVZMW1nSnY0bTExNWtybVByRWw2MHBkRzJ5MU1rbWQ2NmdqYkxxaXNaR3Qr?=
+ =?utf-8?B?b0FlYXVEY1MvZ05lQnVHQS9YcndyTHNyWjJpK2YwcHNDN0lFQjgyQzl5N2pH?=
+ =?utf-8?B?OWtMWHh2VEVHZWsxN0xmNDJXR09EVHp5QWVmUnJ5MS9KeC9HKzdtckRMQmdt?=
+ =?utf-8?B?MkU5ZE5IbVVadCtxWjJWS2tnckNod0JLRUZyUm5QdUxjbGJ3MWg2RWJjWFIr?=
+ =?utf-8?B?eTk3V0x1MjQwQkVBNzBhNTM0R01wMjd6WDB5VnhCd1I1VXlkZmUwSWlCVkhm?=
+ =?utf-8?B?cTFlY2dvdHZPR1ZFY1g3dU90VXExdUdQcE5nb3EzeUtpRmswYUJvRkpaQ0JF?=
+ =?utf-8?B?RklYRFk1bU43RUNtK0ZObk9WdVk2ZGRzUzFjSDc3Nkl3SGZMeHFrcTNja1ZG?=
+ =?utf-8?B?emx1YWYrTFM2V203NVhpQ2pPZ0ZaQWhCWVpaUkxRdEY3aWFudjhEZHlTMENh?=
+ =?utf-8?B?Sk0yeFVYSnpLRU8vOGtmdFFhNUZnNXVzNHVOM2lHRFJjT0hRM2JqR3E3TXR1?=
+ =?utf-8?B?dFFRNkRxM0FCaENXQXcyYlExOTNEZFp5dThpTjBVZjRRTUY0WmVZNjh2TWxZ?=
+ =?utf-8?B?cTUrc1BtWHpzaEZsTFYrOUVJZzZJaC9qcVNaN0kxaW5DQWtxNzd5VkpySWJv?=
+ =?utf-8?B?Vm84SUtkSkxldEpQdHJINFhJK0h0V3cxSVdmZGlRMHoxeUEyVzVRdHZqbWtX?=
+ =?utf-8?B?b0Z6Q2o4RjNPVnlkNEhEdWxhN1dHcmNMYWNqUGdtRXBHMnlheWVRMWg0VGdp?=
+ =?utf-8?B?U3NhbVA4eFhnMDZaamV6SnVVdVFJZ096STlRRnJHZnQwL2FFRVZjNStrTnlY?=
+ =?utf-8?B?RHJFREhDZjV4Yy9Temd0c29LaERXdmR0Uk1NaE1WY0NnQ2FPb2xOajQ0d1ow?=
+ =?utf-8?B?dTZKdGxMcDdPOGZBR3N3UFZOdS9mbUxkUUgveUdGMFRYbTBMa3pIb0MrQ09l?=
+ =?utf-8?B?Mm1vQUsxSzMwOW1mWjlzejhRck8zeXdKR2MvYlMzN05ON21yNWtPZDh5UkZP?=
+ =?utf-8?B?MnZYK1orejFleXRhaVJPZFpRcGF4c2dnRmtwV0poMGpsTWo2UjgwNjJpdzJq?=
+ =?utf-8?B?c0xqUy93WjFTemE3cmNWRnF1Y2liQ1REUzFNTkQ2dDVtcWRvVkZkWU5DTGg2?=
+ =?utf-8?B?K3hJM3BEcks2cWdadFlrR2N0TjRZQnFUMnhtZjJJUXkzMU5tVlhUaytVa0RY?=
+ =?utf-8?B?cFN0cFkxV2VWNC9VMGp5SEhFc05RZHBjcWxMRWVjYjI1ZVVKWDVHdzBwcGN5?=
+ =?utf-8?B?UG9lMWppb2dqVnZwQXlMWlRZSGorM2ZRb1llbGk1cWkwTzVDS0d6bGFRSm5F?=
+ =?utf-8?B?T3paRGlXWWxuSDVLRzRlTlZ1V3E2REhOMHBqRVhJWThUZXNGTDRUampIRkNW?=
+ =?utf-8?B?RGZZL2x5UGdRL053MThjUVlCQnR4RklMdm9jekk1UWxtd1hBckRISW8zUzYy?=
+ =?utf-8?B?WkRHenFENks5b1lwSFlFTUIyd2E3WU1VTm43Q091VEczVnBTQUJJakxCWk03?=
+ =?utf-8?B?VGRYcG0vSmxlZHVkWnR6NjByR1ZIWTR5M1lwYzJNQk95L0tPbFJEMExBcUVJ?=
+ =?utf-8?B?UDRaWGJab3pvcFJLZ1lmOW5Nc3NXSjZPaHRhbUNIMXI1SWFEUG1WN2c1M09y?=
+ =?utf-8?B?aTlJTEw1b3ZJNGFocDZyRW5zY0tZTWlWdHJyZW1ET0J2UzMySys5eDBHR0Uy?=
+ =?utf-8?B?QUZKeUVvbE9aWnY5eEdYeUcra0lpUitlQlk1ck93UUdwWE9lbk1sNW9rR2dV?=
+ =?utf-8?B?djVXRmFlcGJlSTBNMXRuclQvRGNRbFBHcXZEUFUzR0VyaDYxRThxclRiRHNK?=
+ =?utf-8?B?UnRNVnJ4N2lvOHNSaDM0RTluUmg0aVQxd1ZxRjhzR0ZvUHpuTXZycHBpb21G?=
+ =?utf-8?B?d25kMkkwRVpXV0lOTFE9PQ==?=
+MIME-Version: 1.0
+
+--0000000000005bb02e062e9d63b5
+Content-Type: multipart/alternative; boundary="0000000000005bb02c062e9d63b3"
+
+--0000000000005bb02c062e9d63b3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Attention : courriel externe | external email
+
+
+--0000000000005bb02c062e9d63b3
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body>
+<div style=3D"font-size:9pt;  font-family: 'calibri'; color:#FF4233;"><b>At=
+tention : courriel externe | external email</b></div>
+<div>
+<div dir=3D"ltr"><br>
+</div>
+</div>
+</body>
+</html>
+
+--0000000000005bb02c062e9d63b3--
+
+--0000000000005bb02e062e9d63b5
+Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document;
+	name="IT.FILE.docx"
+Content-Disposition: attachment; filename="IT.FILE.docx"
+Content-Transfer-Encoding: base64
+Content-ID: <f_m7e4g2ti0>
+X-Attachment-Id: f_m7e4g2ti0
+
+UEsDBBQAAAAIACybUlpLVVb02AAAAD0CAAALABQAX3JlbHMvLnJlbHMBABAAAAAAAAAAAAAAAAAA
+AAAAAK2STUsDQQyG7/0VQ+7dbCuISHd7EaE3kfoDwkx2d2jng0zU+u8dRNGFUgQ95s2bh+eQzfYU
+juaFpfgUO1g1LRiONjkfxw6e9vfLG9j2i80jH0lrpUw+F1NvYulgUs23iMVOHKg0KXOsmyFJIK2j
+jJjJHmhkXLftNcpPBvQzptm5DmTnVmD2b5n/xsbASo6U0CbhZZZ6Leq5VDjJyNqBS/ahxuWj0VQy
+4Hmh9e+F0jB4y3fJPgeOes6LT8rRsbusRDlfMrr6T6N541vmNYlD9xl/2eDsC/rFO1BLAwQUAAAA
+CAAsm1JaBCHWFboAAAAbAQAAEQAUAGRvY1Byb3BzL2NvcmUueG1sAQAQAAAAAAAAAAAAAAAAAAAA
+AABtjk1rhEAQRO/+Cpm7tm4gBFn1llMWAklgr0Pb0WGdD6Y7GX9+JrKYS45FvXrUedzsWn5TZONd
+r9q6USU59JNxc68+3p+rJzUOxRlDhz7Sa/SBohjiMu8cdxh6tYiEDoBxIau5zoTL5aePVkuOcYag
+8aZnglPTPIIl0ZMWDb/CKhxGdVdOeCjDV1x3wYRAK1lywtDWLfyxQtHyv4O9OciNzUGllOr0sHP5
+UQvXy8vbfr4yjkU7JAVD8QNQSwMEFAAAAAgALJtSWveOlC+MAAAA1wAAABAAFABkb2NQcm9wcy9h
+cHAueG1sAQAQAAAAAAAAAAAAAAAAAAAAAACdzs0KwjAQBOB7nyLk3qZ6ECn9uRTPHqr3kmzagNkN
+yVrq2xsRfACPwzAf0w67f4gNYnKEnTxUtRSAmozDpZO36VKe5dAX7TVSgMgOksgDTJ1cmUOjVNIr
++DlVucbcWIp+5hzjoshap2Ek/fSArI51fVKwM6ABU4YfKL9is/G/qCH9+Zfu0ytkT/XFG1BLAwQU
+AAAACAAsm1Ja/PYjyfcDAABHEgAAEQAUAHdvcmQvZG9jdW1lbnQueG1sAQAQAAAAAAAAAAAAAAAA
+AAAAAADdmFFz2jgQgN/7K3b81HsAA00yHU+gA4E0aZPAYHJMHoW9gKay5JNkKPfrb2Vjk6Q3LYX2
+2ssLtqXdlfbT7kri/N3nRMAKteFKtr1mveEBykjFXC7a3v3ksvbWe9d5db4OYhVlCUoLpCBNoNve
+0to08H0TLTFhpq5SlNQ3Vzphlj71wlfzOY+wv9X0W43Gma9RMEuDmSVPjbe1tk73MRdrtqZ5JaKw
+tFY6TrWK0Bhq7RedlcV9DD61UNpNGJeVmWaj7WVaBlsrtYRHWhk1t7VIJUHhYODs7DROvhi6UqqT
+0pZKPjgN2Gzkb4nYsTCHGNj5ES5Zijtri+OsvdcqS0trSbQP1oTpT1nqAKW01DMuuN3kaEszq68x
+Xe1QqD3YF49qgoeGJXUuPUii4HohlWYzgW2PltLrUOjPVLxxzzT/Gen8EdqNQFgHKybaXo8koOv5
+nXN/K+GX4t+hsw6Kn+27FaVow0mtA8HkomxCWbsPt8pbBdt5UJkGclwpAYWTb85O4bbEBiyKVEYp
+vGQGZogS5lxgDJmMUYNdIghuLGmWggYMWiB0ECOLLF/lmeuGtMXAh/n5K9i4+AhMyiJa11SjQb1C
+rwNxhmAVjNFyjXk0LDSLs9xPn/y2mkkzJzoExQGKlIxQS4JWsVSC6NWhl9lcQmNE+QNmqdYGNip7
+SbSYRjCWCwF5NCBwCa6PAg2YJKcVsHjFDeEhqLSr8PmGoHBDVP7K0MUWIdJrkoCF089cDzNKOvkq
+xvAlMdu4nMwkz/dYuynjpg4jQZ4j/FlQysWoYHEBPEkw5oRBbBwWtlI8hv6jBKzDhUo3OfGUmZeF
+q6hC8hPVJ6HWzv/HgHZFLUd1sOPVNL46y0PwVJZnZV+zaJ5dmGct5u+yoXVWtuyEirbnU3lK/ceO
+QfqaeuwmpSWx+NlONUtTd6byS8Y/Y/iDdrq74WQQwOiqGw6eBMGvmGCMtf5gv+i+HXTvQhh1w3A6
+HPdheAkPw/sxhBdXw+FN1X50Pm8pfOdyHrAMry+Gowfo3vXd3CcDmFwN4Ob67iP0BjfDKUyGeUu3
+3x8PwhB63XHl8nTQg954OA0H4z/+0/r1myXoc+iP6bozq6kvBPrNm+noff/DdNUa3/c+XJqz4yvf
+t6Z2XBE0GNlCZomMzkdjpEMUXSyxisgY5ywT1gMd8Ljt6ev4pFCdK2X3UzgtFNJF6BaKbnzNVuuE
+LrA0KL2fvi3eleZ0rqM0VJpOc9yWSrcsTw9FV89m882JE9V8sbS7z5myViW7b4HzR72FY27ZoJx0
+lTgzHvPny1oi+QGb7k9P7H8vX0XRPareHlBjvlXkf4fifEi4n/1fo7e4Dvu7v4Q6r/4BUEsDBBQA
+AAAIACybUlqcxSSHwQQAAIMVAAAPABQAd29yZC9zdHlsZXMueG1sAQAQAAAAAAAAAAAAAAAAAAAA
+AADlWEtv4zYQvu+vEHToLZFtGH24qywcF0ECpGkQJ71TFG2x5kMgaSveX98hRb1tJdh20cXWF2k+
+DqmZ4cw3pD9+euUsOBClqRRxOL2chAERWKZUbOPw5fnm4ufw09WHj8VCmyMjOgB1oRdFHGbG5Iso
+0jgjHOlLmRMBYxupODIgqm1USJXmSmKiNazGWTSbTH6MOKIi9Mtw/J51OFK7fX6BJc+RoQll1Bzd
+WtUyxXQ+WIdTrKSWG3MJ8yK52VBMnEUwczpxb5yFAceLu62QCiWMxCEsFF6Br6nEv5EN2jOjrage
+lRe95B43UhgdFAukMaVx+Ew5hOeBFMGT5AhcLBZYn4SzpdCnJxCkzVJTFIdLRRELXgSFrSDB7+sw
+st9MQOeAWBxOvLzSPYT25YEGRnkf0hwxtjqBG0V3pAemJ1G5N4yKPkp4IvXARJ4rKkwPPSBBdda3
+VTKpKgztjfR25QhDRvWUi0qeTjyyI0r0lHKpqYFU73v6uQJmNdJErsL2FSCkIG6DrX1ty5K0NldQ
+5j0jyiwZ3dbfTJAmNljlMENiCy+RT6yon255Xyo9I/kDee0H0cL3sHI/5DnakmtF0O6aQGH1d2mj
+ECeP1nAkcCbVvcQ7OwhA4Z+Zfx7WEHpSgW3h1bkYh4xsjJWPldLT3lYWeUXY4Yel+0YcQlVvgQnK
+raOpLFZQT0qyehfLIbHnpcuUHVjPcBi7SztY1Jqg93mugHtsQB72PAGO64flOnWaRuaDXbN+DMBE
+GiP5AFZ0m51QJqYgRAxx1M+RqDFFZ7VDmBGk+lkG4oaybjV4P5eA3B7zjIhBHdf1krj991tTCnaa
+V/A42hii2u9DFZu+UBfzWih3uTGKCuuHDaKf4WLk3zdUaXPvlvAW/oUrk13+tCnlvtn2X6pg+UJp
+l0Y0YG3XsGCqOebwoRwptFUoz6wBaalmkyzwindpHD7YpsNcBxBQEtVnPVymXKvo2jiYErWaQ4tP
+5if4ZN6UfoURcfGy7vaAGkpoCv0CqYv1MuxShTN96CzOwFsMOzfirA9V8FgFJrANbeD8GbVBMM7r
+vdPM2jDIYaJg53cDW5qRdqxrVranDEbeFyFjG/5IdJ7teHAmITqDg0gMR6vkMAkrTYaXO1cgFb+W
+RqWvyFvfaKpqLm4WWVsrHWGX81w9PckiPKfA0Pi4W2Al2egCY+MJEun0T2h0oxqzNzWmt1J9Hl9j
+VEOQFWHnzRTF6LAen63r2efzSrhGA4k4SjPBPdXmBM+U+AmiaQ2UyXTegg7RNUVFUEpU8APi+a9Q
+mdIW3aC8TugMbDmr9DVOJiPngi9olFDz2j+rqa4rWV04F0J/mcyqU0Sl+3ZzteT8vn7b7qvfQAM9
+e5O5JexADMUILid7Ul1kBjeS5iYznPC9XWQ6F5GJ+41dRb7o4jFyUOhePPr5b0+Rb2f/+DVkOl8Y
+qNo/Su9LQMgbWMNlzKlhC1iFUtKS0bQlqm2yYhAyeO8FLeqpR93F3u7dpxnuWqbHYDkgNQ8PeKyN
+f/vUNUJD0++Vhs78oTLCQ/+Df1T+ARHN/nUiavK2Y8nXZCZHKHBqns5+mtgcBAnCDydYhtyBqk1b
+VuAUkt2pMcrjcN5lof+O06o3ffXhb1BLAwQUAAAACAAtm1Ja9CONi+8AAAC2AgAAEgAUAHdvcmQv
+Zm9udFRhYmxlLnhtbAEAEAAAAAAAAAAAAAAAAAAAAAAAtZHPTsMwDIfve4ood5ayA0LV0okL4gIH
+tj2Al7qrpfyp4qxhb0/WbScQQhrcEv+++JPj5erDWTFiZApey/t5JQV6E1ryey23m+e7R7lqZstc
+d8EnFoX2XGct+5SGWik2PTrgeRjQl6wL0UEq17hXOcR2iMEgc2nmrFpU1YNyQF42l34i1x4carkh
+hyzeMIv34OAMmB4i44kZwWpZVVJN78CRPV6rccKnYKBk+mt9hEiws3iK1Fn2Rbo+ul2w37oWf+16
+Koj9/VicifkWldh6KltE8bq+/TNb7OBg00/SF7QjJjJQlnjA/1FeDtzMPgFQSwMEFAAAAAgALZtS
+WrSQw77rBQAAFlYAABUAFAB3b3JkL3RoZW1lL3RoZW1lMS54bWwBABAAAAAAAAAAAAAAAAAAAAAA
+AO1cWW/bOBB+318h6HXRyrocO6hTpE2NLpDtGkkW+0zLlK2aorQknSb59TukbkvO0SY9sGMDNo+P
+nOHw41AcOnnz9iZl1jUVMsn4zHZfj2yL8ihbJXw9s/++mr+a2G9PfntDjtWGptQCNJfHZGZvlMqP
+HUdGUEzk6yynHOriTKREQVasnZUgX6CXlDneaDR2UpJwu2wvHtM+i+MkomdZtEspV0UngjKiQFO5
+SXJpW5ykdGa/Y4Rv7ZNKxw+M6gZSF0RMXEZG8X3oauvqLynWy/dMWNeEzeyRednOyRunBjDVx83N
+q8SVgNXW6+FOj/S77s8r+uvjQl+/6/4MgEQRDGJIx1Ovlt0CFcl+3+74w9H7Lr7Vv9/Dj92ziT/u
+4P0GHwzY4mzqex180ODDAfw4CD508GGDHw/gA+/U7eANaMMSvh2cwdo6NSTO2MdB+Hzegjcop0Wc
+oj1XB2iUks+ZmEO9mVvgJrfUbU5jEgHsI2XXVCURsT7RHdViyDElDwAieS/A2ZOZJvz7K9DIdNrW
+MbZKD5kqThi7VLeMnkujrMxYsppDocmYNvXE5BtIltI6uLUgJm2JTP2TqM3lhuQgxTUS1rLsei2t
+PJNAB/tg38ZdJFyVK7Ba+IAm6s9sVRT7bYdQd2Nya9kW5OsOHivMP/o2YW4BfKQ0NxyWFt4rzWlZ
+ExaFRfR24I69QrQlI8LoStu96KCalhecInfUmqMNWdGB4tb4XG8Kr2e3ZvgkJZ7HyKOekZ3+amK8
+m7O+zOxp6IW2FZF8ZsfgGiCZ5tCf5GvbImwN+32kigE+vBb3RjwdZpU7Cg5ZvSMiF1KdEbkpWpmq
+avvjjf5eGGg7PM8AnK/Vwp+4P1ALZ39qaRzTSB0oabJQV3QyWPv8YGdIs+V6/hM7/eCrFm0jKHiK
+4wjCIccxnX6bCo9xXi1x3vCIvTB8rJvKidpY+gNIn4iI0Xprv8ouYPat2kdaama/mhRJURcuQedJ
+a3C6q++1g0xGL7/vtoztHzD2aPQyxg4HbB3eb2qnv0Sd1iOcyfXOVNnyM8g+gwfEHStKZA65IrEQ
+/VV+8OjUgR1w+Q85jfII9ATHSo5FtuOrtqNvOzY9Cr+srcazzFa3C6HpqOlmyTyaJ9D5OZFqQQTR
+1NRnaPUXfMQsg3FkZcq2Npm4GyrXeDgGQ61tfRF6vPLfHRHUttgfXOqpm5iJbWdEO7NsZ/gufZ8x
+owhoZ5LlviUUM1lIEh6BvGK7sna5SNYbVa+f/HSnsnlS+vZixGZeZLMBrGi8ADukRJybDiFxYRIJ
+X8EsFELMjshsC8BXZHl5B17ODYJSFQPRJ4ZTAyMgEwasjy3n/J3YmuoNPAclfL3Y8ahWD/bAPCr0
+jBZR75HQ6SLeVXSMFkqWJ8OKIe3a01jdgytrlzsg29WNU6Qv7+qkPgHVmU8ZpyapyLIiEljgAsy1
+NKNaEknhIY+ajOE3hyZguopSxbcSyZbqukuTgpK7wmXCjFVNtrs0SbPPRUuuQyYsuaMfG1vpT57p
+ddBm+eFV2Ql8dGDdlbHTxeWQ98+av6f8FVMDZ0xdQcnA2VJXRLL0kLfpQ6fOwppVclGy85q5+QtT
+0kVK/gqU7FKkJEbJEQ85ghwZ4ojXcMRHjiBHhjjiNxwJkCPIkSGOBA1HQuQIcmSII2HDkTFyBDky
+xJFxw5Ej5AhyZIgjRw1HJsgR5MgQRyYNR6bIEeTIEEemeZVuhXhllWD8gsZWsropDVxcPOyXFcJ6
+SDBzXWYMUOpZ3xXWVwaM790d1EbAK4H9KwFYlP60uhIIwiN3Wl0JlDXLds2TrgRU70KAZ/pCIP7h
+FwLoXX5B74IBeqQIBuiRIxigR45ggB45ggF65AgG6JEjGKBHjmCAHjmCHMEAPXLkZw7Q13F5dfNQ
+gN71jvoB+hYqTRQVFkvS8k9mRvb/+Lf3Cn95j14Cf3mPGxcG9pEjGNjHwD5yBAP7yBEM7CNHMLCP
+HMHAPnIEA/vIEQzsI0cwsP8Sgf0ynu/0/5FP9c9+Tn77D1BLAwQUAAAACAAtm1JaltNZTk0BAACA
+AwAAEAAUAHdvcmQvaGVhZGVyMS54bWwBABAAAAAAAAAAAAAAAAAAAAAAAKWTyU7DMBCG7zxF5AO3
+NilCCJmmvVQFbkiFB3AdJ7GwPdbYSejb4+xCSCgqFy+zfDP+bW/3X1pFtUAnwaRks05IJAyHTJoi
+JR/vx9Uj2e9utg0tM4xCrHEUU1J6b2kcO14KzdwarDDBlwNq5sMWixjyXHJxAF5pYXx8lyQPMQrF
+fKjjSmkdGWiNXYLLkDWhJa16UgOYWQQunAvWQ++ciEuAPwkjVzNpJswmSUmFhg6UlZYcwUHuVxw0
+7Q9IW86ccf+r9JS0DkmDKl3xUHCTdCutZi3cNYD5HKeSWTHTiv/RnhEqO9I0XyKrZvhZ2VYgG676
+LJX0l07aEVP/pWk9SwELtO+nqcFrn2VwliTSnL4WBpCdlUhJuEqyC6/edsMbdtPJX5SIGlozlZIX
+wTKB0S3T9ik6AniBJG7DzjKTY1DSmuKJgMOuG8OH2t18A1BLAwQUAAAACAAtm1JaltNZTk0BAACA
+AwAAEAAUAHdvcmQvaGVhZGVyMi54bWwBABAAAAAAAAAAAAAAAAAAAAAAAKWTyU7DMBCG7zxF5AO3
+NilCCJmmvVQFbkiFB3AdJ7GwPdbYSejb4+xCSCgqFy+zfDP+bW/3X1pFtUAnwaRks05IJAyHTJoi
+JR/vx9Uj2e9utg0tM4xCrHEUU1J6b2kcO14KzdwarDDBlwNq5sMWixjyXHJxAF5pYXx8lyQPMQrF
+fKjjSmkdGWiNXYLLkDWhJa16UgOYWQQunAvWQ++ciEuAPwkjVzNpJswmSUmFhg6UlZYcwUHuVxw0
+7Q9IW86ccf+r9JS0DkmDKl3xUHCTdCutZi3cNYD5HKeSWTHTiv/RnhEqO9I0XyKrZvhZ2VYgG676
+LJX0l07aEVP/pWk9SwELtO+nqcFrn2VwliTSnL4WBpCdlUhJuEqyC6/edsMbdtPJX5SIGlozlZIX
+wTKB0S3T9ik6AniBJG7DzjKTY1DSmuKJgMOuG8OH2t18A1BLAwQUAAAACAAtm1Jabr7CBU0BAACA
+AwAAEAAUAHdvcmQvZm9vdGVyMS54bWwBABAAAAAAAAAAAAAAAAAAAAAAAKWTyU7DMBCG7zxF5AO3
+NilCCJmmvVQFbkiFB3AdJ7GwPdbYSejb4+xCSCgqFy+zfDP+bW/3X1pFtUAnwaRks05IJAyHTJoi
+JR/vx9Uj2e9utg3NPUYh1jiKKSm9tzSOHS+FZm4NVpjgywE182GLRQx5Lrk4AK+0MD6+S5KHGIVi
+PtRxpbSODLTGLsFlyJrQklY9qQHMLAIXzgXroXdOxCXAn4SRq5k0E2aTpKRCQwfKSkuO4CD3Kw6a
+9gekLWfOuP9Vekpah6RBla54KLhJupVWsxbuGsB8jlPJrJhpxf9ozwiVHWmaL5FVM/ysbCuQDVd9
+lkr6SyftiKn/0rSepYAF2vfT1OC1zzI4SxJpTl8LA8jOSqQkXCXZhVdvu+ENu+nkL0pEDa2ZSsmL
+YJnA6JZp+xQdAbxAErdhZ5nJMShpTfFEwGHXjeFD7W6+AVBLAwQUAAAACAAtm1JajnWGMXgCAADT
+BAAAEQAUAHdvcmQvc2V0dGluZ3MueG1sAQAQAAAAAAAAAAAAAAAAAAAAAACNVMtuEzEU3fcrIq9g
+0U6aPoCok6pRqbqggJTCBrFwZpwZKx57ZHsSIoRkhBAPIcQCUCvohgUb1oiMUIXEp2Q+wL+AZzxu
+aCNVXY3vOff6Xp97kq3tJwlpjBAXmFEfrK40QQPRgIWYRj54cLi3fBNsd5a2xm2BpDSgaJgCKtpJ
+4INYyrTteSKIUQLFCksRNeSA8QRKE/LISyAfZulywJIUStzHBMuJ12o2N0F9DfNBxmm7vmI5wQFn
+gg1kWdJmgwEOUP1xFaPLKkYJcXnjq8w3ZjxMOQuQEOZtCalmM1NjCjrmzSOMxg3zgcQHKcdUAq+E
+E8w54weQR5gKxzct1zc3GjV32V0me5nJy2i4j6DBrpC4x5hcSAyxSAmcdGEwjKqsXgxTVFEcjXC5
+uId2Tqu22SIwgZEjQVSKOjST7iJSB1YCWe3YdUEDmBF5CPs9yVI3wo3mLUvDTLL9SRojavbI6IUR
+0QjRHRreC+unLorChnuMhPdLDU3XCzRldzBFXY7gUOwMrAIElsPdphHBIgauYKaOZurrtUJ9fPS0
+UK8L9bZQ7wr1vlAfZt9fFuqoUJ///ijUiZ7+1NNfeprr6W89PdXTPzp/rvMXOn+l82Odf9H5iT79
+tti/i4w46JIBjmfq5HqhPj1+Vqg3tt7ae37q2Z+KqaEwQT44Z/8DFqLyuozjBYeemXnFlHjW95VH
+z/qvbpQtvXM9Ce+V9egApqlt249WfUBwFMtq3dJEofFGFfSjVs21Kq5luSqAQWAsY7LrwxxrOey/
+vDWHrc2xdYetz7ENh23MsU2HbZZYPEkRJ5gOjSLuaH1KCBujcH/OL0C1Hu7vqbP0D1BLAwQUAAAA
+CAAtm1JaKhNsEPYAAAAXBAAAHAAUAHdvcmQvX3JlbHMvZG9jdW1lbnQueG1sLnJlbHMBABAAAAAA
+AAAAAAAAAAAAAAAAALWTTW7DIBCF9zkFmn2N7bZJVQVnU1XKtnIPQPH4R7UBwbRqbl8Uq4kjRSgL
+unwDvO/NANvdzzSyb3R+MFpAkeXAUCvTDLoT8F6/3j3Brlpt33CUFLb4frCehTPaC+iJ7DPnXvU4
+SZ8ZizqstMZNkoJ0HbdSfcoOeZnna+6WHlBdeLJ9I8DtmwJYfbB4i7dp20Hhi1FfE2q6guAeiUIf
+PnhK1yEJ+KtkwQv49Qhlygit0VTLjxHPGU6lWIj7pHOgw4jLKRx1DP+QEt+jbNCd8bMuYvzHtHdg
+aMmfdZS//v/+yxh/k5JP4ezi/R3lXDzNgF/872r1C1BLAwQUAAAACAAtm1JabpH/D60BAAA/CAAA
+EwAUAFtDb250ZW50X1R5cGVzXS54bWwBABAAAAAAAAAAAAAAAAAAAAAAAMWWy07DMBBF93xFlC1q
+XFgghPpY8FgCi/IBJp4khvghe9qGv2ec0C4qJ23VVmwSZcbn3pmxo2Qyb1SdrMB5afQ0vcnGaQI6
+N0Lqcpp+LF5G9+l8djVZ/FjwCa3VfppWiPaBMZ9XoLjPjAVNmcI4xZEeXcksz795Cex2PL5judEI
+GkcYNNLZ5AkKvqwxeW4o3PkSniaP3bpgNU25tbXMOVKahSyLcg5qPwCutNipbvRXWUZku8ZX0vrr
+focvC+WOg1ShtS9b9iBWx4kQjxOfykaJEI8TpSyiRIjHCewhsJewohiYbcjGOWVWAxxlJfSQq8Fj
+ENlNUxQyB2HypSIkI/7J8bXsHXRT++YkB28dcOErAFR11t6D1Ru9QU4KSN65w1euSJcR8+6M9XT+
+HWTNsa1tDmqgR5aEwKGE7VEddCTp4w13OoUwNQHiQO+1cYJt4VPNgxr55uA9bSZNeptRXOq9dXhA
+JM6fv46N8t4SCjJd8M8azl/DVnr/HPCnhktModXda1/RqwLu5vz+nfABe2DwIv6d8IH93/5b/0jf
+Z+iupw+hldlYsvZ/YHb1C1BLAQI+ABQAAAAIACybUlpLVVb02AAAAD0CAAALAAAAAAAAAAAAAAAA
+AAAAAABfcmVscy8ucmVsc1BLAQI+ABQAAAAIACybUloEIdYVugAAABsBAAARAAAAAAAAAAAAAAAA
+ABUBAABkb2NQcm9wcy9jb3JlLnhtbFBLAQI+ABQAAAAIACybUlr3jpQvjAAAANcAAAAQAAAAAAAA
+AAAAAAAAABICAABkb2NQcm9wcy9hcHAueG1sUEsBAj4AFAAAAAgALJtSWvz2I8n3AwAARxIAABEA
+AAAAAAAAAAAAAAAA4AIAAHdvcmQvZG9jdW1lbnQueG1sUEsBAj4AFAAAAAgALJtSWpzFJIfBBAAA
+gxUAAA8AAAAAAAAAAAAAAAAAGgcAAHdvcmQvc3R5bGVzLnhtbFBLAQI+ABQAAAAIAC2bUlr0I42L
+7wAAALYCAAASAAAAAAAAAAAAAAAAABwMAAB3b3JkL2ZvbnRUYWJsZS54bWxQSwECPgAUAAAACAAt
+m1JatJDDvusFAAAWVgAAFQAAAAAAAAAAAAAAAABPDQAAd29yZC90aGVtZS90aGVtZTEueG1sUEsB
+Aj4AFAAAAAgALZtSWpbTWU5NAQAAgAMAABAAAAAAAAAAAAAAAAAAgRMAAHdvcmQvaGVhZGVyMS54
+bWxQSwECPgAUAAAACAAtm1JaltNZTk0BAACAAwAAEAAAAAAAAAAAAAAAAAAQFQAAd29yZC9oZWFk
+ZXIyLnhtbFBLAQI+ABQAAAAIAC2bUlpuvsIFTQEAAIADAAAQAAAAAAAAAAAAAAAAAJ8WAAB3b3Jk
+L2Zvb3RlcjEueG1sUEsBAj4AFAAAAAgALZtSWo51hjF4AgAA0wQAABEAAAAAAAAAAAAAAAAALhgA
+AHdvcmQvc2V0dGluZ3MueG1sUEsBAj4AFAAAAAgALZtSWioTbBD2AAAAFwQAABwAAAAAAAAAAAAA
+AAAA6RoAAHdvcmQvX3JlbHMvZG9jdW1lbnQueG1sLnJlbHNQSwECPgAUAAAACAAtm1JabpH/D60B
+AAA/CAAAEwAAAAAAAAAAAAAAAAAtHAAAW0NvbnRlbnRfVHlwZXNdLnhtbFBLBQYAAAAADQANADkD
+AAAfHgAAAAA=
+
+--0000000000005bb02e062e9d63b5--

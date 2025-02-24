@@ -1,0 +1,9 @@
+openai
+instructor
+pydantic
+pandas
+html2text
+numpy
+sklearn
+seaborn
+dotenv
