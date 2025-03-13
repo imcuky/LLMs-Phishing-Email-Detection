@@ -134,3 +134,16 @@ Key component interactions:
 5. Error handling and progress tracking throughout the pipeline
 6. Automatic checkpointing every 100 emails processed
 7. Support for resuming interrupted analysis sessions
+
+## Citation
+```
+@misc{lee2025enhancingphishingemailidentification,
+      title={Enhancing Phishing Email Identification with Large Language Models}, 
+      author={Catherine Lee},
+      year={2025},
+      eprint={2502.04759},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2502.04759}, 
+}
+```
